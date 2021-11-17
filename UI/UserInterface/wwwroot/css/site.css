@@ -256,4 +256,13 @@ ul a li i {
 }
 
 /*--------------------------------------------------------*/
+/*VISUALIZATION*/
 
+.visualization-section *{
+	color: var(--word-color);
+}
+
+.dashboard {
+	display: flex;
+	height:100vh;
+}
