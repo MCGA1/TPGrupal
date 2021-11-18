@@ -1,53 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Linea de armado</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Linea de armado</title>
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/fontawesome-5.6.3/all.css" />
-    <script src="~/lib/chartjs/Chart.bundle.js"></script>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="~/css/fontawesome-5.6.3/all.css" />
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/chartjs/Chart.bundle.js"></script>
 </head>
 <body>
-    <div class="background-shapes">
-      <div class="circle"></div>
-      <div class="gear-icon fas fa-cogs"></div>
-    </div>
-    <aside>
-      <nav role="navigation">
-        <div class="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-    
-          <ul class="menu">
-            <a href="/Home"><li><i class="fas fa-home"></i> Home</li></a>
-            <a href="/Visualization"><li><i class="fas fa-chart-pie"></i> Visualización</li></a>
-            <a href="/Status"><li><i class="fas fa-dolly-flatbed"></i> Estado</li></a>
-            <a href="/Report"><li><i class="far fa-file-alt"></i> Reporte</li></a>
-            <a href="/Configuration"><li><i class="fas fa-cogs"></i> Configuración</li></a>
-          </ul>
-        </div>
-      </nav>
-    </aside>
-    <section>
-      <article class="body">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-      </article>
-    </section>
-    <footer class="footer">
-        <div class="container">
-            &copy; 2021 - Grupo 2 - Modelos computacionales de gestión administrativa - 
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	<div class="background-shapes">
+		<div class="circle"></div>
+		<div class="gear-icon fas fa-cogs"></div>
+	</div>
+	<aside>
+		<nav role="navigation">
+			<div class="menuToggle">
+				<input type="checkbox" />
+				<span></span>
+				<span></span>
+				<span></span>
+
+				<ul class="menu">
+					<a href="/Home">
+					<li><i class="fas fa-home"></i> Home</li></a>
+					<a href="/Visualization">
+					<li><i class="fas fa-chart-pie"></i> Visualización</li></a>
+					<a href="/Status">
+					<li><i class="fas fa-dolly-flatbed"></i> Estado</li></a>
+					<a href="/Report">
+					<li><i class="far fa-file-alt"></i> Reporte</li></a>
+					<a href="/Configuration">
+					<li><i class="fas fa-cogs"></i> Configuración</li></a>
+				</ul>
+			</div>
+		</nav>
+	</aside>
+	<article class="body">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</article>
+	<footer class="footer">
+		<div class="container">
+			&copy; 2021 - Grupo 2 - Modelos computacionales de gestión administrativa -
+		</div>
+	</footer>
+
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

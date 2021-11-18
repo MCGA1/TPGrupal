@@ -61,6 +61,7 @@ button.accept-policy {
 	height: 100%;
 	/*background-color:black;*/
 	position: absolute;
+	z-index: -10000;
 }
 
 .background-shapes .circle {
@@ -264,5 +265,42 @@ ul a li i {
 
 .dashboard {
 	display: flex;
-	height:100vh;
+	/*height: 100vh;*/
+	justify-content: space-around;
+}
+
+.count-container {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+
+.count-row {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-weight: bolder;
+}
+
+.box-yellow, .box-red, .box-blue {
+	border: solid 1px;
+	height: 3vh;
+	width: 4vw;
+	margin: 6px;
+}
+
+.box-yellow {
+	background-color: rgba(255, 206, 86, 0.2);
+	border-color: rgba(255, 206, 86, 1);
+}
+
+.box-red {
+	background-color: rgba(255, 99, 132, 0.2);
+	border-color: rgba(255, 99, 132, 1);
+}
+
+.box-blue {
+	background-color: rgba(54, 162, 235, 0.2);
+	border-color: rgba(54, 162, 235, 1);
 }

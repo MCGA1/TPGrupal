@@ -1,129 +1,29 @@
-﻿@*
-	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 	ViewData["Title"] = "Visualización";
 }
 
 <section class="py-5 text-center container main-text visualization-section">
 	<h1>@ViewData["Title"]</h1>
-
+	<br />
+	<div class="count-container">
+		<div class="count-row"><div class="box-yellow"></div>Bultos ingresados: <div id="bultos_ingresados">0</div></div>
+		<div class="count-row"><div class="box-red"></div>Bultos en proceso: <div id="bultos_enproceso">0</div></div>
+		<div class="count-row"><div class="box-blue"></div>Bultos apilados: <div id="bultos_apilados">0</div></div>
+	</div>
+	<br />
 	<div class="dashboard">
 		<div>
-			<canvas id="visualizationChart" style="height: 45%; width: 60%;"></canvas>
+			<canvas id="visualizationChart" style="height: 40vh; width: 50vw;"></canvas>
 		</div>
-
 		<div>
-			<canvas id="visualizationDonut" style="height: 45%; width: 60%;"></canvas>
+			<canvas id="visualizationDonut" style="height: 30vh; width: 30vw;"></canvas>
 		</div>
 	</div>
 </section>
-<script type="text/javascript">
-	var times = [];
-	for(var i = 0; i < 24; i++){
-		if(i < 10){
-			times.push("0" + i + ":00");
-		} else {
-			times.push(i + ":00");
-		}
-	}
 
-	var ctx = document.getElementById('visualizationChart').getContext('2d');
-			var myChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: times,
-					datasets: [{
-						label: 'Ingresados',
-						data: [12, 19, 3, 5, 2, 3, 4, 12, 20, 23, 3, 4, 21, 52, 53,11, 2, 13, 17, 8, 21, 12, 44, 16],
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)'
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)'
-						],
-						borderWidth: 1
-					},
-					/*
-					{
-						label: 'En proceso',
-						data: [2, 10, 5, 7, 1, 0, 2, 16, 14, 19, 5, 0, 10, 60, 40, 3, 8, 10, 21, 2, 19, 15, 30, 4],
-						backgroundColor: [
-							'rgba(54, 162, 235, 0.2)'
-						],
-						borderColor: [
-							'rgba(54, 162, 235, 1)'
-						],
-						borderWidth: 1
-					},
-					*/
-					{
-						label: 'Procesados',
-						data: [1, 2, 3, 4, 0, 3],
-						backgroundColor: [
-							'rgba(255, 206, 86, 0.2)'
-						],
-						borderColor: [
-							'rgba(255, 206, 86, 1)'
-						],
-						borderWidth: 1
-					}
-					]
-				},
-				options: {
-					scales: {
-						y: {
-							beginAtZero: true,
-						}
-					},
-					responsive: true,
-					title: {
-						display: true,
-						fontColor: "#C8D8E4",
-						text: 'Ingresados/Procesados'
-					},
-					legend: {
-					 labels: {
-							fontColor: '#C8D8E4'
-					 }
-					}
-				}
-			});
-
-	var donut_ctx = document.getElementById('visualizationDonut').getContext('2d');
-	var donutChart = new Chart(donut_ctx, {
-		type: 'doughnut',
-		data: {
-			labels: ['En proceso', 'Apilados'],
-			datasets: [
-				{
-					label: 'Grafico de bultos',
-					data: [13, 8],
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(255, 206, 86, 0.2)'
-
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(255, 206, 86, 1)'
-					],
-					borderWidth: 1
-				}
-			]
-		},
-		options: {
-			responsive: true,
-			title: {
-				display: true,
-				fontColor: "#C8D8E4",
-				text: 'Grafico de bultos en proceso/apilados'
-			},
-			legend: {
-					 labels: {
-							fontColor: '#C8D8E4'
-					 }
-				}
-		},
-	});
-</script>
+<footer class="footer">
+	<div class="container">
+		&copy; 2021 - Grupo 2 - Modelos computacionales de gestión administrativa -
+	</div>
+</footer>
+<script type="text/javascript" src=~/js/visualization.js />
