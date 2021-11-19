@@ -1,19 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+﻿using Brazo.API.Modules;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Nancy;
+using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
-using Nancy.ViewEngines;
 
 namespace Brazo.API.Booststrapper
 {
 	public class NancyBootstrapper : DefaultNancyBootstrapper
 	{
-		protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+
+    protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+    {
+      base.ApplicationStartup(container, pipelines);
+
+      var loggerFactory = Program.Host.Services.GetRequiredService<ILoggerFactory>();
+      
+      var defaultLogger = loggerFactory.CreateLogger("default");
+      container.Register<ILogger>(defaultLogger);
+      container.Register<ILoggerFactory>(loggerFactory);
+      container.Register(typeof(ILogger<>), typeof(Logger<>)).AsMultiInstance();
+      
+      container.Register<ILogger<ServiceModule>>(
+          (c, an) => loggerFactory.CreateLogger<ServiceModule>());
+    }
+
+    protected override void ConfigureApplicationContainer(TinyIoCContainer container)
 		{
 			base.ConfigureApplicationContainer(container);
 		}

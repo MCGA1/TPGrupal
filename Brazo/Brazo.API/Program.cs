@@ -44,10 +44,23 @@ namespace Brazo.API
 			*/
 
 			/*USE DB*/
+			/*
+			Log.Logger = new LoggerConfiguration()
+				.WriteTo
+				.MSSqlServer(
+						connectionString: "Data Source=MD2V0GMC;Initial Catalog=MCGA.TpGrupal;Integrated Security=True",
+						sinkOptions: new MSSqlServerSinkOptions { TableName = "LogEvents" })
+				.CreateLogger();
+			*/
+
+			Serilog.Debugging.SelfLog.Enable(msg => Trace.WriteLine(msg));
+
 			Log.Logger = new LoggerConfiguration()
 				.ReadFrom
 				.Configuration(Configuration)
 				.CreateLogger();
+
+			
 
 			Log.Information("Starting Microservice... ");
 
@@ -150,7 +163,7 @@ namespace Brazo.API
 
 		public static void AfterStop()
 		{
-
+			
 		}
 
 		public static void BeforeStart()
@@ -160,7 +173,7 @@ namespace Brazo.API
 
 		public static void BeforeStop()
 		{
-
+			AppDomain.CurrentDomain.ProcessExit += (s, e) => Log.CloseAndFlush();
 		}
 
 
