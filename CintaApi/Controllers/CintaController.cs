@@ -22,17 +22,30 @@ namespace CintaApi.Controllers
         }
 
         // GET: api/<CintaController>
-        [HttpGet("{id}")]
-        public async  Task<IEnumerable<Bulto>> Get( [FromRoute] string id)
+        [HttpPost("PonerBulto")]
+        public async Task Poner([FromBody] IEnumerable<Bulto> bulto)
         {
-            return  await _serviceBusMessageService.SacarBulto(id);
+
+            if (bulto==null)
+            {
+                throw new Exception();
+            }
+
+            await _serviceBusMessageService.PonerBulto(bulto);
+
         }
 
-        // GET: api/<CintaController>
-        [HttpPost("PonerBulto")]
-        public void Poner(Bulto bulto)
+        [HttpGet("individual/{bultoId}")]
+        public async Task<Bulto> GetIndividual([FromRoute] string bultoId)
         {
-             _serviceBusMessageService.PonerBulto(bulto);
+            return await _serviceBusMessageService.GetIndididualBulto(bultoId);
         }
+
+        [HttpGet("Health")]
+        public async Task<List<string>> Health()
+        {
+            return await _serviceBusMessageService.CheckQueueMensagges().ConfigureAwait(false);
+        }
+
     }
 }

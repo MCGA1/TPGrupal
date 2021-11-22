@@ -7,22 +7,12 @@ namespace CintaApi.Models
 {
     public class Bulto
     {
-
-        private Guid id;
-
-
-        public Guid Id
-        {
-            get
-            {
-                return Guid.NewGuid();
-            }
-
-            set { id  = value; }
-        }
     
+        public Guid Id { get; set; }
         public string Nombre { get; set; }
 
         public int Peso { get; set; }
+
+        public bool Preparado { get; set; }
     }
 }

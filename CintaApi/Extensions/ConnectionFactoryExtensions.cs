@@ -15,7 +15,7 @@ namespace CintaApi.Extensions
         /// <returns></returns>
         public static ConnectionFactory ConnectionFactory()
         {
-            return new ConnectionFactory() { HostName = "localhost" };
+            return new ConnectionFactory() { HostName = "localhost",DispatchConsumersAsync=true };
         }
     }
 }

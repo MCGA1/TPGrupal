@@ -6,6 +6,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -15,106 +16,152 @@ namespace CintaApi.Services
 {
     public class ServiceBusMessageService : IServiceBusQueueMessage
     {
-        public void PonerBulto(Bulto entity)
+        private BackgroundWorker _backgroundWorker;
+        private Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
+
+        public ServiceBusMessageService()
+        {
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.WorkerReportsProgress = true;
+            _backgroundWorker.WorkerSupportsCancellation = true;
+            _backgroundWorker.DoWork += PublicarBulto;
+            _backgroundWorker.RunWorkerAsync();
+        }
+
+
+        public void PonerBulto(object obj, DoWorkEventArgs args)
+        {
+            queue.Dequeue();
+        }
+
+        public async Task PonerBulto(Bulto entity)
+        {
+
+                await Task.Run(() => queue.Enqueue(entity));
+        }
+
+        public async Task PonerBulto(IEnumerable<Bulto> entity)
+        {
+            foreach (var item in entity)
+            {
+                queue.Enqueue(item);
+
+            }
+            await Task.Delay(1);
+        }
+
+        public async void PublicarBulto(object obj, DoWorkEventArgs args)
+        {
+            var connection = ConnectionFactoryExtensions.ConnectionFactory();
+
+            var channel = connection.CreateConnection().CreateModel();
+
+            Console.WriteLine("Worker iniciado");
+            while (_backgroundWorker.CancellationPending == false)
+            {
+                Console.WriteLine("buscando bultos");
+                await Task.Delay(1000);
+
+                {
+                    channel.QueueDeclare(queue: Contants.GetQueueName(), durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+                    //-> Mensaje
+
+                    var items = queue.Dequeue();
+
+
+
+
+                    if (items == null)
+                    {
+                        Console.WriteLine("no se encontraron bultos");
+
+                        continue;
+                    }
+                    Console.WriteLine("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
+
+                    var bulto = JsonConvert.SerializeObject(items);
+
+
+                    var body = Encoding.UTF8.GetBytes(bulto);
+
+                    //-> Enviamos el mensaje
+                    channel.BasicPublish(exchange: "", routingKey: Contants.GetQueueName(), basicProperties: null, body: body);
+
+
+                }
+
+
+            }
+            channel.Dispose();
+            return;
+        }
+
+        public async Task<Bulto> GetIndididualBulto(string bultoId)
         {
             var connection = ConnectionFactoryExtensions.ConnectionFactory();
 
 
             var channel = connection.CreateConnection().CreateModel();
+
             {
-
-
-                channel.QueueDeclare(queue: "Cinta", durable: false, exclusive: false, autoDelete: false, arguments: null);
-
-                //-> Mensaje
-
-                var bulto = JsonConvert.SerializeObject(entity);
-
-
-
-                var body = Encoding.UTF8.GetBytes(bulto);
-
-                //-> Enviamos el mensaje
-                channel.BasicPublish(exchange: "", routingKey: "Cinta", basicProperties: null, body: body);
-
-            }
-            channel.Dispose();
-        }
-
-        public async Task<IEnumerable<Bulto>> SacarBulto(string bultoId)
-        {
-            List<Bulto> bultos = new List<Bulto>();
-
-            var result = SacarBultoListado();
-
-            foreach (var item in result)
-            {
-               if(item.Id.ToString().Contains(bultoId)) bultos.Add(item);
-            }
-
-            return bultos;
-          
-        }
-
-
-        public List<Bulto> SacarBultoListado()
-        {
-            var bulto = new List<Bulto>();
-
-            var factory = new ConnectionFactory() { HostName = "localhost" ,DispatchConsumersAsync=true};
-
-            using (var connection = factory.CreateConnection())
-            using (var canal = connection.CreateModel())
-            {
-                canal.QueueDeclare(queue: "Cinta", durable: false, exclusive: false, autoDelete: false, arguments: null);
-
-                var consumidor = new AsyncEventingBasicConsumer(canal);
-                consumidor.Received += async (model, ea) =>
+                channel.QueueDeclare(queue: Contants.GetQueueName(), durable: false, exclusive: false, autoDelete: false, arguments: null);
+                BasicGetResult result = channel.BasicGet(Contants.GetQueueName(), true);
+                if (result == null)
                 {
-                    var body = ea.Body.ToArray();
-                    var mensaje = Encoding.UTF8.GetString(body);
+                    throw new Exception();
+                }
+                else
+                {
+                    IBasicProperties props = result.BasicProperties;
+                    ReadOnlyMemory<byte> body = result.Body;
 
-                    bulto.Add(JsonConvert.DeserializeObject<Bulto>(mensaje));
+                    var json = Encoding.UTF8.GetString(body.ToArray());
 
-                    await Task.Yield();
+                    var deseriliaze = JsonConvert.DeserializeObject<Bulto>(json);
 
-                };
+                    if (deseriliaze.Id.ToString().Contains(bultoId)) await Task.FromResult(deseriliaze);
 
-                canal.BasicConsume(queue: "Cinta", autoAck: false, consumer: consumidor);
-
+                }
             }
-
-
-            return bulto;
-
-
-            //var bulto = new List<Bulto>();
-            //var connection = ConnectionFactoryExtensions.ConnectionFactory();
-
-
-            //var channel = connection.CreateConnection().CreateModel();
-            //{
-
-            //    channel.QueueDeclare(queue: "Cinta", durable: false, exclusive: false, autoDelete: false, arguments: null);
-
-
-            //    var consumidor = new EventingBasicConsumer(channel);
-
-            //    consumidor.Received += (model, ea) =>
-            //    {
-            //        var body = ea.Body.ToArray();
-
-
-            //        var mensaje = Encoding.UTF8.GetString(body);
-
-            //        bulto = JsonConvert.DeserializeObject<List<Bulto>>(mensaje);
-
-            //        channel.BasicConsume(queue: "Cinta", autoAck: false, consumer: consumidor);
-
-            //    };
-            //    return bulto;
-            //}
+            return null;
         }
+
+        public async Task<List<string>> CheckQueueMensagges()
+        {
+            List<string> queueBultos = new List<string>();
+
+            var connection = ConnectionFactoryExtensions.ConnectionFactory();
+
+
+            var channel = connection.CreateConnection().CreateModel();
+            {
+                var queueDeclareResponse = channel.QueueDeclare(Contants.GetQueueName(), false, false, false, null);
+
+                var consumer = new AsyncEventingBasicConsumer(channel);
+                channel.BasicConsume(Contants.GetQueueName(), true, consumer);
+
+                Console.WriteLine(" [*] Processing existing messages.");
+
+                for (int i = 0; i < queueDeclareResponse.MessageCount; i++)
+                {
+                    consumer.Received += async (model, ea) =>
+                   {
+                       var body = ea.Body.ToArray();
+                       // positively acknowledge all deliveries up to
+                       // this delivery tag
+                       channel.BasicAck(ea.DeliveryTag, true);
+                       var message = Encoding.UTF8.GetString(body);
+                       Console.WriteLine(" [x] Received {0}", message);
+
+                       queueBultos.Add(queueDeclareResponse.MessageCount.ToString());
+                   };
+                }
+
+                return queueBultos;
+            }
+        }
+
     }
 }
 
