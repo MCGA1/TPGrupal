@@ -59,10 +59,7 @@ namespace Brazo.API
 			builder.ConfigureServices((ctx, c) =>
 			{
 				c.AddSingleton(ctx.Configuration);
-				//c.AddHostedService<JobMonitor>();
-				//c.AddHostedService<PLCSimulator>();
-				//c.AddSingleton<IMaterialService, MaterialService>();
-
+				
 				c.AddCors();
 				c.AddLogging((builder) =>
 				{

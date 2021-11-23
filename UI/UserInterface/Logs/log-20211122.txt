@@ -1,0 +1,714 @@
+2021-11-22 21:07:56.903 | 1 | DBG | Microsoft.Extensions.Hosting.Internal.Host | Hosting starting
+2021-11-22 21:07:57.043 | 1 | INF | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | User profile is available. Using 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-22 21:07:57.094 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-5b396e93-c300-4c4b-81e5-8b3b868d3adc.xml'.
+2021-11-22 21:07:57.098 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-742db1cd-6e3b-4739-b2f8-b8ed2744a8c7.xml'.
+2021-11-22 21:07:57.100 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-b0624dbd-dfe3-45a4-992c-dd395fc01cf0.xml'.
+2021-11-22 21:07:57.111 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {5b396e93-c300-4c4b-81e5-8b3b868d3adc}.
+2021-11-22 21:07:57.124 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {742db1cd-6e3b-4739-b2f8-b8ed2744a8c7}.
+2021-11-22 21:07:57.125 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0}.
+2021-11-22 21:07:57.137 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver | Considering key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} with expiration date 2021-12-28 13:55:04Z as default key.
+2021-11-22 21:07:57.207 | 1 | DBG | Microsoft.AspNetCore.DataProtection.TypeForwardingActivator | Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-11-22 21:07:57.212 | 1 | DBG | Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor | Decrypting secret element using Windows DPAPI.
+2021-11-22 21:07:57.216 | 1 | DBG | Microsoft.AspNetCore.DataProtection.TypeForwardingActivator | Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-11-22 21:07:57.223 | 1 | DBG | Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory | Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2021-11-22 21:07:57.229 | 1 | DBG | Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory | Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2021-11-22 21:07:57.235 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider | Using key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} as the default key.
+2021-11-22 21:07:57.238 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService | Key ring with default key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} was loaded during application startup.
+2021-11-22 21:08:01.217 | 1 | DBG | Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer | Using development certificate: CN=localhost (Thumbprint: BF08CA4CB17E1B395EFE5D0C8B64F537CAA070A8)
+2021-11-22 21:08:01.478 | 1 | INF | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:5001
+2021-11-22 21:08:01.481 | 1 | INF | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5000
+2021-11-22 21:08:01.483 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly UserInterface
+2021-11-22 21:08:01.485 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2021-11-22 21:08:01.492 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2021-11-22 21:08:01.495 | 1 | INF | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down.
+2021-11-22 21:08:01.497 | 1 | INF | Microsoft.Hosting.Lifetime | Hosting environment: MD2V0GMC
+2021-11-22 21:08:01.499 | 1 | INF | Microsoft.Hosting.Lifetime | Content root path: C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface
+2021-11-22 21:08:01.501 | 1 | DBG | Microsoft.Extensions.Hosting.Internal.Host | Hosting started
+2021-11-22 21:08:01.746 | 6 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTE" accepted.
+2021-11-22 21:08:01.750 | 4 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTE" started.
+2021-11-22 21:08:01.757 | 13 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTE" received FIN.
+2021-11-22 21:08:01.774 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-11-22 21:08:01.846 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTE" stopped.
+2021-11-22 21:08:01.852 | 7 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-11-22 21:08:03.982 | 6 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" accepted.
+2021-11-22 21:08:04.171 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" started.
+2021-11-22 21:08:04.204 | 6 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTG" accepted.
+2021-11-22 21:08:04.234 | 11 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTG" started.
+2021-11-22 21:08:04.298 | 13 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTG" received FIN.
+2021-11-22 21:08:04.352 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Connection "0HMDE2L87LHTF" established using the following protocol: "Tls12"
+2021-11-22 21:08:04.358 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Connection "0HMDE2L87LHTG" established using the following protocol: "Tls12"
+2021-11-22 21:08:04.402 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTG" is closed. The last processed stream ID was 0.
+2021-11-22 21:08:04.406 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTG" sending FIN because: "The client closed the connection."
+2021-11-22 21:08:04.413 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "SETTINGS" frame for stream ID 0 with length 18 and flags "NONE"
+2021-11-22 21:08:04.415 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTG" stopped.
+2021-11-22 21:08:04.429 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0
+2021-11-22 21:08:04.436 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE"
+2021-11-22 21:08:04.467 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK"
+2021-11-22 21:08:04.483 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0
+2021-11-22 21:08:04.493 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 1 with length 527 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:04.550 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK"
+2021-11-22 21:08:04.578 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/ - -
+2021-11-22 21:08:05.067 | 5 | DBG | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | Wildcard detected, all requests with hosts will be allowed.
+2021-11-22 21:08:05.114 | 5 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:05.119 | 5 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:05.128 | 5 | DBG | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | The request path / does not match a supported file type
+2021-11-22 21:08:05.213 | 5 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | 1 candidate(s) found for the request path '/'
+2021-11-22 21:08:05.233 | 5 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | Endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/'
+2021-11-22 21:08:05.245 | 5 | DBG | Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware | Request matched endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:08:05.253 | 5 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:08:05.294 | 5 | DBG | Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory | Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-11-22 21:08:05.493 | 5 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UserInterface.Controllers.HomeController (UserInterface).
+2021-11-22 21:08:05.503 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of authorization filters (in the following order): ["None"]
+2021-11-22 21:08:05.511 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:08:05.518 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-11-22 21:08:05.526 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of exception filters (in the following order): ["None"]
+2021-11-22 21:08:05.530 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:08:05.541 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Resource Filter: Before executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:05.546 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Resource Filter: After executing OnResourceExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:05.562 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executing controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:08:05.571 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:08:05.578 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter.
+2021-11-22 21:08:05.583 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2021-11-22 21:08:05.595 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2021-11-22 21:08:05.611 | 5 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executing action method UserInterface.Controllers.HomeController.Index (UserInterface) - Validation state: "Valid"
+2021-11-22 21:08:05.630 | 5 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action method UserInterface.Controllers.HomeController.Index (UserInterface), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2.8769ms.
+2021-11-22 21:08:05.638 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2021-11-22 21:08:05.648 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2021-11-22 21:08:05.652 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter.
+2021-11-22 21:08:05.657 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:05.662 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:05.668 | 5 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Before executing action result Microsoft.AspNetCore.Mvc.ViewResult.
+2021-11-22 21:08:05.681 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Configuration/Index.cshtml'.
+2021-11-22 21:08:05.684 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2021-11-22 21:08:05.687 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2021-11-22 21:08:05.692 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Report/Index.cshtml'.
+2021-11-22 21:08:05.696 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2021-11-22 21:08:05.700 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2021-11-22 21:08:05.703 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2021-11-22 21:08:05.711 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Status/Index.cshtml'.
+2021-11-22 21:08:05.713 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Visualization/Index.cshtml'.
+2021-11-22 21:08:05.716 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2021-11-22 21:08:05.718 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2021-11-22 21:08:05.751 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache miss for view 'Index' in controller 'Home'.
+2021-11-22 21:08:05.758 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Located compiled view for view at path '/Views/Home/Index.cshtml'.
+2021-11-22 21:08:05.766 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Could not find a file for view at path '/Views/Home/_ViewStart.cshtml'.
+2021-11-22 21:08:05.769 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Located compiled view for view at path '/Views/_ViewStart.cshtml'.
+2021-11-22 21:08:05.774 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Could not find a file for view at path '/_ViewStart.cshtml'.
+2021-11-22 21:08:05.792 | 5 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executing ViewResult, running view Index.
+2021-11-22 21:08:05.807 | 5 | DBG | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | The view path '/Views/Home/Index.cshtml' was found in 46.7769ms.
+2021-11-22 21:08:05.892 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache miss for view '_Layout' in controller 'Home'.
+2021-11-22 21:08:05.896 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Could not find a file for view at path '/Views/Home/_Layout.cshtml'.
+2021-11-22 21:08:05.898 | 5 | VRB | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Located compiled view for view at path '/Views/Shared/_Layout.cshtml'.
+2021-11-22 21:08:06.127 | 15 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executed ViewResult - view Index executed in 379.4462ms.
+2021-11-22 21:08:06.135 | 15 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | After executing action result Microsoft.AspNetCore.Mvc.ViewResult.
+2021-11-22 21:08:06.149 | 15 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:06.153 | 15 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:06.162 | 15 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Resource Filter: Before executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:06.166 | 15 | VRB | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Resource Filter: After executing OnResourceExecuted on filter Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter.
+2021-11-22 21:08:06.170 | 15 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action UserInterface.Controllers.HomeController.Index (UserInterface) in 632.1772ms
+2021-11-22 21:08:06.176 | 15 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:08:06.193 | 8 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup is scheduled to include browser refresh script injection.
+2021-11-22 21:08:06.208 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 1 with length 67 and flags "END_HEADERS"
+2021-11-22 21:08:06.215 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 1024 and flags "NONE"
+2021-11-22 21:08:06.222 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 1028 and flags "NONE"
+2021-11-22 21:08:06.226 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 1027 and flags "NONE"
+2021-11-22 21:08:06.232 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 1030 and flags "NONE"
+2021-11-22 21:08:06.239 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 581 and flags "NONE"
+2021-11-22 21:08:06.245 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 65 and flags "NONE"
+2021-11-22 21:08:06.248 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 18 and flags "NONE"
+2021-11-22 21:08:06.269 | 8 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup was updated to include browser refresh script injection.
+2021-11-22 21:08:06.275 | 8 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 1 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.278 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 3 with length 108 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.285 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 5 with length 60 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.286 | 13 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2021-11-22 21:08:06.287 | 8 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 1715.5221ms
+2021-11-22 21:08:06.289 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 7 with length 34 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.297 | 13 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.297 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - -
+2021-11-22 21:08:06.320 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 9 with length 46 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.320 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/site.css - -
+2021-11-22 21:08:06.321 | 13 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.332 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 11 with length 58 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.332 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - -
+2021-11-22 21:08:06.326 | 16 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.335 | 7 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.341 | 13 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.344 | 16 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.345 | 5 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.347 | 7 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.348 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 13 with length 46 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.350 | 11 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2021-11-22 21:08:06.355 | 5 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.367 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 15 with length 59 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.371 | 5 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.359 | 7 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.370 | 11 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.359 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 3 with length 79 and flags "END_HEADERS"
+2021-11-22 21:08:06.367 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - -
+2021-11-22 21:08:06.353 | 16 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.377 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - -
+2021-11-22 21:08:06.387 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 9 with length 63 and flags "END_HEADERS"
+2021-11-22 21:08:06.383 | 11 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.390 | 14 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.396 | 10 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.398 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 7 with length 62 and flags "END_HEADERS"
+2021-11-22 21:08:06.401 | 11 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.403 | 14 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.405 | 10 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.420 | 14 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.423 | 10 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.414 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 5 with length 63 and flags "END_HEADERS"
+2021-11-22 21:08:06.434 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.442 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 7 with length 5410 and flags "NONE"
+2021-11-22 21:08:06.450 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 15 with length 86 and flags "END_HEADERS"
+2021-11-22 21:08:06.450 | 7 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/site.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\site.css'
+2021-11-22 21:08:06.454 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.464 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.467 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 11 with length 33 and flags "END_HEADERS"
+2021-11-22 21:08:06.471 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 5 with length 14440 and flags "NONE"
+2021-11-22 21:08:06.478 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.478 | 16 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.css'
+2021-11-22 21:08:06.482 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 7 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.488 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.489 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/site.css - - - 200 5410 text/css 168.6105ms
+2021-11-22 21:08:06.494 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.499 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.503 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.510 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 13 with length 64 and flags "END_HEADERS"
+2021-11-22 21:08:06.514 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.531 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.540 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.545 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.550 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 5 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.554 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.554 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - - - 200 14440 text/css 256.4376ms
+2021-11-22 21:08:06.567 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.578 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.585 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.592 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.598 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.614 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.618 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 4914 and flags "NONE"
+2021-11-22 21:08:06.623 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.630 | 10 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/fontawesome-5.6.3/all.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\fontawesome-5.6.3\all.css'
+2021-11-22 21:08:06.632 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.641 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.650 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.654 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.664 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 9 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.668 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 7556 and flags "NONE"
+2021-11-22 21:08:06.668 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - - - 200 70450 text/css 335.9645ms
+2021-11-22 21:08:06.672 | 7 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery\dist\jquery.min.js'
+2021-11-22 21:08:06.672 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.686 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 11 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.692 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.692 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 341.9507ms
+2021-11-22 21:08:06.698 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.709 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 5977 and flags "NONE"
+2021-11-22 21:08:06.713 | 16 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.js'
+2021-11-22 21:08:06.713 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.720 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 8308 and flags "NONE"
+2021-11-22 21:08:06.723 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 15 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.724 | 11 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2021-11-22 21:08:06.727 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.727 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - - - 200 87897 application/javascript 350.9851ms
+2021-11-22 21:08:06.735 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 3 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:06.746 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.746 | 11 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 155764 text/css 459.7307ms
+2021-11-22 21:08:06.753 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.764 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.777 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 17 with length 58 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:06.886 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.887 | 13 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2021-11-22 21:08:06.897 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.903 | 13 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:06.916 | 13 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:06.914 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.930 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.930 | 13 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:06.936 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.949 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 17 with length 63 and flags "END_HEADERS"
+2021-11-22 21:08:06.956 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.967 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.976 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.980 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.985 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.993 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 16384 and flags "NONE"
+2021-11-22 21:08:06.997 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.003 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.009 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.015 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 13105 and flags "NONE"
+2021-11-22 21:08:07.020 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.020 | 12 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2021-11-22 21:08:07.027 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.033 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 17 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:07.038 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.039 | 12 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78641 application/javascript 151.6229ms
+2021-11-22 21:08:07.047 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.052 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 19 with length 70 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.086 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.087 | 12 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2021-11-22 21:08:07.119 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.122 | 12 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:07.128 | 12 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:07.130 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.133 | 12 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:07.138 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.146 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 19 with length 31 and flags "END_HEADERS"
+2021-11-22 21:08:07.150 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.154 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 19 with length 230 and flags "NONE"
+2021-11-22 21:08:07.160 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.160 | 12 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/js/site.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\js\site.js'
+2021-11-22 21:08:07.165 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.171 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 19 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:07.178 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.178 | 12 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 91.6868ms
+2021-11-22 21:08:07.188 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 21 with length 55 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.208 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.208 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2021-11-22 21:08:07.217 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.226 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 21 with length 59 and flags "END_HEADERS"
+2021-11-22 21:08:07.231 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.235 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 21 with length 7924 and flags "NONE"
+2021-11-22 21:08:07.242 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.246 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 21 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:07.250 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 7924 application/javascript;+charset=utf-8 42.0422ms
+2021-11-22 21:08:07.250 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 5804 and flags "NONE"
+2021-11-22 21:08:07.258 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 23 with length 106 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.260 | 13 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/chartjs/Chart.bundle.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\chartjs\Chart.bundle.js'
+2021-11-22 21:08:07.264 | 12 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.graph.icon.png - -
+2021-11-22 21:08:07.267 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 13 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:07.273 | 12 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:07.277 | 13 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - - - 200 579244 application/javascript 909.1563ms
+2021-11-22 21:08:07.278 | 12 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:07.304 | 12 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:07.309 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 23 with length 74 and flags "END_HEADERS"
+2021-11-22 21:08:07.319 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.319 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 25 with length 50 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.399 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.status.icon.png - -
+2021-11-22 21:08:07.399 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.402 | 10 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:07.409 | 10 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:07.411 | 10 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:07.411 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.421 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 25 with length 64 and flags "END_HEADERS"
+2021-11-22 21:08:07.427 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.432 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.436 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.443 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 27 with length 50 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.447 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.453 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 29 with length 55 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.532 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 31 with length 120 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.459 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.532 | 21 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.configuration.icon.png - -
+2021-11-22 21:08:07.543 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 33 with length 50 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:07.550 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:07.454 | 13 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.report.icon.png - -
+2021-11-22 21:08:08.042 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "PRIORITY" frame for stream ID 29 with length 5 and flags 0x0
+2021-11-22 21:08:08.058 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 11685 and flags "NONE"
+2021-11-22 21:08:07.551 | 20 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - -
+2021-11-22 21:08:07.557 | 21 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:08.089 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "PRIORITY" frame for stream ID 27 with length 5 and flags 0x0
+2021-11-22 21:08:08.094 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.087 | 13 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:08.094 | 14 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.graph.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.graph.icon.png'
+2021-11-22 21:08:08.100 | 20 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:08.101 | 21 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:08.011 | 23 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - -
+2021-11-22 21:08:08.149 | 13 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:08.154 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 23 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:08.156 | 20 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:08.160 | 21 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:08.190 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.200 | 21 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 29 with length 94 and flags "END_HEADERS"
+2021-11-22 21:08:08.190 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.graph.icon.png - - - 200 109989 image/png 925.4164ms
+2021-11-22 21:08:08.185 | 13 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:08.213 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.194 | 20 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:08.185 | 23 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:08.232 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.244 | 23 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:08.249 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.263 | 23 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:08.306 | 7 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.331 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 27 with length 64 and flags "END_HEADERS"
+2021-11-22 21:08:08.398 | 23 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 33 with length 74 and flags "END_HEADERS"
+2021-11-22 21:08:08.411 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.416 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.427 | 11 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.431 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 31 with length 63 and flags "END_HEADERS"
+2021-11-22 21:08:08.436 | 18 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.443 | 23 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 33 with length 13588 and flags "NONE"
+2021-11-22 21:08:08.451 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.451 | 23 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-regular-400.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-regular-400.woff2'
+2021-11-22 21:08:08.455 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.471 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.481 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.485 | 4 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.496 | 23 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 33 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:08.503 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.504 | 23 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - - - 200 13588 font/woff2 492.1916ms
+2021-11-22 21:08:08.550 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.560 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.581 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.586 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.595 | 23 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.605 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.615 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.620 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.630 | 23 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.637 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 14740 and flags "NONE"
+2021-11-22 21:08:08.649 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.649 | 16 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-solid-900.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-solid-900.woff2'
+2021-11-22 21:08:08.654 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.666 | 19 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.672 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.677 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 31 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:08.683 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.684 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - - - 200 80276 font/woff2 1132.5434ms
+2021-11-22 21:08:08.698 | 18 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.719 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.725 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.731 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.739 | 20 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.746 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.755 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.782 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.802 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.806 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.830 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.835 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.849 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.863 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.868 | 12 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.876 | 16 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.886 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.896 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.901 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.910 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.919 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.923 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.934 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.948 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.954 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.964 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 16384 and flags "NONE"
+2021-11-22 21:08:08.997 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 1401 and flags "NONE"
+2021-11-22 21:08:09.004 | 14 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:09.004 | 10 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.configuration.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.configuration.icon.png'
+2021-11-22 21:08:09.009 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 10728 and flags "NONE"
+2021-11-22 21:08:09.025 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:09.025 | 13 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.report.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.report.icon.png'
+2021-11-22 21:08:09.038 | 10 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 29 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:09.082 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:09.082 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.configuration.icon.png - - - 200 279929 image/png 1549.5777ms
+2021-11-22 21:08:09.101 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 27 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:09.153 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 16384 and flags "NONE"
+2021-11-22 21:08:09.153 | 13 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.report.icon.png - - - 200 256488 image/png 1699.8495ms
+2021-11-22 21:08:09.187 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 14512 and flags "NONE"
+2021-11-22 21:08:09.196 | 5 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.status.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.status.icon.png'
+2021-11-22 21:08:09.212 | 5 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 25 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:09.216 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.status.icon.png - - - 200 456880 image/png 1817.3662ms
+2021-11-22 21:08:09.242 | 13 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" received "HEADERS" frame for stream ID 35 with length 34 and flags "END_STREAM, END_HEADERS, PRIORITY"
+2021-11-22 21:08:09.269 | 18 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/favicon.ico - -
+2021-11-22 21:08:09.276 | 18 | VRB | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | All hosts are allowed.
+2021-11-22 21:08:09.278 | 18 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:08:09.280 | 18 | VRB | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Range header's value is empty.
+2021-11-22 21:08:09.282 | 18 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "HEADERS" frame for stream ID 35 with length 75 and flags "END_HEADERS"
+2021-11-22 21:08:09.307 | 18 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 35 with length 5430 and flags "NONE"
+2021-11-22 21:08:09.311 | 18 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\favicon.ico'
+2021-11-22 21:08:09.319 | 18 | VRB | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" sending "DATA" frame for stream ID 35 with length 0 and flags "END_STREAM"
+2021-11-22 21:08:09.326 | 18 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 200 5430 image/x-icon 57.4688ms
+2021-11-22 21:08:17.689 | 20 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTF" received FIN.
+2021-11-22 21:08:17.691 | 12 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" is closed. The last processed stream ID was 35.
+2021-11-22 21:08:17.694 | 12 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2L87LHTF" sending FIN because: "The client closed the connection."
+2021-11-22 21:08:17.698 | 20 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2L87LHTF" stopped.
+2021-11-22 21:08:46.871 | 16 | DBG | Microsoft.AspNetCore.Server.Kestrel | Config reload token fired. Checking for changes...
+2021-11-22 21:08:47.127 | 16 | DBG | Microsoft.AspNetCore.Server.Kestrel | Config reload token fired. Checking for changes...
+2021-11-22 21:09:56.703 | 1 | DBG | Microsoft.Extensions.Hosting.Internal.Host | Hosting starting
+2021-11-22 21:09:56.833 | 1 | INF | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | User profile is available. Using 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-11-22 21:09:56.858 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-5b396e93-c300-4c4b-81e5-8b3b868d3adc.xml'.
+2021-11-22 21:09:56.863 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-742db1cd-6e3b-4739-b2f8-b8ed2744a8c7.xml'.
+2021-11-22 21:09:56.864 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository | Reading data from file 'C:\Users\z0041rxs\AppData\Local\ASP.NET\DataProtection-Keys\key-b0624dbd-dfe3-45a4-992c-dd395fc01cf0.xml'.
+2021-11-22 21:09:56.872 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {5b396e93-c300-4c4b-81e5-8b3b868d3adc}.
+2021-11-22 21:09:56.885 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {742db1cd-6e3b-4739-b2f8-b8ed2744a8c7}.
+2021-11-22 21:09:56.887 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager | Found key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0}.
+2021-11-22 21:09:56.904 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver | Considering key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} with expiration date 2021-12-28 13:55:04Z as default key.
+2021-11-22 21:09:56.970 | 1 | DBG | Microsoft.AspNetCore.DataProtection.TypeForwardingActivator | Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-11-22 21:09:56.977 | 1 | DBG | Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor | Decrypting secret element using Windows DPAPI.
+2021-11-22 21:09:56.980 | 1 | DBG | Microsoft.AspNetCore.DataProtection.TypeForwardingActivator | Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-11-22 21:09:56.987 | 1 | DBG | Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory | Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2021-11-22 21:09:56.993 | 1 | DBG | Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory | Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2021-11-22 21:09:57.005 | 1 | DBG | Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider | Using key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} as the default key.
+2021-11-22 21:09:57.008 | 1 | DBG | Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService | Key ring with default key {b0624dbd-dfe3-45a4-992c-dd395fc01cf0} was loaded during application startup.
+2021-11-22 21:09:57.567 | 1 | DBG | Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer | Using development certificate: CN=localhost (Thumbprint: BF08CA4CB17E1B395EFE5D0C8B64F537CAA070A8)
+2021-11-22 21:09:57.722 | 1 | INF | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:5001
+2021-11-22 21:09:57.724 | 1 | INF | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5000
+2021-11-22 21:09:57.726 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly UserInterface
+2021-11-22 21:09:57.728 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2021-11-22 21:09:57.729 | 1 | DBG | Microsoft.AspNetCore.Hosting.Diagnostics | Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2021-11-22 21:09:57.731 | 1 | INF | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down.
+2021-11-22 21:09:57.734 | 1 | INF | Microsoft.Hosting.Lifetime | Hosting environment: MD2V0GMC
+2021-11-22 21:09:57.736 | 1 | INF | Microsoft.Hosting.Lifetime | Content root path: C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface
+2021-11-22 21:09:57.739 | 1 | DBG | Microsoft.Extensions.Hosting.Internal.Host | Hosting started
+2021-11-22 21:09:57.867 | 6 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DG" accepted.
+2021-11-22 21:09:57.879 | 4 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DG" started.
+2021-11-22 21:09:57.879 | 11 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DH" accepted.
+2021-11-22 21:09:57.901 | 9 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DH" started.
+2021-11-22 21:09:57.902 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DH" received FIN.
+2021-11-22 21:09:57.902 | 10 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DG" received FIN.
+2021-11-22 21:09:57.932 | 7 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-11-22 21:09:57.932 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-11-22 21:09:58.019 | 7 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DH" stopped.
+2021-11-22 21:09:58.019 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DG" stopped.
+2021-11-22 21:09:58.026 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-11-22 21:09:58.026 | 7 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-11-22 21:10:00.803 | 12 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DI" accepted.
+2021-11-22 21:10:00.807 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DI" started.
+2021-11-22 21:10:00.907 | 9 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Connection "0HMDE2MAR34DI" established using the following protocol: "Tls12"
+2021-11-22 21:10:01.048 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/ - -
+2021-11-22 21:10:01.134 | 5 | DBG | Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware | Wildcard detected, all requests with hosts will be allowed.
+2021-11-22 21:10:01.137 | 5 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.142 | 5 | DBG | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | The request path / does not match a supported file type
+2021-11-22 21:10:01.210 | 5 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | 1 candidate(s) found for the request path '/'
+2021-11-22 21:10:01.219 | 5 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | Endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/'
+2021-11-22 21:10:01.226 | 5 | DBG | Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware | Request matched endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:10:01.232 | 5 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:10:01.254 | 5 | DBG | Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory | Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-11-22 21:10:01.371 | 5 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller UserInterface.Controllers.HomeController (UserInterface).
+2021-11-22 21:10:01.380 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of authorization filters (in the following order): ["None"]
+2021-11-22 21:10:01.384 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:01.393 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-11-22 21:10:01.400 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of exception filters (in the following order): ["None"]
+2021-11-22 21:10:01.403 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:01.410 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executing controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:10:01.414 | 5 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:10:01.432 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Configuration/Index.cshtml'.
+2021-11-22 21:10:01.433 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2021-11-22 21:10:01.437 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2021-11-22 21:10:01.438 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Report/Index.cshtml'.
+2021-11-22 21:10:01.443 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2021-11-22 21:10:01.447 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2021-11-22 21:10:01.449 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2021-11-22 21:10:01.451 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Status/Index.cshtml'.
+2021-11-22 21:10:01.453 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/Visualization/Index.cshtml'.
+2021-11-22 21:10:01.456 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2021-11-22 21:10:01.460 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.Compilation.DefaultViewCompiler | Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2021-11-22 21:10:01.474 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache miss for view 'Index' in controller 'Home'.
+2021-11-22 21:10:01.493 | 5 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executing ViewResult, running view Index.
+2021-11-22 21:10:01.501 | 5 | DBG | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | The view path '/Views/Home/Index.cshtml' was found in 24.3049ms.
+2021-11-22 21:10:01.576 | 5 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache miss for view '_Layout' in controller 'Home'.
+2021-11-22 21:10:01.736 | 6 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executed ViewResult - view Index executed in 265.9707ms.
+2021-11-22 21:10:01.747 | 6 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action UserInterface.Controllers.HomeController.Index (UserInterface) in 338.5432ms
+2021-11-22 21:10:01.751 | 6 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'UserInterface.Controllers.HomeController.Index (UserInterface)'
+2021-11-22 21:10:01.766 | 11 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup is scheduled to include browser refresh script injection.
+2021-11-22 21:10:01.795 | 11 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup was updated to include browser refresh script injection.
+2021-11-22 21:10:01.821 | 11 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 780.8707ms
+2021-11-22 21:10:01.865 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - -
+2021-11-22 21:10:01.847 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2021-11-22 21:10:01.848 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/site.css - -
+2021-11-22 21:10:01.879 | 5 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.881 | 4 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.849 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - -
+2021-11-22 21:10:01.865 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - -
+2021-11-22 21:10:01.883 | 9 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.894 | 15 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.910 | 9 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/site.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\site.css'
+2021-11-22 21:10:01.899 | 14 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.847 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - -
+2021-11-22 21:10:01.865 | 17 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2021-11-22 21:10:01.950 | 16 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.952 | 17 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:01.959 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/site.css - - - 200 5410 text/css 111.2515ms
+2021-11-22 21:10:01.966 | 16 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.css'
+2021-11-22 21:10:02.001 | 10 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/fontawesome-5.6.3/all.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\fontawesome-5.6.3\all.css'
+2021-11-22 21:10:02.002 | 4 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.js'
+2021-11-22 21:10:02.010 | 15 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2021-11-22 21:10:02.002 | 14 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery\dist\jquery.min.js'
+2021-11-22 21:10:02.014 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - - - 200 14440 text/css 166.2651ms
+2021-11-22 21:10:02.020 | 7 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/chartjs/Chart.bundle.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\chartjs\Chart.bundle.js'
+2021-11-22 21:10:02.026 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - - - 200 70450 text/css 176.5934ms
+2021-11-22 21:10:02.031 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - - - 200 87897 application/javascript 166.6158ms
+2021-11-22 21:10:02.061 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - - - 200 579244 application/javascript 196.4605ms
+2021-11-22 21:10:02.038 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 155764 text/css 191.1714ms
+2021-11-22 21:10:02.049 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 184.5321ms
+2021-11-22 21:10:02.067 | 17 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2021-11-22 21:10:02.092 | 17 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.115 | 10 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2021-11-22 21:10:02.117 | 17 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2021-11-22 21:10:02.121 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78641 application/javascript 53.8338ms
+2021-11-22 21:10:02.130 | 17 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.137 | 17 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/js/site.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\js\site.js'
+2021-11-22 21:10:02.145 | 17 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 27.1273ms
+2021-11-22 21:10:02.244 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2021-11-22 21:10:02.282 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - -
+2021-11-22 21:10:02.280 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.configuration.icon.png - -
+2021-11-22 21:10:02.275 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.graph.icon.png - -
+2021-11-22 21:10:02.282 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - -
+2021-11-22 21:10:02.313 | 4 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.313 | 7 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.317 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 7924 application/javascript;+charset=utf-8 73.0552ms
+2021-11-22 21:10:02.335 | 4 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-regular-400.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-regular-400.woff2'
+2021-11-22 21:10:02.316 | 10 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.320 | 15 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.360 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - - - 200 13588 font/woff2 78.5612ms
+2021-11-22 21:10:02.280 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.report.icon.png - -
+2021-11-22 21:10:02.280 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/content/images/home.status.icon.png - -
+2021-11-22 21:10:02.426 | 14 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.430 | 16 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:02.438 | 7 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-solid-900.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-solid-900.woff2'
+2021-11-22 21:10:02.438 | 10 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.graph.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.graph.icon.png'
+2021-11-22 21:10:02.546 | 15 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.report.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.report.icon.png'
+2021-11-22 21:10:02.678 | 4 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.status.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.status.icon.png'
+2021-11-22 21:10:02.558 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - - - 200 80276 font/woff2 276.8467ms
+2021-11-22 21:10:02.564 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.graph.icon.png - - - 200 109989 image/png 288.1464ms
+2021-11-22 21:10:02.542 | 14 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/content/images/home.configuration.icon.png'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\content\images\home.configuration.icon.png'
+2021-11-22 21:10:02.687 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.report.icon.png - - - 200 256488 image/png 407.1291ms
+2021-11-22 21:10:02.702 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.status.icon.png - - - 200 456880 image/png 421.9097ms
+2021-11-22 21:10:02.725 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/content/images/home.configuration.icon.png - - - 200 279929 image/png 445.2711ms
+2021-11-22 21:10:04.133 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DI" received FIN.
+2021-11-22 21:10:04.156 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DI" is closed. The last processed stream ID was 33.
+2021-11-22 21:10:04.161 | 14 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DI" sending FIN because: "The client closed the connection."
+2021-11-22 21:10:04.170 | 5 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DI" stopped.
+2021-11-22 21:10:05.199 | 12 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DJ" accepted.
+2021-11-22 21:10:05.248 | 16 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DJ" started.
+2021-11-22 21:10:05.255 | 9 | DBG | Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware | Connection "0HMDE2MAR34DJ" established using the following protocol: "Tls12"
+2021-11-22 21:10:05.269 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/Report - -
+2021-11-22 21:10:05.280 | 10 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:05.283 | 10 | DBG | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | The request path /Report does not match a supported file type
+2021-11-22 21:10:05.300 | 10 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | 1 candidate(s) found for the request path '/Report'
+2021-11-22 21:10:05.303 | 10 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | Endpoint 'UserInterface.Controllers.ReportController.Index (UserInterface)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Report'
+2021-11-22 21:10:05.310 | 10 | DBG | Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware | Request matched endpoint 'UserInterface.Controllers.ReportController.Index (UserInterface)'
+2021-11-22 21:10:05.314 | 10 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'UserInterface.Controllers.ReportController.Index (UserInterface)'
+2021-11-22 21:10:05.391 | 10 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Index", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller UserInterface.Controllers.ReportController (UserInterface).
+2021-11-22 21:10:05.396 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of authorization filters (in the following order): ["None"]
+2021-11-22 21:10:05.399 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:05.404 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-11-22 21:10:05.409 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of exception filters (in the following order): ["None"]
+2021-11-22 21:10:05.415 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:05.420 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executing controller factory for controller UserInterface.Controllers.ReportController (UserInterface)
+2021-11-22 21:10:08.640 | 10 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed controller factory for controller UserInterface.Controllers.ReportController (UserInterface)
+2021-11-22 21:10:11.515 | 10 | INF | System.Net.Http.HttpClient.APIGatewayService.LogicalHandler | Start processing HTTP request GET "http://localhost:5771/api/Report"
+2021-11-22 21:10:11.519 | 10 | INF | System.Net.Http.HttpClient.APIGatewayService.ClientHandler | Sending HTTP request GET "http://localhost:5771/api/Report"
+2021-11-22 21:10:15.827 | 6 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action UserInterface.Controllers.ReportController.Index (UserInterface) in 10407.9791ms
+2021-11-22 21:10:15.831 | 6 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'UserInterface.Controllers.ReportController.Index (UserInterface)'
+2021-11-22 21:10:15.846 | 6 | ERR | Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware | An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:5771)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|283_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.DefaultConnectAsync(SocketsHttpConnectionContext context, CancellationToken cancellationToken)
+   at System.Net.Http.ConnectHelper.ConnectAsync(Func`3 callback, DnsEndPoint endPoint, HttpRequestMessage requestMessage, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(Func`3 callback, DnsEndPoint endPoint, HttpRequestMessage requestMessage, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.SendAsyncCore(HttpRequestMessage request, HttpCompletionOption completionOption, Boolean async, Boolean emitTelemetryStartStop, CancellationToken cancellationToken)
+   at UserInterface.APIGatewayService.ReportAsync(CancellationToken cancellationToken) in C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\obj\swagger4Client.cs:line 75
+   at UserInterface.Controllers.ReportController.Index() in C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\Controllers\ReportController.cs:line 17
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-11-22 21:10:15.930 | 6 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:15.931 | 6 | DBG | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | The request path /Home/Error does not match a supported file type
+2021-11-22 21:10:15.935 | 6 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | 1 candidate(s) found for the request path '/Home/Error'
+2021-11-22 21:10:15.936 | 6 | DBG | Microsoft.AspNetCore.Routing.Matching.DfaMatcher | Endpoint 'UserInterface.Controllers.HomeController.Error (UserInterface)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/Home/Error'
+2021-11-22 21:10:15.940 | 6 | DBG | Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware | Request matched endpoint 'UserInterface.Controllers.HomeController.Error (UserInterface)'
+2021-11-22 21:10:15.942 | 6 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'UserInterface.Controllers.HomeController.Error (UserInterface)'
+2021-11-22 21:10:15.946 | 6 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Error", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Error() on controller UserInterface.Controllers.HomeController (UserInterface).
+2021-11-22 21:10:15.949 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of authorization filters (in the following order): ["None"]
+2021-11-22 21:10:15.951 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:15.953 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Filters.ResponseCacheFilter"]
+2021-11-22 21:10:15.957 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of exception filters (in the following order): ["None"]
+2021-11-22 21:10:15.961 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-11-22 21:10:15.963 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executing controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:10:15.965 | 6 | DBG | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed controller factory for controller UserInterface.Controllers.HomeController (UserInterface)
+2021-11-22 21:10:15.969 | 6 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache miss for view 'Error' in controller 'Home'.
+2021-11-22 21:10:15.972 | 6 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executing ViewResult, running view Error.
+2021-11-22 21:10:15.974 | 6 | DBG | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | The view path '/Views/Shared/Error.cshtml' was found in 5.0307ms.
+2021-11-22 21:10:15.980 | 6 | DBG | Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine | View lookup cache hit for view '_Layout' in controller 'Home'.
+2021-11-22 21:10:15.990 | 5 | INF | Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor | Executed ViewResult - view Error executed in 21.0384ms.
+2021-11-22 21:10:15.991 | 5 | INF | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action UserInterface.Controllers.HomeController.Error (UserInterface) in 28.1042ms
+2021-11-22 21:10:15.995 | 5 | INF | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'UserInterface.Controllers.HomeController.Error (UserInterface)'
+2021-11-22 21:10:15.998 | 6 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup is scheduled to include browser refresh script injection.
+2021-11-22 21:10:16.000 | 6 | DBG | Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware | Response markup was updated to include browser refresh script injection.
+2021-11-22 21:10:16.001 | 6 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/Report - - - 500 - text/html;+charset=utf-8 10732.4379ms
+2021-11-22 21:10:16.089 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - -
+2021-11-22 21:10:16.090 | 7 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2021-11-22 21:10:16.095 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2021-11-22 21:10:16.092 | 5 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2021-11-22 21:10:16.113 | 7 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.115 | 4 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.118 | 5 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.089 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/site.css - -
+2021-11-22 21:10:16.214 | 4 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2021-11-22 21:10:16.270 | 4 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78641 application/javascript 176.6948ms
+2021-11-22 21:10:16.092 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - -
+2021-11-22 21:10:16.091 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - -
+2021-11-22 21:10:16.265 | 9 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.093 | 10 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - -
+2021-11-22 21:10:16.280 | 15 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.284 | 9 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/site.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\site.css'
+2021-11-22 21:10:16.287 | 10 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.282 | 14 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.302 | 9 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/site.css - - - 200 5410 text/css 212.7190ms
+2021-11-22 21:10:16.300 | 15 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.js'
+2021-11-22 21:10:16.336 | 14 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/fontawesome-5.6.3/all.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\fontawesome-5.6.3\all.css'
+2021-11-22 21:10:16.110 | 16 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.255 | 21 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery\dist\jquery.min.js'
+2021-11-22 21:10:16.347 | 15 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.js - - - 200 87897 application/javascript 254.1045ms
+2021-11-22 21:10:16.355 | 14 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/fontawesome-5.6.3/all.css - - - 200 70450 text/css 264.7827ms
+2021-11-22 21:10:16.104 | 22 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2021-11-22 21:10:16.104 | 23 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2021-11-22 21:10:16.366 | 16 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/jquery-datatables/jquery.dataTables.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\jquery-datatables\jquery.dataTables.min.css'
+2021-11-22 21:10:16.399 | 16 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery-datatables/jquery.dataTables.min.css - - - 200 14440 text/css 310.4955ms
+2021-11-22 21:10:16.178 | 28 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2021-11-22 21:10:16.345 | 36 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/lib/chartjs/Chart.bundle.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\lib\chartjs\Chart.bundle.js'
+2021-11-22 21:10:16.381 | 22 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.382 | 23 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 7924 application/javascript;+charset=utf-8 279.5624ms
+2021-11-22 21:10:16.369 | 21 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 277.6637ms
+2021-11-22 21:10:16.413 | 28 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 155764 text/css 322.4733ms
+2021-11-22 21:10:16.419 | 36 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/lib/chartjs/Chart.bundle.js - - - 200 579244 application/javascript 327.4110ms
+2021-11-22 21:10:16.439 | 22 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/js/site.js'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\js\site.js'
+2021-11-22 21:10:16.457 | 22 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 353.6957ms
+2021-11-22 21:10:16.648 | 22 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - -
+2021-11-22 21:10:16.648 | 21 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - -
+2021-11-22 21:10:16.653 | 21 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.654 | 22 | DBG | Microsoft.AspNetCore.HttpsPolicy.HstsMiddleware | The host 'localhost' is excluded. Skipping HSTS header.
+2021-11-22 21:10:16.657 | 21 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-regular-400.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-regular-400.woff2'
+2021-11-22 21:10:16.670 | 21 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-regular-400.woff2 - - - 200 13588 font/woff2 22.5771ms
+2021-11-22 21:10:16.668 | 22 | INF | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/css/webfonts/fa-solid-900.woff2'. Physical path: 'C:\Repositorios\UAI\MCGA\TPGrupal\UI\UserInterface\wwwroot\css\webfonts\fa-solid-900.woff2'
+2021-11-22 21:10:16.682 | 22 | INF | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:5001/css/webfonts/fa-solid-900.woff2 - - - 200 80276 font/woff2 34.3778ms
+2021-11-22 21:10:24.136 | 23 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DJ" received FIN.
+2021-11-22 21:10:24.138 | 23 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DJ" is closed. The last processed stream ID was 25.
+2021-11-22 21:10:24.140 | 23 | DBG | Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets | Connection id "0HMDE2MAR34DJ" sending FIN because: "The client closed the connection."
+2021-11-22 21:10:24.143 | 16 | DBG | Microsoft.AspNetCore.Server.Kestrel | Connection id "0HMDE2MAR34DJ" stopped.

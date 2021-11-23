@@ -1,3 +1,4 @@
+using APIGateway.Managent;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
+using Serilog;
+using System.Reflection;
 
 namespace APIGateway
 {
@@ -19,6 +24,16 @@ namespace APIGateway
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
+
+			Serilog.Debugging.SelfLog.Enable(msg => Trace.WriteLine(msg));
+
+			Log.Logger = new LoggerConfiguration()
+				.ReadFrom
+				.Configuration(Configuration)
+				.CreateLogger();
+
+			Log.Information("Starting Microservice... ");
+			Log.Information($"Name [{Assembly.GetEntryAssembly().GetName().Name}] Version [{Assembly.GetEntryAssembly().GetName().Version}]");
 		}
 
 		public IConfiguration Configuration { get; }
@@ -32,17 +47,19 @@ namespace APIGateway
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIGateway", Version = "v1" });
 			});
+
+			services.AddDbContext<Managent.AppContext>(options =>
+								options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIGateway v1"));
-			}
+			app.UseDeveloperExceptionPage();
+
+			app.UseSwagger();
+
+			app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIGateway v1"));
 
 			app.UseHttpsRedirection();
 
@@ -54,6 +71,7 @@ namespace APIGateway
 			{
 				endpoints.MapControllers();
 			});
+
 		}
 	}
 }
