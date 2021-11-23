@@ -304,3 +304,63 @@ ul a li i {
 	background-color: rgba(54, 162, 235, 0.2);
 	border-color: rgba(54, 162, 235, 1);
 }
+
+/*****************************************/
+
+.report-table {
+	width: 90vw;
+	margin: 0 5vw;
+	color: white;
+}
+
+.dataTables_length, #log-data-table_filter, .paginate_button, dataTables_info, #log-data-table_info, #log-data-table_previous, .paginate_button, #log-data-table_next, #log-data-table_paginate, .paging_full_numbers a.paginate_button {
+	color: white !important;
+}
+
+select[name="log-data-table_length"], input[aria-controls="log-data-table"] {
+	color: white !important;
+	border: 1px solid white !important;
+	border-radius: 0px !important;
+}
+
+.odd{
+	background: rgb(56 62 56 / 10%) !important;
+}
+
+.sorting_1 {
+	background: transparent !important;
+}
+
+.even {
+	background: rgb(194 213 194 / 10%) !important;
+}
+
+table.dataTable.display tbody td {
+	border: none;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	border-bottom: 1px solid #e3e3e3;
+}
+/*
+#log-data-table_wrapper {
+	overflow-y: auto;
+}
+*/
+
+table {
+	font-size: 12px;
+}
+
+.paginate_button.current:hover, .paginate_button.current {
+	color: white !important;
+	background: var(--background-color) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+	color:white !important;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+	border-bottom: 1px solid white;
+}
