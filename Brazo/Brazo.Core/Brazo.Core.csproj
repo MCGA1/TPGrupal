@@ -9,4 +9,13 @@
     <PackageReference Include="Serilog.AspNetCore" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Jobs\" />
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonServices\CommonServices.csproj" />
+  </ItemGroup>
+
 </Project>

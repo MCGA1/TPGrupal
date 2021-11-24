@@ -10,6 +10,8 @@ using Nancy;
 using Nancy.Bootstrapper;
 using Brazo.API.Booststrapper;
 using Brazo.API.Logger;
+using Brazo.Core.Management;
+using Brazo.Core.Contracts;
 
 namespace Brazo.API
 {
@@ -66,6 +68,8 @@ namespace Brazo.API
 					//builder.AddSerilog(dispose: true);
 				});
 
+				c.AddSingleton<GloblaSystemInformation>();
+				c.AddSingleton<IBrazoManagement, BrazoManagement>();
 			});
 		}
 

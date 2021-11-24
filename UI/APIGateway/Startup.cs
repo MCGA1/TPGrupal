@@ -47,9 +47,6 @@ namespace APIGateway
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIGateway", Version = "v1" });
 			});
-
-			services.AddDbContext<Managent.AppContext>(options =>
-								options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

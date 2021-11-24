@@ -97,6 +97,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CommonServices\CommonServices.csproj" />
+    <ProjectReference Include="..\Brazo.Core\Brazo.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

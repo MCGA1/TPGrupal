@@ -54,14 +54,12 @@ namespace Brazo.API
 
 			Host = builder.Build();
 
-			ServiceStatus = ServiceStatus.Created;
 			ApplicationLogging.LoggerFactory = Host.Services.GetRequiredService<ILoggerFactory>();
 
 			var appLifetime = Host.Services.GetRequiredService<IApplicationLifetime>();
 			appLifetime.ApplicationStarted.Register(() =>
 			{
 				Log.Information("After OnStart() has been reached");
-				ServiceStatus = ServiceStatus.Started;
 				AfterStart();
 			});
 			appLifetime.ApplicationStopping.Register(() =>
@@ -73,7 +71,6 @@ namespace Brazo.API
 			appLifetime.ApplicationStopped.Register(() => {
 
 				Log.Information("After OnStop() has been reached");
-				ServiceStatus = ServiceStatus.Stopped;
 				AfterStop();
 			});
 
@@ -114,8 +111,6 @@ namespace Brazo.API
 
 			return host;
 		}
-
-		public static ServiceStatus ServiceStatus { get; set; }
 
 		public static string Name => "Interfaz del Brazo";
 
