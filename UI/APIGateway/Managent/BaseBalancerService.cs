@@ -68,5 +68,9 @@ namespace APIGateway.Managent
 			return this;
 		}
 
+		public string GetName()
+		{
+			return this.Name;
+		}
 	}
 }

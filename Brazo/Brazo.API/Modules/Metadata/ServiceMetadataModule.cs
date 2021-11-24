@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using CommonServices.Entities;
+using CommonServices.Entities.Enum;
 using Nancy.Metadata.Modules;
 using Nancy.Swagger;
 using Nancy.Swagger.Services;
@@ -15,7 +16,7 @@ namespace Brazo.API.Modules.Metadata
 		public ServiceMetadataModule(ISwaggerModelCatalog modelCatalog)
 		{
 			modelCatalog.AddModels(
-				typeof(APIConfiguration)
+				typeof(APIConfiguration), typeof(ServiceStatus), typeof(SensorConfiguration)
 			);
 
 			Describe["GetServiceName"] = description => description.AsSwagger(
