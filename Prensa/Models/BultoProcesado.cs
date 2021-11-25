@@ -17,6 +17,7 @@ namespace Prensa.Control
         {
             Id = bulto.Id;
             Peso = bulto.Peso;
+            Nombre = bulto.Nombre;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Prensa.SensoresSystem;
+﻿using Prensa.Control;
+using Prensa.SensoresSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prensa.PrensaSystem
 {
-    public static class Prensa
+    public static class MaquinaPrensado
     {       
         private static bool Estado 
         {
@@ -36,14 +37,25 @@ namespace Prensa.PrensaSystem
 
         public static Bulto CurrentBulto { get; set; }
       
-        public static async void Prensar(Bulto bulto)
+        public static async Task<BultoProcesado> Prensar(Bulto bulto)
         {
             Libre = false;
-            await Task.Delay(2000).ConfigureAwait(false);
+            Estado = false;
 
+            Console.WriteLine("Prensa: Prensando...");
+            await Task.Delay(1000).ConfigureAwait(false);
+
+            Console.WriteLine("Prensa: Bulto procesado, levantando prensa...");
+            await Task.Delay(1000).ConfigureAwait(false);
+        
+            Console.WriteLine("Prensa: Prensa levantada, moviendo bulto...");
+            await Task.Delay(1000).ConfigureAwait(false);
 
             Libre = true;
             Estado = true;
+
+            Console.WriteLine("");
+            return new BultoProcesado(bulto);
 
         }
 

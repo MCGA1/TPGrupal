@@ -7,5 +7,7 @@ namespace Prensa
         public Guid Id { get; set; }
 
         public int Peso { get; set; }
+
+        public string Nombre { get; set; }
     }
 }
