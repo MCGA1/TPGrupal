@@ -9,7 +9,10 @@ namespace Prensa.Controllers
     {
 
 
-
+        public PrensaWorker()
+        {
+            // Configurar el rabbit
+        }
 
 
 

@@ -39,7 +39,7 @@ namespace Prensa.PrensaSystem
         public static async void Prensar(Bulto bulto)
         {
             Libre = false;
-            await Task.Delay(2000);
+            await Task.Delay(2000).ConfigureAwait(false);
 
 
             Libre = true;
