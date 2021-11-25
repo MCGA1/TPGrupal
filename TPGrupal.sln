@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31512.422
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Brazo", "Brazo", "{A5855C1E-104A-467D-86AD-A53717A8A1F9}"
 EndProject
@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{42FEC5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonServices", "CommonServices\CommonServices.csproj", "{2BD6623C-DFC1-4CC7-A602-043E674C70E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prensa", "Prensa", "{884972AA-35A9-41DA-BFEB-04D114DDD44B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cinta", "Cinta", "{DA443C13-F59A-4D07-BAB4-3FBFF633C189}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prensa", "Prensa\Prensa.csproj", "{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CintaApi", "CintaApi\CintaApi.csproj", "{BC4B3C9C-913D-4461-B437-45B681C013D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{2BD6623C-DFC1-4CC7-A602-043E674C70E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BD6623C-DFC1-4CC7-A602-043E674C70E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BD6623C-DFC1-4CC7-A602-043E674C70E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC4B3C9C-913D-4461-B437-45B681C013D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC4B3C9C-913D-4461-B437-45B681C013D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC4B3C9C-913D-4461-B437-45B681C013D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC4B3C9C-913D-4461-B437-45B681C013D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,7 +63,7 @@ Global
 		{F9016DEE-BB56-44BF-A12D-F0B174F6F68F} = {A5855C1E-104A-467D-86AD-A53717A8A1F9}
 		{7ECFDE0C-B389-467C-BD78-16E73862901E} = {A5855C1E-104A-467D-86AD-A53717A8A1F9}
 		{2BD6623C-DFC1-4CC7-A602-043E674C70E9} = {42FEC5AA-94D7-4BF3-9160-78EB39712231}
-		{4CC7CA17-6521-45E9-83A4-8B37FF4C54C2} = {884972AA-35A9-41DA-BFEB-04D114DDD44B}
+		{BC4B3C9C-913D-4461-B437-45B681C013D4} = {DA443C13-F59A-4D07-BAB4-3FBFF633C189}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1F2A8E8-481F-4A4E-A4F4-21F749039EA4}
