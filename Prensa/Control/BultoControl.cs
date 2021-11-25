@@ -17,7 +17,7 @@ namespace Prensa.Control
     public static class PilaDeBultos
     {
 
-        public static void AgregarBulto(Bulto bulto)
+        public static void AgregarBulto(BultoProcesado bulto)
         {
             // TODO: Conexion a base de datos
         }
