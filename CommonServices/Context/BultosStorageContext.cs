@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Prensa.Control;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +11,10 @@ namespace CommonServices.Context
     public class BultosStorageContext : DbContext
     {
 
+        public BultosStorageContext()
+        {
+
+        }
         public BultosStorageContext(DbContextOptions<BultosStorageContext> options)
          : base(options)
         {
@@ -22,7 +25,11 @@ namespace CommonServices.Context
             optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JP7JEOE;Initial Catalog=BultosStorage;Integrated Security=True");
         }
 
-        public DbSet<BultoProcesado> BultoProcesados { get; set; }
+        public DbSet<IBultoProcesado> BultoProcesados { get; set; }
+
+
+
+
 
 
 
