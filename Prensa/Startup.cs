@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Prensa.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,11 @@ namespace Prensa
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Prensa", Version = "v1" });
             });
+
+
+
+
+            PrensaWorker.State = true;
 
         }
 

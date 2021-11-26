@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommonDomain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -20,13 +21,21 @@ namespace CommonServices.Context
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JP7JEOE;Initial Catalog=BultosStorage;Integrated Security=True");
+            modelBuilder.Entity<BultoProcesado>()
+                .Property(b => b.ID)
+                .IsRequired();
+            modelBuilder.Entity<BultoProcesado>().ToTable("AlmacenBultos");
+
         }
 
-        public DbSet<IBultoProcesado> BultoProcesados { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JJADIK1;Initial Catalog=BultosStorage;Integrated Security=True");
+        }
 
+        public DbSet<BultoProcesado> AlmacenBultos { get; set; }
 
 
 

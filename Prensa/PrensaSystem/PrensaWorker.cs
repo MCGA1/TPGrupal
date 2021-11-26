@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Prensa.PrensaSystem;
 using System.ComponentModel;
 using Prensa.Control;
+using System.Text;
+using CommonDomain;
 
 namespace Prensa.Controllers
 {
@@ -16,7 +18,7 @@ namespace Prensa.Controllers
         static readonly ConnectionFactory _connectionFactory;
         static readonly string _consumerQueue;
         static bool _state = true;
-        static bool State 
+        public static bool State
         {
             get
             {
@@ -29,16 +31,16 @@ namespace Prensa.Controllers
                 if (worker == null)
                 {
                     worker = new BackgroundWorker();
-                    worker.DoWork += MainLoop;              
+                    worker.DoWork += MainLoop;
                 }
 
 
-                if (value)
+                if (value && worker.IsBusy != true)
                 {
                     worker.RunWorkerAsync();
                 }
 
-                else
+                if (worker.IsBusy != true)
                 {
                     worker.CancelAsync();
                 }
@@ -56,12 +58,15 @@ namespace Prensa.Controllers
 
         public static async void MainLoop(object sender, DoWorkEventArgs args)
         {
-            
+
             var channel = _connectionFactory.CreateConnection().CreateModel();
 
-            var consumer = new AsyncEventingBasicConsumer(channel);
+            //var consumer = new AsyncEventingBasicConsumer(channel);
 
-            while(!worker.CancellationPending)
+            channel.QueueDeclare(queue: _consumerQueue, durable: true, exclusive: false, autoDelete: false, arguments: null);
+
+
+            while (!worker.CancellationPending)
             {
                 Console.WriteLine("\nBuscando bultos disponibles...");
                 if (channel.MessageCount(_consumerQueue) == 0)
@@ -72,8 +77,10 @@ namespace Prensa.Controllers
                 }
 
                 Console.WriteLine("Worker: Bulto encontrado.");
-                
-                var bulto = JsonConvert.DeserializeObject<Bulto>(channel.BasicConsume(_consumerQueue, autoAck:true, consumer));            
+
+                //var item = channel.BasicConsume(_consumerQueue, autoAck: true, consumer);
+                BasicGetResult result = channel.BasicGet(_consumerQueue, true);
+                var bulto = await ParseBulto(result);          
                 Console.WriteLine("Worker: Bulto recibido.");
 
 
@@ -91,7 +98,7 @@ namespace Prensa.Controllers
                     Console.WriteLine($"No se pudo procesar el bulto. Mensaje de error: {ex.Message}");
                     throw;
                 }
-                
+
 
                 await Task.Delay(1000);
             }
@@ -99,6 +106,25 @@ namespace Prensa.Controllers
         }
 
 
+        private static async Task<Bulto> ParseBulto(BasicGetResult result)
+        {
+            if (result == null)
+            {
+                return null;
+            }
+            else
+            {
+                IBasicProperties props = result.BasicProperties;
+                ReadOnlyMemory<byte> body = result.Body;
+
+                var json = Encoding.UTF8.GetString(body.ToArray());
+
+                var bulto = JsonConvert.DeserializeObject<Bulto>(json);
+
+                return bulto;
+            }
+
+        }
 
         public static async Task GuardarBultoProcesado(BultoProcesado bulto)
         {

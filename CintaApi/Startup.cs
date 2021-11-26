@@ -37,7 +37,7 @@ namespace CintaApi
             });
 
 
-            services.AddSingleton<IServiceBusQueueMessage, ServiceBusMessageService>();
+            ServiceBusMessageService.Init();
 
         }
 

@@ -15,10 +15,9 @@ namespace CintaApi.Controllers
     [ApiController]
     public class CintaController : ControllerBase
     {
-        private IServiceBusQueueMessage _serviceBusMessageService;
-        public CintaController(IServiceBusQueueMessage serviceBusMessageService)
+        public CintaController()
         {
-            _serviceBusMessageService = serviceBusMessageService;
+
         }
 
         // GET: api/<CintaController>
@@ -31,20 +30,20 @@ namespace CintaApi.Controllers
                 throw new Exception();
             }
 
-            await _serviceBusMessageService.PonerBulto(bulto);
+            await ServiceBusMessageService.PonerBulto(bulto);
 
         }
 
         [HttpGet("individual/{bultoId}")]
         public async Task<Bulto> GetIndividual([FromRoute] string bultoId)
         {
-            return await _serviceBusMessageService.GetIndididualBulto(bultoId);
+            return await ServiceBusMessageService.GetIndididualBulto(bultoId);
         }
 
         [HttpGet("Health")]
         public async Task<List<string>> Health()
         {
-            return await _serviceBusMessageService.CheckQueueMensagges().ConfigureAwait(false);
+            return await ServiceBusMessageService.CheckQueueMensagges().ConfigureAwait(false);
         }
 
     }

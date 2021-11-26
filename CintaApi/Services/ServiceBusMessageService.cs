@@ -14,12 +14,17 @@ using System.Threading.Tasks;
 
 namespace CintaApi.Services
 {
-    public class ServiceBusMessageService : IServiceBusQueueMessage
+    public static class ServiceBusMessageService
     {
-        private BackgroundWorker _backgroundWorker;
-        private Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
+        private static BackgroundWorker _backgroundWorker;
+        private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
 
-        public ServiceBusMessageService()
+        static ServiceBusMessageService()
+        {
+            
+        }
+
+        public static void Init()
         {
             _backgroundWorker = new BackgroundWorker();
             _backgroundWorker.WorkerReportsProgress = true;
@@ -29,18 +34,18 @@ namespace CintaApi.Services
         }
 
 
-        public void PonerBulto(object obj, DoWorkEventArgs args)
+        public static void PonerBulto(object obj, DoWorkEventArgs args)
         {
             queue.Dequeue();
         }
 
-        public async Task PonerBulto(Bulto entity)
+        public static async Task PonerBulto(Bulto entity)
         {
 
                 await Task.Run(() => queue.Enqueue(entity));
         }
 
-        public async Task PonerBulto(IEnumerable<Bulto> entity)
+        public static async Task PonerBulto(IEnumerable<Bulto> entity)
         {
             foreach (var item in entity)
             {
@@ -50,7 +55,7 @@ namespace CintaApi.Services
             await Task.Delay(1);
         }
 
-        public async void PublicarBulto(object obj, DoWorkEventArgs args)
+        public static async void PublicarBulto(object obj, DoWorkEventArgs args)
         {
             var connection = ConnectionFactoryExtensions.ConnectionFactory();
 
@@ -63,7 +68,7 @@ namespace CintaApi.Services
                 await Task.Delay(1000);
 
                 {
-                    channel.QueueDeclare(queue: Contants.GetQueueName(), durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.QueueDeclare(queue: Contants.GetQueueName(), durable: true, exclusive: false, autoDelete: false, arguments: null);
 
                     //-> Mensaje
 
@@ -97,7 +102,7 @@ namespace CintaApi.Services
             return;
         }
 
-        public async Task<Bulto> GetIndididualBulto(string bultoId)
+        public static async Task<Bulto> GetIndididualBulto(string bultoId)
         {
             var connection = ConnectionFactoryExtensions.ConnectionFactory();
 
@@ -127,7 +132,7 @@ namespace CintaApi.Services
             return null;
         }
 
-        public async Task<List<string>> CheckQueueMensagges()
+        public static async Task<List<string>> CheckQueueMensagges()
         {
             List<string> queueBultos = new List<string>();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommonDomain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,11 @@ namespace CommonServices.Context
         }
 
 
-        public  static void SaveBultos(IBultoProcesado bultoProcesado)
+        public static void SaveBultos(BultoProcesado bultoProcesado)
         {
-            _bultosStorageContext.BultoProcesados.Add(bultoProcesado);
-            _bultosStorageContext.SaveChangesAsync();
+            _bultosStorageContext.AlmacenBultos.Add(bultoProcesado);
+            _bultosStorageContext.SaveChanges();
+
         }
 
 

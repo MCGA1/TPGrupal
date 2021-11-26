@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 
-namespace Prensa
+namespace CommonDomain
 {
     public class Bulto
     {
+
         public Guid Id { get; set; }
 
         public int Peso { get; set; }
