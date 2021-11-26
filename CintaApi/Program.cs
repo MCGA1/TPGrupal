@@ -24,6 +24,8 @@ namespace CintaApi
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
+               .Enrich.WithThreadId()
+               .Enrich.WithThreadName()
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
 
