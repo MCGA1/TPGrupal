@@ -1,4 +1,6 @@
-﻿namespace CommonServices.Entities.Enum
+﻿using System.Runtime.Serialization;
+
+namespace CommonServices.Entities.Enum
 {
 	public enum ServiceStatus
 	{

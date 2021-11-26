@@ -1,4 +1,5 @@
 ﻿using APIGateway.Contracts;
+using APIGateway.Exceptions;
 using APIGateway.Model.DTO;
 using CommonServices.Entities.Enum;
 using Microsoft.Extensions.Logging;
@@ -42,15 +43,28 @@ namespace APIGateway.Managent
 			_logger.LogInformation("Get running services");
 
 			Random r = new Random();
-			var availableServices = _services.Where(x => x.GetStatus().Result == ServiceStatus.Running).ToList();
+
+			var asyncStatusList = new List<(IAPIService, Task<ServiceStatus>)>();
+
+			foreach (var item in _services)
+			{
+				asyncStatusList.Add((item, item.GetStatus()));
+			}
+
+			Task.WaitAll(asyncStatusList.Select(x => x.Item2).ToArray());
+
+			var availableServices = asyncStatusList.Where(x => x.Item2.Result == ServiceStatus.Running).Select(x => x.Item1).ToList();
+
+			//var availableServices = _services.Where(x => x.GetStatus().Result == ServiceStatus.Running).ToList();
+			if (availableServices.Count() == 0) throw new NoAvailableServiceException();
 
 			_logger.LogInformation($"Services count [{availableServices.Count}] take one using random value generator");
 
 			var service = availableServices[r.Next(availableServices.Count())];
 
-			_logger.LogInformation($"Service [{service.Name}] selected.");
+			_logger.LogInformation($"Service [{service.GetName()}] selected.");
 
-			return await service.GetService();
+			return service;
 		}
 
 
@@ -73,5 +87,9 @@ namespace APIGateway.Managent
 			await service.SetStatus(status);
 		}
 
+		public async Task<T> GetService(string name)
+		{
+			return _services.FirstOrDefault(x => x.Name == name);
+		}
 	}
 }

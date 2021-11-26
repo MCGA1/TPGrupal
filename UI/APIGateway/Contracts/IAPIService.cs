@@ -6,9 +6,9 @@ namespace APIGateway.Contracts
 	public interface IAPIService
 	{
 
-		Task<APIConfiguration> GetConfiguration();
+		Task<APIConfiguration> GetConfigurationRequest();
 
-		Task UpdateConfiguration(APIConfiguration item);
+		Task SetConfiguration(APIConfiguration item);
 
 		string GetName();
 	}

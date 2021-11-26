@@ -67,7 +67,7 @@ namespace Brazo.API.Modules
 			}
 			catch (Exception e)
 			{
-				_logger.LogError(e, "Errpr updating configuration");
+				_logger.LogError(e, "Error updating configuration");
 				return Negotiate.WithStatusCode(HttpStatusCode.InternalServerError).WithModel(e.Message);
 			}
 		}
@@ -78,7 +78,7 @@ namespace Brazo.API.Modules
 
 			try
 			{
-				ServiceStatus status = Enum.Parse(typeof(ServiceStatus), await ((dynamic)parameters).Value.Value);
+				ServiceStatus status = Enum.Parse(typeof(ServiceStatus), await ((dynamic)parameters).type.Value);
 
 				await _service.SetServiceStatus(status);
 

@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Logs\**" />
+    <Content Remove="Logs\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="OpenAPIs\swagger.json" />
   </ItemGroup>
 
@@ -59,7 +66,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger4.json" CodeGenerator="NSwagCSharp" ClassName="APIGatewayService">
+    <None Include="OpenAPIs\swagger4.json" ClassName="APIGatewayService" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger5.json" ClassName="APIGatewayService" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger6.json" ClassName="APIGatewayService" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger7.json" ClassName="APIGatewayService" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger8.json" CodeGenerator="NSwagCSharp" ClassName="APIGatewayService">
       <SourceUri>https://localhost:5771/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>

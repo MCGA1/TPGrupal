@@ -16,6 +16,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using Serilog;
 using System.Reflection;
+using APIGateway.Contracts;
+using APIGateway.Model;
+using System.Text.Json.Serialization;
 
 namespace APIGateway
 {
@@ -42,18 +45,40 @@ namespace APIGateway
 		public void ConfigureServices(IServiceCollection services)
 		{
 
-			services.AddControllers();
+			services.AddControllers().AddJsonOptions(opts =>
+			{
+				var enumConverter = new JsonStringEnumConverter();
+				opts.JsonSerializerOptions.Converters.Add(enumConverter);
+			});
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIGateway", Version = "v1" });
 			});
+			
+			var serciveConfig = new APIGatewayConfiguration();
 
-			services.AddSingleton<LoadBalancer<BrazoService>>();
+			Configuration.GetSection("APIGatewayConfiguration").Bind(serciveConfig);
+			
+			services.AddSingleton(sp => new LoadBalancer<BrazoService>(
+					serciveConfig.Brazo.Select(x => new BrazoService(sp.GetRequiredService<ILogger<BrazoService>>(), x.URL, x.Name)).ToList(),
+					sp.GetRequiredService<ILogger<LoadBalancer<BrazoService>>>()));
+
+			services.AddSingleton(sp => new LoadBalancer<CintaService>(
+					serciveConfig.Cinta.Select(x => new CintaService(sp.GetRequiredService<ILogger<CintaService>>(), x.URL, x.Name)).ToList(),
+					sp.GetRequiredService<ILogger<LoadBalancer<CintaService>>>()));
+
+			services.AddSingleton(sp => new LoadBalancer<PrensaService>(
+					serciveConfig.Prensa.Select(x => new PrensaService(sp.GetRequiredService<ILogger<PrensaService>>(), x.URL, x.Name)).ToList(),
+					sp.GetRequiredService<ILogger<LoadBalancer<PrensaService>>>()));
+
+			services.AddSingleton<IServiceManager, ServiceManager>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			//app.UseHttpLogging();
+
 			app.UseDeveloperExceptionPage();
 
 			app.UseSwagger();

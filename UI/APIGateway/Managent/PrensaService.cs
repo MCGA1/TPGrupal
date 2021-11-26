@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace APIGateway.Managent
 {
-	public class BrazoService : BaseBalancerService
+	public class PrensaService : BaseBalancerService
 	{
 		ILogger _logger;
 
@@ -18,7 +18,7 @@ namespace APIGateway.Managent
 
 		HttpClient _httpClient;
 
-		public BrazoService(ILogger logger, string url, string name):base(logger, name)
+		public PrensaService(ILogger logger, string url, string name):base(logger, name)
 		{
 			_logger = logger;
 			_url = url;
@@ -65,7 +65,7 @@ namespace APIGateway.Managent
 
 			var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
 
-			var result = await _httpClient.PostAsync($"api/status?value={status}", content);
+			var result = await _httpClient.PostAsync("api/status?value=1", content);
 
 			result.EnsureSuccessStatusCode();
 		}

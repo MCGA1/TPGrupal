@@ -1,5 +1,7 @@
-﻿using APIGateway.Managent;
+﻿using APIGateway.Contracts;
+using APIGateway.Managent;
 using APIGateway.Model.DTO;
+using CommonServices.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,37 +16,51 @@ namespace APIGateway.Controllers
 	{
 		ILogger<ServicesController> _logger;
 
-		LoadBalancer<BrazoService> _brazoService;
+		IServiceManager _service;
 
-		public ServicesController(ILogger<ServicesController> logger, LoadBalancer<BrazoService> brazoServices)
+		public ServicesController(ILogger<ServicesController> logger, IServiceManager service)
 		{
 			_logger = logger;
-			_brazoService = brazoServices;
+			_service = service;
 		}
 
 		[HttpGet]
-		[Route("services")]
-		public async Task<IList<APIServiceStatus>> GetServices()
+		[Route("{type}")]
+		public async Task<IList<APIServiceStatus>> GetServices(ServiceType? type)
 		{
-			return await _brazoService.GetStatusServices();
+			return await _service.GetStatusServices(type);
 		}
 
 		[HttpGet]
-		[Route("services/running")]
-		public async Task<dynamic> GetRunningService()
+		[Route("running/{type}")]
+		public async Task<dynamic> GetRunningService(ServiceType type)
 		{
-			return (await _brazoService.GetRunningService()).GetName();
+			return (await _service.GetRunningService(type)).GetName();
 		}
 
-		/*
-		[HttpGet]
-		[Route("services/configuration")]
-		public async Task<dynamic> GetRunningService()
+		[HttpPost]
+		public async Task<dynamic> AddNewService([FromBody] ServiceRequest request)
 		{
-			
-			return (await _brazoService.GetRunningService()).GetName();
+			await _service.AddServiceToBalancer(request.Type, request.Name, request.URL);
+
+			return Ok();
 		}
-		*/
+
+		[HttpGet]
+		[Route("running/{type}/{name}/configuration")]
+		public async Task<dynamic> GetConfiguration(ServiceType type, string name)
+		{
+			return (await _service.GetConfiguration(type, name));
+		}
+
+		[HttpPost]
+		[Route("running/{type}/{name}/configuration")]
+		public async Task<dynamic> GetConfiguration(ServiceType type, string name, [FromBody]APIConfiguration configuration)
+		{
+			return (await _service.SetConfiguration(type, name, configuration));
+		}
+
+
 
 	}
 }

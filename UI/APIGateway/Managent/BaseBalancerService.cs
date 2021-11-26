@@ -16,26 +16,41 @@ namespace APIGateway.Managent
 
 		ILogger _logger;
 
-		public BaseBalancerService(ILogger logger)
+		public BaseBalancerService(ILogger logger, string name)
 		{
 			_logger = logger;
+			Name = name;
 		}
 
-		public abstract Task<APIConfiguration> GetConfiguration();
+		public abstract Task<APIConfiguration> GetConfigurationRequest();
 
-		public abstract Task UpdateConfiguration(APIConfiguration item);
+		public abstract Task UpdateConfigurationRequest(APIConfiguration item);
 
 		public abstract Task SendStatusRequest(ServiceStatus status);
 
 		public abstract Task<ServiceStatus> GetStatusRequest();
 
+		public async Task SetConfiguration(APIConfiguration item)
+		{ 
+			if(item.Estado != _status) await SetStatus(item.Estado);
+
+			await UpdateConfigurationRequest(item);
+		}
+
 		public async Task CheckStatus()
 		{
-			var status = await GetStatusRequest();
-			if (status != _status)
+			try
 			{
-				_logger.LogInformation($"Service [{Name}] Status changed from [{_status}] to [{status}]");
-				_status = status; 
+				var status = await GetStatusRequest();
+				if (status != _status)
+				{
+					_logger.LogInformation($"Service [{Name}] Status changed from [{_status}] to [{status}]");
+					_status = status;
+				}
+			}
+			catch (Exception e)
+			{
+				_status = ServiceStatus.Failed;
 			}
 		}
 
