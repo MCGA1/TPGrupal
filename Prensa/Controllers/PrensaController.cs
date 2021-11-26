@@ -21,15 +21,9 @@ namespace Prensa.Controllers
         }
 
         [HttpGet]
-        static public bool ObtEstado()
+        public void Get()
         {
-            throw new NotImplementedException();
-        }
 
-        [HttpGet]
-        static public void ObtLibre()
-        {
-            throw new NotImplementedException();
         }
     }
 }
