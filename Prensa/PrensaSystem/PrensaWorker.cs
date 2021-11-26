@@ -83,7 +83,7 @@ namespace Prensa.Controllers
                 try
                 {
                     // TODO: Guardar bulto en base de datos
-                    GuardarBultoProcesado(_bultoProcesado);
+                    await GuardarBultoProcesado(_bultoProcesado);
                     Console.WriteLine("Bulto procesado guardado.");
                 }
                 catch (Exception ex)
@@ -100,21 +100,9 @@ namespace Prensa.Controllers
 
 
 
-        public static async void GuardarBultoProcesado(BultoProcesado bulto)
+        public static async Task GuardarBultoProcesado(BultoProcesado bulto)
         {
-            // Conexion a sql
-
-
-
-
-
-
-
-
-
-
-
-
+            CommonServices.Context.BultoStorageService.SaveBultos(bulto);
         }
 
 

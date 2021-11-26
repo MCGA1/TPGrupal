@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CommonServices.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Prensa.Control
 {
-    public class BultoProcesado
+    public class BultoProcesado : IBultoProcesado
     {
         public Guid Id { get;}
 
