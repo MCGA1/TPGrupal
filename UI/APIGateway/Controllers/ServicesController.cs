@@ -1,5 +1,6 @@
 ﻿using APIGateway.Contracts;
 using APIGateway.Managent;
+using APIGateway.Model;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace APIGateway.Controllers
 {
-	[Route("api/[controller]")]
+  [Route("api/[controller]")]
 	[ApiController]
 	public class ServicesController : ControllerBase
 	{
@@ -33,31 +34,29 @@ namespace APIGateway.Controllers
 
 		[HttpGet]
 		[Route("running/{type}")]
-		public async Task<dynamic> GetRunningService(ServiceType type)
+		public async Task<string> GetRunningService(ServiceType type)
 		{
 			return (await _service.GetRunningService(type)).GetName();
 		}
 
 		[HttpPost]
-		public async Task<dynamic> AddNewService([FromBody] ServiceRequest request)
+		public async Task AddNewService([FromBody] ServiceRequest request)
 		{
 			await _service.AddServiceToBalancer(request.Type, request.Name, request.URL);
-
-			return Ok();
 		}
 
 		[HttpGet]
 		[Route("running/{type}/{name}/configuration")]
-		public async Task<dynamic> GetConfiguration(ServiceType type, string name)
+		public async Task<APIConfiguration> GetConfiguration(ServiceType type, string name)
 		{
 			return (await _service.GetConfiguration(type, name));
 		}
 
 		[HttpPost]
 		[Route("running/{type}/{name}/configuration")]
-		public async Task<dynamic> GetConfiguration(ServiceType type, string name, [FromBody]APIConfiguration configuration)
+		public async Task SetConfiguration(ServiceType type, string name, [FromBody]APIConfiguration configuration)
 		{
-			return (await _service.SetConfiguration(type, name, configuration));
+			await _service.SetConfiguration(type, name, configuration);
 		}
 
 

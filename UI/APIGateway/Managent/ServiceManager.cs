@@ -43,11 +43,11 @@ namespace APIGateway.Managent
 			}
 		}
 
-		public async Task<dynamic> GetConfiguration(ServiceType type, string name)
+		public async Task<APIConfiguration> GetConfiguration(ServiceType type, string name)
 		{
 			var service = await GetServiceByTypeAndName(type, name);
-			service.GetConfigurationRequest();
-			throw new System.NotImplementedException();
+			
+			return await service.GetConfigurationRequest();
 		}
 
 		public async Task<IAPIService> GetRunningService(ServiceType type) => type switch
@@ -66,9 +66,11 @@ namespace APIGateway.Managent
 			_ => await GetAllServices()
 		};
 
-		public Task<dynamic> SetConfiguration(ServiceType type, string name, APIConfiguration configurations)
+		public async Task SetConfiguration(ServiceType type, string name, APIConfiguration configurations)
 		{
-			throw new System.NotImplementedException();
+			var service = await GetServiceByTypeAndName(type, name);
+
+			await service.SetConfiguration(configurations);
 		}
 
 		private async Task<List<APIServiceStatus>> GetAllServices()

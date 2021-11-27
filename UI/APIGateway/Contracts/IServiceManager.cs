@@ -11,7 +11,7 @@ namespace APIGateway.Contracts
 		Task AddServiceToBalancer(ServiceType type, string name, string url);
 		Task<IList<APIServiceStatus>> GetStatusServices(ServiceType? type = null);
 		Task<IAPIService> GetRunningService(ServiceType type);
-		Task<dynamic> GetConfiguration(ServiceType type, string name);
-		Task<dynamic> SetConfiguration(ServiceType type, string name, APIConfiguration configurations);
+		Task<APIConfiguration> GetConfiguration(ServiceType type, string name);
+		Task SetConfiguration(ServiceType type, string name, APIConfiguration configurations);
 	}
 }

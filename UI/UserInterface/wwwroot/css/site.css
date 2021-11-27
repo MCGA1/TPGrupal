@@ -384,3 +384,26 @@ table {
 hr {
 	border-top: 2px ridge white;
 }
+
+/****************************************************/
+
+.config-row {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 10px;
+}
+
+input, select, option {
+	color: var(--background-color) !important;
+}
+
+button {
+	background: var(--principal-color);
+	border: none;
+	width: 6vw;
+	height: 4vh;
+}
+
+.float-end {
+	margin-left: 90%;
+}
