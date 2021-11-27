@@ -24,35 +24,6 @@ namespace Brazo.API
 
 		static void Main(string[] args)
 		{
-
-			/*
-			string connectionString = Configuration.GetConnectionString("DemoSeriLogDB");
-      var columnOptions = new ColumnOptions
-      {
-        AdditionalColumns = new Collection<SqlColumn>
-               {
-                   new SqlColumn("UserName", SqlDbType.NVarChar)
-                 }
-      };
-      Log.Logger = new LoggerConfiguration()
-          .Enrich.FromLogContext()
-          .WriteTo.MSSqlServer(connectionString, sinkOptions: new MSSqlServerSinkOptions { TableName = "Log" }
-          , null, null, LogEventLevel.Information, null, columnOptions: columnOptions, null, null)
-          .CreateLogger();
-
-      CreateHostBuilder(args).Build().Run();
-			*/
-
-			/*USE DB*/
-			/*
-			Log.Logger = new LoggerConfiguration()
-				.WriteTo
-				.MSSqlServer(
-						connectionString: "Data Source=MD2V0GMC;Initial Catalog=MCGA.TpGrupal;Integrated Security=True",
-						sinkOptions: new MSSqlServerSinkOptions { TableName = "LogEvents" })
-				.CreateLogger();
-			*/
-
 			Serilog.Debugging.SelfLog.Enable(msg => Trace.WriteLine(msg));
 
 			Log.Logger = new LoggerConfiguration()
@@ -60,10 +31,7 @@ namespace Brazo.API
 				.Configuration(Configuration)
 				.CreateLogger();
 
-			
-
 			Log.Information("Starting Microservice... ");
-
 			Log.Information($"Name [{Name}] Version [{Assembly.GetEntryAssembly().GetName().Version}]");
 
 			var isService = !(Debugger.IsAttached || args.Contains("--console"));
@@ -86,14 +54,12 @@ namespace Brazo.API
 
 			Host = builder.Build();
 
-			ServiceStatus = ServiceStatus.Created;
 			ApplicationLogging.LoggerFactory = Host.Services.GetRequiredService<ILoggerFactory>();
 
 			var appLifetime = Host.Services.GetRequiredService<IApplicationLifetime>();
 			appLifetime.ApplicationStarted.Register(() =>
 			{
 				Log.Information("After OnStart() has been reached");
-				ServiceStatus = ServiceStatus.Started;
 				AfterStart();
 			});
 			appLifetime.ApplicationStopping.Register(() =>
@@ -105,7 +71,6 @@ namespace Brazo.API
 			appLifetime.ApplicationStopped.Register(() => {
 
 				Log.Information("After OnStop() has been reached");
-				ServiceStatus = ServiceStatus.Stopped;
 				AfterStop();
 			});
 
@@ -146,8 +111,6 @@ namespace Brazo.API
 
 			return host;
 		}
-
-		public static ServiceStatus ServiceStatus { get; set; }
 
 		public static string Name => "Interfaz del Brazo";
 

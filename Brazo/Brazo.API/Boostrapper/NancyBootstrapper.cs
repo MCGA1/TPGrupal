@@ -1,4 +1,6 @@
 ﻿using Brazo.API.Modules;
+using Brazo.Core.Contracts;
+using Brazo.Core.Management;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Nancy;
@@ -24,6 +26,9 @@ namespace Brazo.API.Booststrapper
       
       container.Register<ILogger<ServiceModule>>(
           (c, an) => loggerFactory.CreateLogger<ServiceModule>());
+
+      container.Register(Program.Host.Services.GetRequiredService<IBrazoManagement>());
+      container.Register(Program.Host.Services.GetRequiredService<GloblaSystemInformation>());
     }
 
     protected override void ConfigureApplicationContainer(TinyIoCContainer container)

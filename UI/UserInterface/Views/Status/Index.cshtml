@@ -1,7 +1,54 @@
 ﻿@{
-  ViewData["Title"] = "Estado";
+  ViewData["Title"] = "Estado de los servicios";
 }
 
-<section class="py-5 text-center container main-text">
-  <h1>@ViewData["Title"]</h1>
-</section>
+@model IList<(ServiceType, ICollection<APIServiceStatus>)>
+
+ @using (Html.BeginForm("Index", "Status", FormMethod.Get, new { id = "stateForm"}))
+ {
+   <section class="py-5 text-center container main-text">
+    <h1>@ViewData["Title"]</h1>
+    <br />
+  
+    @foreach(var type in Model)
+    {
+      <hr />
+      <h2>@type.Item1</h2>
+    
+      @foreach(var service in type.Item2) 
+      {
+        <div class="status-row">
+          <div>@service.Name</div>
+          @switch(service.Status)
+          {
+            case ServiceStatus.Running:
+            <div class="icon-running"><i class="fas fa-check-square"></i></div>
+              break;
+            case ServiceStatus.Failed:
+            <div class="icon-failed"><i class="fas fa-window-close"></i></div>
+              break;
+            case ServiceStatus.Stopped:
+            <div class="icon-stopped"><i class="fas fa-hand-paper"></i></div>
+              break;
+          }
+        </div>
+
+      }
+
+      <br />
+    }
+    <input type="submit" class="btn btn-block btn-success" style="display: none;"/>
+  </section>
+ }
+
+@section Scripts
+{    
+ <script type="text/javascript">
+  $(document).ready(function () {
+      setTimeout(function(){
+        document.getElementById('stateForm').submit();
+      }, 10000);
+  });
+
+ </script>       
+}
