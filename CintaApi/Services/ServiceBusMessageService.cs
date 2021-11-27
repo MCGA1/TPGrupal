@@ -18,10 +18,10 @@ namespace CintaApi.Services
     {
         private static BackgroundWorker _backgroundWorker;
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
+        private  static int _number = 10;
 
         static ServiceBusMessageService()
         {
-            
         }
 
         public static void Init()
@@ -34,6 +34,12 @@ namespace CintaApi.Services
         }
 
 
+        public static Task SetVelocity(int number)
+        {
+            _number = number;
+            return Task.CompletedTask;
+        }
+
         public static void PonerBulto(object obj, DoWorkEventArgs args)
         {
             queue.Dequeue();
@@ -42,7 +48,7 @@ namespace CintaApi.Services
         public static async Task PonerBulto(Bulto entity)
         {
 
-                await Task.Run(() => queue.Enqueue(entity));
+            await Task.Run(() => queue.Enqueue(entity));
         }
 
         public static async Task PonerBulto(IEnumerable<Bulto> entity)
@@ -65,8 +71,7 @@ namespace CintaApi.Services
             while (_backgroundWorker.CancellationPending == false)
             {
                 Console.WriteLine("buscando bultos");
-                await Task.Delay(1000);
-
+                await Task.Delay(_number);
                 {
                     channel.QueueDeclare(queue: Contants.GetQueueName(), durable: true, exclusive: false, autoDelete: false, arguments: null);
 

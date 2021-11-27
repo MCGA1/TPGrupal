@@ -46,5 +46,12 @@ namespace CintaApi.Controllers
             return await ServiceBusMessageService.CheckQueueMensagges().ConfigureAwait(false);
         }
 
+
+        [HttpPost("speeed/{speed}")]
+        public async Task ConfigureSpeed([FromRoute] int speed)
+        {
+            await ServiceBusMessageService.SetVelocity(speed).ConfigureAwait(false);
+        }
+
     }
 }
