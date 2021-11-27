@@ -22,6 +22,7 @@ namespace Brazo.Core.Management
 
 		public async Task UpdateConfiguration(APIConfiguration config)
 		{
+			SystemInfo.Status = config.Estado;
 			SystemInfo.Config = config;
 		}
 
