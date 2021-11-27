@@ -32,7 +32,7 @@ namespace CommonServices.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"DataSource=DESKTOP-JP7JEOE; Initial Catalog = BultosStorage; Integrated Security = True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JJADIK1; Initial Catalog = BultosStorage; Integrated Security = True");
         }
 
 

@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Prensa.Control;
 using System.Text;
 using CommonDomain;
+using Serilog;
 
 namespace Prensa.Controllers
 {
@@ -56,46 +57,67 @@ namespace Prensa.Controllers
             State = true;
         }
 
-        public static async void MainLoop(object sender, DoWorkEventArgs args)
+        public static async Task<IModel> TryConnectToRabbit()
         {
-
-            var channel = _connectionFactory.CreateConnection().CreateModel();
-
-            //var consumer = new AsyncEventingBasicConsumer(channel);
-
-            channel.QueueDeclare(queue: _consumerQueue, durable: true, exclusive: false, autoDelete: false, arguments: null);
-
-
             while (!worker.CancellationPending)
             {
-                Console.WriteLine("\nBuscando bultos disponibles...");
+                try
+                {
+                    IModel channel;
+                    Log.Information($"Worker: Intentando conectar a RabbitMQ en la cola {_consumerQueue}...");
+                    channel = _connectionFactory.CreateConnection().CreateModel();
+                    channel.QueueDeclare(queue: _consumerQueue, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                    Log.Information("Worker: Conexion exitosa, continuando...");
+                    return channel;
+                }
+                catch (Exception)
+                {
+                    Log.Error($"\nWorker: Error al conectar con el servicio de rabbitMQ en la cola '{_consumerQueue}', reintentando...");
+                    await Task.Delay(3000);
+                }
+
+            }
+
+            return null;
+        }
+
+
+        public static async void MainLoop(object sender, DoWorkEventArgs args)
+        {
+            var channel = await TryConnectToRabbit();
+
+
+                 
+            while (!worker.CancellationPending)
+            {
+                Log.Information("\nBuscando bultos disponibles...");
                 if (channel.MessageCount(_consumerQueue) == 0)
                 {
-                    Console.WriteLine("No se encontraron bultos, volviendo a intentar...");
+                    Log.Information("No se encontraron bultos, volviendo a intentar...");
                     await Task.Delay(2000);
                     continue;
                 }
 
-                Console.WriteLine("Worker: Bulto encontrado.");
+                Log.Information("Worker: Bulto encontrado.");
 
                 //var item = channel.BasicConsume(_consumerQueue, autoAck: true, consumer);
                 BasicGetResult result = channel.BasicGet(_consumerQueue, true);
-                var bulto = await ParseBulto(result);          
-                Console.WriteLine("Worker: Bulto recibido.");
+                var bulto = await ParseBulto(result);
+                Log.Information("Worker: Bulto recibido.");
 
 
                 var _bultoProcesado = await MaquinaPrensado.Prensar(bulto);
-                Console.WriteLine("Worker: Moviendo y guardando bulto procesado...");
+                Log.Information("Worker: Moviendo y guardando bulto procesado...");
 
                 try
                 {
                     // TODO: Guardar bulto en base de datos
                     await GuardarBultoProcesado(_bultoProcesado);
-                    Console.WriteLine("Bulto procesado guardado.");
+                    Log.Information("Bulto procesado guardado.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"No se pudo procesar el bulto. Mensaje de error: {ex.Message}");
+                    Log.Error($"No se pudo procesar el bulto. Mensaje de error: {ex.Message}");
                     throw;
                 }
 
@@ -128,7 +150,7 @@ namespace Prensa.Controllers
 
         public static async Task GuardarBultoProcesado(BultoProcesado bulto)
         {
-            CommonServices.Context.BultoStorageService.SaveBultos(bulto);
+            BultoControl.LlevarBultoALaPila(bulto);
         }
 
 

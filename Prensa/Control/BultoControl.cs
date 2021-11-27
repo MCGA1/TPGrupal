@@ -20,7 +20,7 @@ namespace Prensa.Control
 
         public static void AgregarBulto(BultoProcesado bulto)
         {
-            // TODO: Conexion a base de datos
+            CommonServices.Context.BultoStorageService.SaveBultos(bulto);
         }
     }
 }

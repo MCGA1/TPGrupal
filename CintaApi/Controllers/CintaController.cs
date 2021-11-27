@@ -22,7 +22,7 @@ namespace CintaApi.Controllers
 
         // GET: api/<CintaController>
         [HttpPost("PonerBulto")]
-        public async Task Poner([FromBody] IEnumerable<Bulto> bulto)
+        public async Task Poner(IEnumerable<Bulto> bulto)
         {
 
             if (bulto==null)

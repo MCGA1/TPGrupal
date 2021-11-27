@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CommonDomain;
+using Serilog;
 
 namespace Prensa.PrensaSystem
 {
@@ -42,19 +43,19 @@ namespace Prensa.PrensaSystem
             Libre = false;
             Estado = false;
 
-            Console.WriteLine("Prensa: Prensando...");
+            Log.Information("Prensa: Prensando...");
             await Task.Delay(1000).ConfigureAwait(false);
 
-            Console.WriteLine("Prensa: Bulto procesado, levantando prensa...");
+            Log.Information("Prensa: Bulto procesado, levantando prensa...");
             await Task.Delay(1000).ConfigureAwait(false);
-        
-            Console.WriteLine("Prensa: Prensa levantada, moviendo bulto...");
+
+            Log.Information("Prensa: Prensa levantada, moviendo bulto...");
             await Task.Delay(1000).ConfigureAwait(false);
 
             Libre = true;
             Estado = true;
 
-            Console.WriteLine("");
+            Log.Information("");
             return new BultoProcesado(bulto);
 
         }

@@ -4,6 +4,7 @@ using CintaApi.Models;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace CintaApi.Services
 
         static ServiceBusMessageService()
         {
-            
+
         }
 
         public static void Init()
@@ -42,7 +43,7 @@ namespace CintaApi.Services
         public static async Task PonerBulto(Bulto entity)
         {
 
-                await Task.Run(() => queue.Enqueue(entity));
+            await Task.Run(() => queue.Enqueue(entity));
         }
 
         public static async Task PonerBulto(IEnumerable<Bulto> entity)
@@ -61,10 +62,10 @@ namespace CintaApi.Services
 
             var channel = connection.CreateConnection().CreateModel();
 
-            Console.WriteLine("Worker iniciado");
+            Log.Information("Worker iniciado");
             while (_backgroundWorker.CancellationPending == false)
             {
-                Console.WriteLine("buscando bultos");
+                Log.Information("buscando bultos");
                 await Task.Delay(1000);
 
                 {
@@ -79,11 +80,11 @@ namespace CintaApi.Services
 
                     if (items == null)
                     {
-                        Console.WriteLine("no se encontraron bultos");
+                        Log.Information("no se encontraron bultos");
 
                         continue;
                     }
-                    Console.WriteLine("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
+                    Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
                     var bulto = JsonConvert.SerializeObject(items);
 
@@ -146,7 +147,7 @@ namespace CintaApi.Services
                 var consumer = new AsyncEventingBasicConsumer(channel);
                 channel.BasicConsume(Contants.GetQueueName(), true, consumer);
 
-                Console.WriteLine(" [*] Processing existing messages.");
+                Log.Information(" [*] Processing existing messages.");
 
                 for (int i = 0; i < queueDeclareResponse.MessageCount; i++)
                 {
@@ -157,7 +158,7 @@ namespace CintaApi.Services
                        // this delivery tag
                        channel.BasicAck(ea.DeliveryTag, true);
                        var message = Encoding.UTF8.GetString(body);
-                       Console.WriteLine(" [x] Received {0}", message);
+                       Log.Information(" [x] Received {0}", message);
 
                        queueBultos.Add(queueDeclareResponse.MessageCount.ToString());
                    };

@@ -23,7 +23,6 @@ namespace CommonServices.Context
         {
             _bultosStorageContext.AlmacenBultos.Add(bultoProcesado);
             _bultosStorageContext.SaveChanges();
-
         }
 
 
