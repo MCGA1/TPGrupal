@@ -17,5 +17,8 @@ namespace CommonServices.Context
         public string Nombre { get; set; }
 
         public bool Enviado { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

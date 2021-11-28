@@ -26,13 +26,18 @@ namespace CommonServices.Context
             modelBuilder.Entity<BultoIngresado>()
                 .Property(b => b.Id)
                 .IsRequired();
+
+            modelBuilder.Entity<BultoIngresado>()
+            .Property(c => c.RowVersion)
+            .IsRowVersion();
+
             modelBuilder.Entity<BultoIngresado>().ToTable("BultoIngresado");
 
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JP7JEOE;Initial Catalog=RegistroBultoIngresado;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-JJADIK1;Initial Catalog=RegistroBultoIngresado;Integrated Security=True");
         }
 
 
