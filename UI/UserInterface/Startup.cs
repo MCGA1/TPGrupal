@@ -37,7 +37,7 @@ namespace UserInterface
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
-			services.Configure<ApiGatewayConfiguration>(Configuration.GetSection("ApiConfiguration"));
+			services.Configure<ApiGatewayConfiguration>(Configuration.GetSection("ApiGatewayConfiguration"));
 
 			services.AddHttpClient("APIGatewayService");
 			services.AddSingleton(ctx =>

@@ -25,7 +25,7 @@ namespace APIGateway.Controllers
 		[HttpGet]
 		public async Task<IEnumerable<Report>> GetReport()
 		{
-			string sqlOrderDetails = "SELECT * FROM [EventLogging].[Logs];";
+			string sqlOrderDetails = "SELECT TOP (1000) * FROM[MCGA.TpGrupal].[EventLogging].[Logs] ORDER BY Timestamp desc";
 
 			using var connection = new SqlConnection(Config.GetConnectionString("DefaultConnection"));
 			

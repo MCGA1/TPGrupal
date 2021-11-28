@@ -12,6 +12,7 @@ using Brazo.API.Booststrapper;
 using Brazo.API.Logger;
 using Brazo.Core.Management;
 using Brazo.Core.Contracts;
+using Brazo.Core.Jobs;
 
 namespace Brazo.API
 {
@@ -68,8 +69,11 @@ namespace Brazo.API
 					//builder.AddSerilog(dispose: true);
 				});
 
-				c.AddSingleton<GloblaSystemInformation>();
+				c.AddHostedService<BrazoJob>();
+				c.AddSingleton<GlobalSystemInformation>();
 				c.AddSingleton<IBrazoManagement, BrazoManagement>();
+				c.AddSingleton<ICintaManagement, CintaManagement>();
+				c.AddSingleton<IPrensaManagement, PrensaManagement>();
 			});
 		}
 

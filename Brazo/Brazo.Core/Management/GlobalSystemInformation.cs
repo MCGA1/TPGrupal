@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Brazo.Core.Management
 {
-	public class GloblaSystemInformation
+	public class GlobalSystemInformation
 	{
 		public APIConfiguration Config { get; set; }
 
 		public ServiceStatus Status { get; set; }
 
-		public GloblaSystemInformation(IConfiguration config)
+		public GlobalSystemInformation(IConfiguration config)
 		{
-			Config = new APIConfiguration();
+			Config = new APIConfiguration() { Estado = ServiceStatus.Running};
 			config.GetSection("APIConfiguration").Bind(Config);
 
 			Status = ServiceStatus.Running;
