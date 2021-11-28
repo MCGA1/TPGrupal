@@ -1,3 +1,4 @@
+using CommonServices.Port;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,11 +10,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static CommonServices.Port.PortServiceStatus;
 
 namespace CintaApi
 {
-    public class Program
+    public static class Program
     {
+          static Program()
+        {
+          
+        }
+
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -21,8 +28,13 @@ namespace CintaApi
         .Build(); 
 
 
+     
+
         public static void Main(string[] args)
         {
+
+
+
             Log.Logger = new LoggerConfiguration()
                .Enrich.WithThreadId()
                .Enrich.WithThreadName()

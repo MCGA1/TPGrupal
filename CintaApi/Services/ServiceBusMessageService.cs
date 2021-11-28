@@ -1,6 +1,7 @@
 ﻿using CintaApi.Extensions;
 using CintaApi.Interfaces;
 using CintaApi.Models;
+using CommonServices.Context;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -19,10 +20,11 @@ namespace CintaApi.Services
     {
         private static BackgroundWorker _backgroundWorker;
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
+        private  static int _number = 10;
+        private static  int _defaultPort = 5001;
 
         static ServiceBusMessageService()
         {
-
         }
 
         public static void Init()
@@ -35,6 +37,12 @@ namespace CintaApi.Services
         }
 
 
+        public static Task SetVelocity(int number)
+        {
+            _number = number;
+            return Task.CompletedTask;
+        }
+
         public static void PonerBulto(object obj, DoWorkEventArgs args)
         {
             queue.Dequeue();
@@ -46,11 +54,41 @@ namespace CintaApi.Services
             await Task.Run(() => queue.Enqueue(entity));
         }
 
+        public static Task IntitializeProcess()
+        {
+            Init();
+            return Task.CompletedTask;
+        }
+
+        public static Task StopProcess()
+        {
+            if (_backgroundWorker.CancellationPending==false)
+            {
+                _backgroundWorker.CancelAsync();
+            }
+
+            return Task.CompletedTask;
+        }
+
         public static async Task PonerBulto(IEnumerable<Bulto> entity)
         {
+
             foreach (var item in entity)
             {
                 queue.Enqueue(item);
+
+
+                var bulto = new BultoIngresado()
+                {
+                    Id = item.Id,
+                    Nombre = item.Nombre,
+                    Peso = item.Peso,
+                    Enviado = false
+                };
+
+
+                BultoIngresadoService.SaveBultoIngresado(bulto);
+
 
             }
             await Task.Delay(1);
@@ -67,16 +105,12 @@ namespace CintaApi.Services
             {
                 Log.Information("buscando bultos");
                 await Task.Delay(1000);
-
                 {
                     channel.QueueDeclare(queue: Contants.GetQueueName(), durable: true, exclusive: false, autoDelete: false, arguments: null);
 
                     //-> Mensaje
 
                     var items = queue.Dequeue();
-
-
-
 
                     if (items == null)
                     {
@@ -86,10 +120,13 @@ namespace CintaApi.Services
                     }
                     Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
-                    var bulto = JsonConvert.SerializeObject(items);
+                    BultoIngresadoService.UpdateBultoIngresado(items.Id);
 
 
-                    var body = Encoding.UTF8.GetBytes(bulto);
+                    var json  = JsonConvert.SerializeObject(items);
+
+
+                    var body = Encoding.UTF8.GetBytes(json);
 
                     //-> Enviamos el mensaje
                     channel.BasicPublish(exchange: "", routingKey: Contants.GetQueueName(), basicProperties: null, body: body);
@@ -167,6 +204,15 @@ namespace CintaApi.Services
                 return queueBultos;
             }
         }
+
+        public static Uri FormatUrl(int portNumber)
+        {
+            var port= _defaultPort = portNumber;
+
+
+            return new Uri($"http://localhost:{port}/");
+        }
+           
 
     }
 }
