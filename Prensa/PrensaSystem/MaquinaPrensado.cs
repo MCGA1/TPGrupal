@@ -8,18 +8,21 @@ using Serilog;
 using NetMQ.Sockets;
 using NetMQ;
 using System.Threading;
+using CommonServices.Entities.Enum;
 
 namespace Prensa.PrensaSystem
 {
     public static class MaquinaPrensado
     {
-        static RequestSocket signaler;
-
         public delegate void ActiveSignalEventHandler(Señal signal);
-        static event ActiveSignalEventHandler ActiveSensorSignal;
+        public static event ActiveSignalEventHandler ActiveSensorSignal;
 
-        public delegate void PassiveSignalEventHandler(bool state);
-        static event PassiveSignalEventHandler PassiveSensorSignal;
+        public  delegate void PassiveSignalEventHandler(bool state);
+        public static event PassiveSignalEventHandler PassiveSensorSignal;
+
+        const int DefaultSpeed = 2000;
+        static int OverrideSpeed = 0;
+
 
         private static bool Estado
         {
@@ -53,34 +56,43 @@ namespace Prensa.PrensaSystem
             PassiveSensorSignal += SensorPasivo.SetState;
         }
 
-        public static Bulto CurrentBulto { get; set; }
-      
-        public static async Task<BultoProcesado> Prensar(Bulto bulto)
+        private static Bulto CurrentBulto { get; set; }
+        private static BultoProcesado CurrentBultoProcesado { get; set; }
+
+        public static async Task Prensar()
         {
+            var speed = DefaultSpeed == 2000 ? DefaultSpeed : OverrideSpeed;
+          
             PassiveSensorSignal(false);
             ActiveSensorSignal(new Señal(false));
 
             Log.Information("Prensa: Prensando...");
-            Thread.Sleep(1000);
+            Thread.Sleep(speed);
             
 
             Log.Information("Prensa: Bulto procesado, levantando prensa...");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
+            Log.Information("Prensa: Prensa levantada, enviando señal al sensor activo...");
             ActiveSensorSignal(new Señal(true));
-            Log.Information("Prensa: Prensa levantada, moviendo bulto...");
-            Thread.Sleep(1000);
 
             PassiveSensorSignal(true);
 
 
-            return new BultoProcesado(bulto);
+
+            CurrentBultoProcesado = new BultoProcesado(CurrentBulto);
+            CurrentBulto = null;
 
         }
 
-        public static async Task StoreBulto(Bulto bulto)
+        public static async Task<BultoProcesado> RemoveBulto()
         {
+            return CurrentBultoProcesado;
+        }
 
+        public static async void StoreBulto(Bulto bulto)
+        {
+            CurrentBulto = bulto;
         }
 
         public static bool GetEstado()
@@ -89,6 +101,12 @@ namespace Prensa.PrensaSystem
         }
 
        
+        public static void SetSpeed(int milisSeconds)
+        {
+            OverrideSpeed = milisSeconds;
+        }
+
+
 
     }
 }

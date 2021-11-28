@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prensa.PrensaSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,22 +8,22 @@ namespace Prensa.SensoresSystem
 {
     public static class SensorPasivo
     {
-        private static bool _state = true;
-        public static bool State
+
+        private static bool State { get; set; }
+
+        static SensorPasivo() 
         {
-            get
-            {
-                return _state;
-            }
-            set
-            {
-                _state = value;
-            }
+            MaquinaPrensado.PassiveSensorSignal += SetState;
         }
 
         public static void SetState(bool state)
         {
             State = state;
+        }
+
+        public static bool GetStatus()
+        {
+            return State;
         }
 
     }

@@ -15,6 +15,7 @@ using Prensa.SensoresSystem;
 using NetMQ.Sockets;
 using NetMQ;
 using System.Threading;
+using CommonServices.Entities.Enum;
 
 namespace Prensa.Controllers
 {
@@ -24,12 +25,16 @@ namespace Prensa.Controllers
         static readonly string _consumerQueue;
         static bool _state = true;
         static CancellationTokenSource cts = new CancellationTokenSource();
+        
 
         public static bool State
         {
             get
             {
-                return _state;
+                return (worker != null && !worker.CancellationPending && worker.IsBusy) ? true
+                    : (worker == null) ? false
+                    : (worker.CancellationPending) ? false
+                    : (!worker.IsBusy) ? false : true;
             }
             set
             {
@@ -100,6 +105,8 @@ namespace Prensa.Controllers
                 {
                     try
                     {
+
+
                         Log.Information("Esperando que el sensor activo esté listo...");
                         activesensor = await SensorActivoCommunicator.GetStatus();
                         if (SensorPasivo.State && activesensor)
@@ -153,7 +160,6 @@ namespace Prensa.Controllers
 
         }
 
-
         private static async Task<Bulto> ParseBulto(BasicGetResult result)
         {
             if (result == null)
@@ -179,9 +185,13 @@ namespace Prensa.Controllers
             BultoControl.LlevarBultoALaPila(bulto);
         }
 
-
-
-
+        public static void SetStatus(ServiceStatus status)
+        {
+            if(status == ServiceStatus.Running)
+                worker.RunWorkerAsync();
+            else if(status == ServiceStatus.Stopped)
+                worker.CancelAsync();
+        }
 
     }
 }
