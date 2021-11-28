@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Managent
 {
@@ -91,9 +92,5 @@ namespace APIGateway.Managent
 		};
 	}
 
-	public enum ServiceType {
-		Cinta,
-		Brazo,
-		Prensa
-	}
+
 }

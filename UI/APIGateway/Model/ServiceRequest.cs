@@ -1,4 +1,5 @@
 ﻿using APIGateway.Managent;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Model
 {
