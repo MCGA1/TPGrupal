@@ -5,6 +5,54 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Package/{type}": {
+      "get": {
+        "tags": [
+          "Package"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/ServiceType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PackageItem"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PackageItem"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PackageItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Report": {
       "get": {
         "tags": [
@@ -260,6 +308,24 @@
   },
   "components": {
     "schemas": {
+      "ServiceType": {
+        "enum": [
+          "Cinta",
+          "Brazo",
+          "Prensa"
+        ],
+        "type": "string"
+      },
+      "PackageItem": {
+        "type": "object",
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "Report": {
         "type": "object",
         "properties": {
@@ -297,14 +363,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ServiceType": {
-        "enum": [
-          "Cinta",
-          "Brazo",
-          "Prensa"
-        ],
-        "type": "string"
       },
       "ServiceStatus": {
         "enum": [

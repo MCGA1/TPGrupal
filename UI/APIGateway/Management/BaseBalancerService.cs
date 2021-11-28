@@ -1,9 +1,11 @@
 ﻿using APIGateway.Contracts;
 using APIGateway.Exceptions;
+using APIGateway.Model.DTO;
 using CommonServices.Entities;
 using CommonServices.Entities.Enum;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace APIGateway.Management
@@ -29,6 +31,8 @@ namespace APIGateway.Management
 		public abstract Task SendStatusRequest(ServiceStatus status);
 
 		public abstract Task<ServiceStatus> GetStatusRequest();
+
+		public abstract Task<IEnumerable<PackageItem>> ListPackages();
 
 		public async Task SetConfiguration(APIConfiguration item)
 		{
@@ -87,5 +91,6 @@ namespace APIGateway.Management
 		{
 			return Name;
 		}
+
 	}
 }

@@ -1,39 +1,56 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UserInterface.Models.DTO;
 
 namespace UserInterface.Controllers
 {
 	public class VisualizationController : Controller
 	{
+		private APIGatewayService _service;
+		private ILogger<VisualizationController> _logger;
+
+		public VisualizationController(ILogger<VisualizationController> logger, APIGatewayService service)
+		{
+			_service = service;
+			_logger = logger;
+		}
+
 		public IActionResult Index()
 		{
 			return View();
 		}
 
-		public ActionResult ReadData()
+		public async Task<ActionResult> ReadData()
 		{
-
+			_logger.LogInformation("Reading data for visualization");
+			
+			
 			return Json(new
 			{
-				ingresados = GetFooData(),
-				enproceso = GetFooData(),
-				apilados = GetFooData()
+				ingresados = await GetItemsByType(ServiceType.Cinta),
+				enproceso = await GetItemsByType(ServiceType.Brazo),
+				apilados = await GetItemsByType(ServiceType.Prensa)
 			});
 		}
 
-		public IList<PackageItem> GetFooData()
-		{ 
-			Random r = new Random();
-			var result = new List<PackageItem>();
-			var count = r.Next(1, 40);
-			for (int i = 0; i < count; i++)
+		public async Task<IList<PackageItem>> GetItemsByType(ServiceType type)
+		{
+			try
 			{
-				result.Add(new PackageItem() {  CreationDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, r.Next(24), r.Next(60), r.Next(60)) });
-			}
+				_logger.LogInformation($"Getting data by type [{type}]");
 
-			return result;
+				return (await _service.PackageAsync(type)).ToList();
+			}
+			catch (Exception e)
+			{
+				_logger.LogError(e, $"Error getting data from service type [{type}]");
+
+				return new List<PackageItem>();
+			}
 		}
 	}
 }

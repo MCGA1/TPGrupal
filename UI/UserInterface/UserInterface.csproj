@@ -50,12 +50,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="OpenAPIs\swagger.json" ClassName="APIConfiguration" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp" ClassName="APIGatewayService">
-      <SourceUri>https://localhost:5771/swagger/v1/swagger.json</SourceUri>
+    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" ClassName="APIGatewayService">
+      <SourceUri>https://localhost:5001/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
 

@@ -1,4 +1,6 @@
-﻿using CommonServices.Entities;
+﻿using APIGateway.Model.DTO;
+using CommonServices.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace APIGateway.Contracts
@@ -11,5 +13,6 @@ namespace APIGateway.Contracts
 		Task SetConfiguration(APIConfiguration item);
 
 		string GetName();
+		Task<IEnumerable<PackageItem>> ListPackages();
 	}
 }

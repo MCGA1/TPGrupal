@@ -1,8 +1,10 @@
-﻿using CommonServices.Entities;
+﻿using APIGateway.Model.DTO;
+using CommonServices.Entities;
 using CommonServices.Entities.Enum;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -42,6 +44,19 @@ namespace APIGateway.Management
 			string responseBody = await result.Content.ReadAsStringAsync();
 
 			return JsonConvert.DeserializeObject<APIConfiguration>(responseBody);
+		}
+
+		public override async Task<IEnumerable<PackageItem>> ListPackages()
+		{
+			_logger.LogInformation("Get packages from request");
+
+			var result = await _httpClient.GetAsync("api/packages");
+
+			result.EnsureSuccessStatusCode();
+
+			string responseBody = await result.Content.ReadAsStringAsync();
+
+			return JsonConvert.DeserializeObject<IList<PackageItem>>(responseBody);
 		}
 
 		public override async Task<ServiceStatus> GetStatusRequest()

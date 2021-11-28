@@ -28,6 +28,22 @@ namespace Brazo.API.Modules
 			Put("/configuration", UpdateConfiguration, name: "UpdateConfiguration");
 			Get("/status", GetStatus, name: "GetStatus");
 			Post("/status", UpdateStatus, name: "UpdateStatus");
+			Get("/packages", GetPackages, name: "GetPackages");
+		}
+
+		private async Task<object> GetPackages(dynamic arg)
+		{
+			_logger.LogInformation("Processing request - Get packages");
+
+			try
+			{
+				return Response.AsJson(await _service.GetProcessedPackages());
+			}
+			catch (Exception e)
+			{
+				_logger.LogError(e, "Error getting the package list");
+				return Negotiate.WithStatusCode(HttpStatusCode.InternalServerError).WithModel(e.Message);
+			}
 		}
 
 		private object GetServiceName(dynamic arg)
