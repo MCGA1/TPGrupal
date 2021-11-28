@@ -65,7 +65,7 @@ namespace APIGateway.Managent
 
 			var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
 
-			var result = await _httpClient.PostAsync($"api/status?value={status}", content);
+			var result = await _httpClient.PostAsync($"api/status?type={status}", content);
 
 			result.EnsureSuccessStatusCode();
 		}

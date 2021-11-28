@@ -8,9 +8,9 @@ namespace Brazo.Core.Management
 {
 	public class BrazoManagement : IBrazoManagement
 	{
-		GloblaSystemInformation SystemInfo;
+		GlobalSystemInformation SystemInfo;
 
-		public BrazoManagement(GloblaSystemInformation serviceManager)
+		public BrazoManagement(GlobalSystemInformation serviceManager)
 		{
 			SystemInfo = serviceManager;
 		}
@@ -22,6 +22,7 @@ namespace Brazo.Core.Management
 
 		public async Task UpdateConfiguration(APIConfiguration config)
 		{
+			SystemInfo.Status = config.Estado;
 			SystemInfo.Config = config;
 		}
 

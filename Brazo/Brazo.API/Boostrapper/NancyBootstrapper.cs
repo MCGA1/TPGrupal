@@ -28,7 +28,7 @@ namespace Brazo.API.Booststrapper
           (c, an) => loggerFactory.CreateLogger<ServiceModule>());
 
       container.Register(Program.Host.Services.GetRequiredService<IBrazoManagement>());
-      container.Register(Program.Host.Services.GetRequiredService<GloblaSystemInformation>());
+      container.Register(Program.Host.Services.GetRequiredService<GlobalSystemInformation>());
     }
 
     protected override void ConfigureApplicationContainer(TinyIoCContainer container)
