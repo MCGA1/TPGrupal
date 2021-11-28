@@ -11,10 +11,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace CintaApi
 {
@@ -41,7 +45,7 @@ namespace CintaApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public async void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
@@ -49,6 +53,10 @@ namespace CintaApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CintaApi", Version = "v1" });
             });
+
+
+            await CallApiGateway(ServiceType.Cinta, "Cinta", SetUrlGateway());
+
 
             // TODO: post al api gateway con servicetype, nombre y url
 
@@ -79,5 +87,30 @@ namespace CintaApi
                 endpoints.MapControllers();
             });
         }
+
+        public async Task CallApiGateway(ServiceType serviceType, string nombre, string url)
+        {
+            var client = new HttpClient();
+
+            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+            keyValuePairs.Add("serviceType", serviceType.ToString());
+            keyValuePairs.Add("nombre", nombre);
+            keyValuePairs.Add("url", url);
+
+
+            var json = JsonConvert.SerializeObject(keyValuePairs);
+
+
+            var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+
+            await client.PostAsync(url, stringContent).ConfigureAwait(false);
+
+
+        }
+
+        private static string SetUrlGateway() => $"https://localhost:5011";
+
+
     }
 }
