@@ -21,6 +21,11 @@
 				<input type="hidden" asp-for="@Model[i].Items[j].Name"/>
 				<div class="configuration-row">
 					<div class="config-row">
+						<label>Nombre </label>
+						<label>@Model[i].Items[j].Name</label>
+					</div>
+
+					<div class="config-row">
 						<label asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento">Tiempo De Procesamiento </label>
 						<input asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento" />
 					</div>
@@ -40,6 +45,10 @@
 						@for (var k = 0; k < Model[i].Items[j].Config.Sensores.Length; k++)
 						{
 							<input type="hidden" asp-for="@Model[i].Items[j].Config.Sensores[k].Nombre"/>
+							<div class="config-row">
+								<label>Nombre </label>
+								<label>@Model[i].Items[j].Config.Sensores[k].Nombre</label>
+							</div>
 
 							<div class="config-row">
 								<label asp-for="@Model[i].Items[j].Config.Sensores[k].TiempoDeProcesamiento">Tiempo De Procesamiento </label>
