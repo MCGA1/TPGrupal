@@ -10,7 +10,6 @@ namespace Prensa.SensoresSystem
 
         static BackgroundWorker _sensorWorker;
         static RouterSocket server;
-        static NetMQPoller _poller;
 
         private static bool _state = true;
         private static bool State
