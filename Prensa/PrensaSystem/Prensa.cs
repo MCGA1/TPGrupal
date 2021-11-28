@@ -7,6 +7,7 @@ using CommonDomain;
 using Serilog;
 using NetMQ.Sockets;
 using NetMQ;
+using System.Threading;
 
 namespace Prensa.PrensaSystem
 {
@@ -60,14 +61,15 @@ namespace Prensa.PrensaSystem
             ActiveSensorSignal(new Señal(false));
 
             Log.Information("Prensa: Prensando...");
-            await Task.Delay(1000).ConfigureAwait(false);
+            Thread.Sleep(1000);
+            
 
             Log.Information("Prensa: Bulto procesado, levantando prensa...");
-            await Task.Delay(1000).ConfigureAwait(false);
+            Thread.Sleep(1000);
 
             ActiveSensorSignal(new Señal(true));
             Log.Information("Prensa: Prensa levantada, moviendo bulto...");
-            await Task.Delay(1000).ConfigureAwait(false);
+            Thread.Sleep(1000);
 
             PassiveSensorSignal(true);
 

@@ -34,7 +34,7 @@ namespace Prensa
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Prensa", Version = "v1" });
             });
 
-
+            // TODO: post al api gateway con servicetype, nombre y url
 
             SensorActivoServer.Init();
 

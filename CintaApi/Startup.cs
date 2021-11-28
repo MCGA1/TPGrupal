@@ -50,6 +50,7 @@ namespace CintaApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CintaApi", Version = "v1" });
             });
 
+            // TODO: post al api gateway con servicetype, nombre y url
 
             ServiceBusMessageService.Init();
 
