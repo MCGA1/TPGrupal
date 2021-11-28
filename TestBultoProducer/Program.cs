@@ -15,7 +15,6 @@ namespace TestBultoProducer
     {
         static BackgroundWorker worker = new BackgroundWorker();
         static bool killpending = false;
-        static bool paused = false;
 
         static void Main(string[] args)
         {

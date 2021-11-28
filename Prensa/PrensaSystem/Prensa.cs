@@ -5,21 +5,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using CommonDomain;
 using Serilog;
+using NetMQ.Sockets;
+using NetMQ;
 
 namespace Prensa.PrensaSystem
 {
     public static class MaquinaPrensado
-    {       
-        private static bool Estado 
+    {
+        static RequestSocket signaler;
+
+        public delegate void ActiveSignalEventHandler(Señal signal);
+        static event ActiveSignalEventHandler ActiveSensorSignal;
+
+        public delegate void PassiveSignalEventHandler(bool state);
+        static event PassiveSignalEventHandler PassiveSensorSignal;
+
+        private static bool Estado
         {
             get
             {
-                return SensorActivo.State;
+                return Task.Run(async () => await SensorActivoCommunicator.GetStatus()).Result;
             }
 
             set
             {
-                SensorActivo.State = value;
+                SensorActivoCommunicator.SendSignal(new Señal(value));
             }
         }
 
@@ -36,12 +46,18 @@ namespace Prensa.PrensaSystem
             }
         }
 
+        static MaquinaPrensado()
+        {
+            ActiveSensorSignal += SensorActivoCommunicator.SendSignal;
+            PassiveSensorSignal += SensorPasivo.SetState;
+        }
+
         public static Bulto CurrentBulto { get; set; }
       
         public static async Task<BultoProcesado> Prensar(Bulto bulto)
         {
-            Libre = false;
-            Estado = false;
+            PassiveSensorSignal(false);
+            ActiveSensorSignal(new Señal(false));
 
             Log.Information("Prensa: Prensando...");
             await Task.Delay(1000).ConfigureAwait(false);
@@ -49,14 +65,19 @@ namespace Prensa.PrensaSystem
             Log.Information("Prensa: Bulto procesado, levantando prensa...");
             await Task.Delay(1000).ConfigureAwait(false);
 
+            ActiveSensorSignal(new Señal(true));
             Log.Information("Prensa: Prensa levantada, moviendo bulto...");
             await Task.Delay(1000).ConfigureAwait(false);
 
-            Libre = true;
-            Estado = true;
+            PassiveSensorSignal(true);
 
-            Log.Information("");
+
             return new BultoProcesado(bulto);
+
+        }
+
+        public static async Task StoreBulto(Bulto bulto)
+        {
 
         }
 
@@ -64,6 +85,8 @@ namespace Prensa.PrensaSystem
         {
             return Estado && Libre ? true : false;
         }
+
+       
 
     }
 }

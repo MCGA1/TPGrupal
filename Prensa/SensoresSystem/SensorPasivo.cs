@@ -7,7 +7,7 @@ namespace Prensa.SensoresSystem
 {
     public static class SensorPasivo
     {
-        private static bool _state;
+        private static bool _state = true;
         public static bool State
         {
             get
@@ -18,6 +18,11 @@ namespace Prensa.SensoresSystem
             {
                 _state = value;
             }
+        }
+
+        public static void SetState(bool state)
+        {
+            State = state;
         }
 
     }

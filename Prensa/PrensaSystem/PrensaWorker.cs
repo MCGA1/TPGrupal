@@ -11,6 +11,10 @@ using Prensa.Control;
 using System.Text;
 using CommonDomain;
 using Serilog;
+using Prensa.SensoresSystem;
+using NetMQ.Sockets;
+using NetMQ;
+using System.Threading;
 
 namespace Prensa.Controllers
 {
@@ -19,6 +23,8 @@ namespace Prensa.Controllers
         static readonly ConnectionFactory _connectionFactory;
         static readonly string _consumerQueue;
         static bool _state = true;
+        static CancellationTokenSource cts = new CancellationTokenSource();
+
         public static bool State
         {
             get
@@ -51,7 +57,6 @@ namespace Prensa.Controllers
 
         static PrensaWorker()
         {
-            // Configurar el rabbit
             _connectionFactory = new ConnectionFactory() { HostName = "localhost", DispatchConsumersAsync = true };
             _consumerQueue = "Cinta";
             State = true;
@@ -82,14 +87,34 @@ namespace Prensa.Controllers
         }
 
 
+
         public static async void MainLoop(object sender, DoWorkEventArgs args)
         {
             var channel = await TryConnectToRabbit();
 
-
+            bool activesensor = true;
                  
             while (!worker.CancellationPending)
             {
+                while (true)
+                {
+                    try
+                    {
+                        Log.Information("Esperando que el sensor activo esté listo...");
+                        activesensor = await SensorActivoCommunicator.GetStatus();
+                        if (SensorPasivo.State && activesensor)
+                        {
+                            break;
+                        }
+                    
+                        await Task.Delay(2000);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Information(ex.Message);
+                    }
+                }
+
                 Log.Information("\nBuscando bultos disponibles...");
                 if (channel.MessageCount(_consumerQueue) == 0)
                 {
@@ -100,10 +125,11 @@ namespace Prensa.Controllers
 
                 Log.Information("Worker: Bulto encontrado.");
 
-                //var item = channel.BasicConsume(_consumerQueue, autoAck: true, consumer);
-                BasicGetResult result = channel.BasicGet(_consumerQueue, true);
+                BasicGetResult result = channel.BasicGet(_consumerQueue, false);
+                
                 var bulto = await ParseBulto(result);
                 Log.Information("Worker: Bulto recibido.");
+
 
 
                 var _bultoProcesado = await MaquinaPrensado.Prensar(bulto);
@@ -111,8 +137,8 @@ namespace Prensa.Controllers
 
                 try
                 {
-                    // TODO: Guardar bulto en base de datos
                     await GuardarBultoProcesado(_bultoProcesado);
+                    channel.BasicAck(result.DeliveryTag, false);
                     Log.Information("Bulto procesado guardado.");
                 }
                 catch (Exception ex)
@@ -122,7 +148,7 @@ namespace Prensa.Controllers
                 }
 
 
-                await Task.Delay(1000);
+                await Task.Delay(2000);
             }
 
         }

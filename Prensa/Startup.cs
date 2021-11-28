@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Prensa.Controllers;
+using Prensa.SensoresSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +36,10 @@ namespace Prensa
 
 
 
+            SensorActivoServer.Init();
 
             PrensaWorker.State = true;
+
 
         }
 
