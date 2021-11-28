@@ -1,6 +1,7 @@
 using CintaApi.Interfaces;
 using CintaApi.Models;
 using CintaApi.Services;
+using CommonServices.Port;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,9 +20,22 @@ namespace CintaApi
 {
     public class Startup
     {
+
+
         public Startup(IConfiguration configuration)
+
         {
+
+
+           if(PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_HTTPS_PORT"] = PortServiceStatus.FreeTcpPort().ToString();
+
+            if (PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_URLS"] =$"https://localhost:{PortServiceStatus.FreeTcpPort()}";
+
+
             Configuration = configuration;
+
+
+
         }
 
         public IConfiguration Configuration { get; }
@@ -44,6 +58,8 @@ namespace CintaApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

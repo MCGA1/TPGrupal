@@ -19,6 +19,7 @@ namespace CintaApi.Services
         private static BackgroundWorker _backgroundWorker;
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
         private  static int _number = 10;
+        private static  int _defaultPort = 5001;
 
         static ServiceBusMessageService()
         {
@@ -51,6 +52,22 @@ namespace CintaApi.Services
             await Task.Run(() => queue.Enqueue(entity));
         }
 
+        public static Task IntitializeProcess()
+        {
+            Init();
+            return Task.CompletedTask;
+        }
+
+        public static Task StopProcess()
+        {
+            if (_backgroundWorker.CancellationPending==false)
+            {
+                _backgroundWorker.CancelAsync();
+            }
+
+            return Task.CompletedTask;
+        }
+
         public static async Task PonerBulto(IEnumerable<Bulto> entity)
         {
             foreach (var item in entity)
@@ -71,7 +88,7 @@ namespace CintaApi.Services
             while (_backgroundWorker.CancellationPending == false)
             {
                 Console.WriteLine("buscando bultos");
-                await Task.Delay(_number);
+                await Task.Delay(1000);
                 {
                     channel.QueueDeclare(queue: Contants.GetQueueName(), durable: true, exclusive: false, autoDelete: false, arguments: null);
 
@@ -171,6 +188,15 @@ namespace CintaApi.Services
                 return queueBultos;
             }
         }
+
+        public static Uri FormatUrl(int portNumber)
+        {
+            var port= _defaultPort = portNumber;
+
+
+            return new Uri($"http://localhost:{port}/");
+        }
+           
 
     }
 }

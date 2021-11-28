@@ -1,6 +1,7 @@
 ﻿using CintaApi.Interfaces;
 using CintaApi.Models;
 using CintaApi.Services;
+using CommonServices.Context;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace CintaApi.Controllers
 
             await ServiceBusMessageService.PonerBulto(bulto);
 
+            BultoIngresadoService.SaveBultoIngresado();
+
         }
 
         [HttpGet("individual/{bultoId}")]
@@ -52,6 +55,30 @@ namespace CintaApi.Controllers
         {
             await ServiceBusMessageService.SetVelocity(speed).ConfigureAwait(false);
         }
+
+        [HttpPost("InitializeProcess")]
+        public  Task InitializeProcess()
+        {
+            ServiceBusMessageService.IntitializeProcess();
+            return Task.CompletedTask;
+        }
+
+
+        [HttpPost("StopCintaProcess")]
+        public Task StopCintaProcess()
+        {
+            ServiceBusMessageService.StopProcess();
+            return Task.CompletedTask;
+        }
+
+        [HttpGet("url")]
+        public Uri GetUrl()
+        {
+            return  ServiceBusMessageService.FormatUrl(5001);
+        }
+
+
+
 
     }
 }
