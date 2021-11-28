@@ -37,7 +37,7 @@
 						<div class="config-row">
 							<label>Sensores </label>
 						</div>
-						@for (var k = 0; k < Model[i].Items[j].Config.Sensores.Count; k++)
+						@for (var k = 0; k < Model[i].Items[j].Config.Sensores.Length; k++)
 						{
 							<input type="hidden" asp-for="@Model[i].Items[j].Config.Sensores[k].Nombre"/>
 
