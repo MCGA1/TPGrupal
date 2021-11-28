@@ -27,6 +27,7 @@ namespace Brazo.API.Booststrapper
       container.Register<ILogger<ServiceModule>>(
           (c, an) => loggerFactory.CreateLogger<ServiceModule>());
 
+      container.Register(Program.Host.Services.GetRequiredService<IDataAccessService>());
       container.Register(Program.Host.Services.GetRequiredService<IBrazoManagement>());
       container.Register(Program.Host.Services.GetRequiredService<GlobalSystemInformation>());
     }

@@ -8,17 +8,17 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIGateway.Managent
+namespace APIGateway.Management
 {
-	public class CintaService : BaseBalancerService
+	public class PrensaService : BaseBalancerService
 	{
 		ILogger _logger;
 
 		string _url;
 
-	  HttpClient _httpClient;
+		HttpClient _httpClient;
 
-		public CintaService(ILogger logger, string url, string name):base(logger, name)
+		public PrensaService(ILogger logger, string url, string name) : base(logger, name)
 		{
 			_logger = logger;
 			_url = url;
@@ -50,9 +50,9 @@ namespace APIGateway.Managent
 
 			var result = await _httpClient.GetAsync("api/status");
 
-			if(result.IsSuccessStatusCode)
+			if (result.IsSuccessStatusCode)
 				return ServiceStatus.Running;
-			else if(result.StatusCode == System.Net.HttpStatusCode.Locked)
+			else if (result.StatusCode == System.Net.HttpStatusCode.Locked)
 				return ServiceStatus.Stopped;
 			else result.EnsureSuccessStatusCode();
 

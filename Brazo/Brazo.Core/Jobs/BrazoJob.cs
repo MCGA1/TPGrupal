@@ -1,11 +1,13 @@
 ﻿using Brazo.Core.Contracts;
 using Brazo.Core.Management;
+using Brazo.Core.Model;
 using CommonDomain;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,17 +18,24 @@ namespace Brazo.Core.Jobs
 	{
 		public override string Name => "Servicio de procesamiento del Brazo";
 
-		ILogger<BrazoJob> _logger;
 		IBrazoManagement _brazoService;
-		ICintaManagement _cintaService;
 		IPrensaManagement _prensaService;
+		IDataAccessService _dataAccess;
 
-		public BrazoJob(ILogger<BrazoJob> logger, IBrazoManagement brazoService, ICintaManagement cintaService, IPrensaManagement prensaService) : base(logger)
+		JobConfig _config;
+		ConnectionFactory _factory;
+
+		public BrazoJob(ILogger<BrazoJob> logger, IConfiguration config, IBrazoManagement brazoService, IPrensaManagement prensaService, IDataAccessService dataAccess) : base(logger)
 		{
-			_logger = logger;
 			_brazoService = brazoService;
-			_cintaService = cintaService;
 			_prensaService = prensaService;
+			_dataAccess = dataAccess;
+
+			_config = new();
+			config.GetSection("JobConfig").Bind(_config);
+
+			_factory = new ConnectionFactory() { HostName = _config.HostName };
+			
 		}
 
 		public override async Task RunAsync(CancellationToken stoppingToken)
@@ -34,10 +43,12 @@ namespace Brazo.Core.Jobs
 			try
 			{
 				_logger.LogInformation("Starting brazo package proces");
+				using var connection = _factory.CreateConnection();
+				using var channel = connection.CreateModel();
 
 				while (!stoppingToken.IsCancellationRequested)
 				{
-					await ProcessPackage();
+					await ProcessPackage(connection, channel);
 				}
 			}
 			catch (Exception e)
@@ -46,31 +57,43 @@ namespace Brazo.Core.Jobs
 			}
 		}
 
-		private async Task ProcessPackage()
+		private async Task ProcessPackage(IConnection connection, IModel channel)
 		{
 			var config = await _brazoService.GetConfiguration();
 
 			try
 			{
-				_logger.LogInformation("Checking data from MQ");
-
-				//read mq (cinta)
-				var bulto = await _cintaService.GetPackage();
-
-				if (bulto == null)
+				if (config.Estado == CommonServices.Entities.Enum.ServiceStatus.Stopped)
 				{
-					await Task.Delay(2000); //safety sleep
+					_logger.LogInformation("The Brazo service is stopped");
+					await Task.Delay(2000);
+
 					return;
 				}
 
-				//process data(opening) (sleep)
+				_logger.LogInformation("Checking data from MQ");
+
+				channel.QueueDeclare(queue: _config.QueueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
+
+				if (channel.MessageCount(_config.QueueName) == 0)
+				{
+					await Task.Delay(2000);
+					_logger.LogInformation("The Queue is empty safety sleep");
+					return;
+				}
+				BasicGetResult result;
+				Bulto bulto;
+				(bulto, result) = await GetBulto(channel);
+
+				_logger.LogInformation($"new package to be processed. Name[{bulto.Nombre}] ");
+
 				_logger.LogInformation($"Processing package. Waiting [{config.TiempoDeProcesamiento}] ms");
 				await Task.Delay(config.TiempoDeProcesamiento);
 
-				await SaveData(bulto);
 				await _prensaService.SendPackage(bulto);
-				await _cintaService.ProcessPackage();
-				
+				await _dataAccess.SavePackage(bulto);
+
+				channel.BasicAck(result.DeliveryTag, false);
 			}
 			catch (Exception e)
 			{
@@ -79,17 +102,16 @@ namespace Brazo.Core.Jobs
 
 		}
 
-		private async Task SaveData(Bulto package)
+		private async Task<(Bulto bulto, BasicGetResult result)> GetBulto(IModel channel)
 		{
-			/*
-			string sqlOrderDetails = "SELECT TOP (1000) * FROM[MCGA.TpGrupal].[EventLogging].[Logs] ORDER BY Timestamp desc";
+			var result = channel.BasicGet(_config.QueueName, false);
+			ReadOnlyMemory<byte> body = result.Body;
 
-			using var connection = new SqlConnection(Config.GetConnectionString("DefaultConnection"));
+			var json = Encoding.UTF8.GetString(body.ToArray());
+			var bulto = JsonConvert.DeserializeObject<Bulto>(json);
 
-			var list = connection.Query<Bulto>(sqlOrderDetails).ToList();
-
-			return list;
-			*/
+			return (bulto, result);
 		}
+
 	}
 }

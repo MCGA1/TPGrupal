@@ -71,8 +71,8 @@ namespace Brazo.API
 
 				c.AddHostedService<BrazoJob>();
 				c.AddSingleton<GlobalSystemInformation>();
+				c.AddSingleton<IDataAccessService, DataAccessService>();
 				c.AddSingleton<IBrazoManagement, BrazoManagement>();
-				c.AddSingleton<ICintaManagement, CintaManagement>();
 				c.AddSingleton<IPrensaManagement, PrensaManagement>();
 			});
 		}

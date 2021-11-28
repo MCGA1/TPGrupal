@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace APIGateway.Managent
+namespace APIGateway.Management
 {
 	public abstract class BaseBalancerService : IAPIService
 	{
@@ -31,8 +31,8 @@ namespace APIGateway.Managent
 		public abstract Task<ServiceStatus> GetStatusRequest();
 
 		public async Task SetConfiguration(APIConfiguration item)
-		{ 
-			if(item.Estado != _status) await SetStatus(item.Estado);
+		{
+			if (item.Estado != _status) await SetStatus(item.Estado);
 
 			await UpdateConfigurationRequest(item);
 		}
@@ -85,7 +85,7 @@ namespace APIGateway.Managent
 
 		public string GetName()
 		{
-			return this.Name;
+			return Name;
 		}
 	}
 }

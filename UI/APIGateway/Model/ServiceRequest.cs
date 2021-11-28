@@ -1,8 +1,8 @@
-﻿using APIGateway.Managent;
+﻿using APIGateway.Management;
 
 namespace APIGateway.Model
 {
-  public class ServiceRequest
+	public class ServiceRequest
   {
     public ServiceType Type { get; set; }
 

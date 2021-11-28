@@ -1,5 +1,5 @@
 ﻿using APIGateway.Contracts;
-using APIGateway.Managent;
+using APIGateway.Management;
 using APIGateway.Model;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace APIGateway.Controllers
 {
-  [Route("api/[controller]")]
+	[Route("api/[controller]")]
 	[ApiController]
 	public class ServicesController : ControllerBase
 	{

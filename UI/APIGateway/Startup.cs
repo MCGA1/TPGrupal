@@ -1,4 +1,3 @@
-using APIGateway.Managent;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +18,7 @@ using System.Reflection;
 using APIGateway.Contracts;
 using APIGateway.Model;
 using System.Text.Json.Serialization;
+using APIGateway.Management;
 
 namespace APIGateway
 {

@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIGateway.Managent
+namespace APIGateway.Management
 {
-	public class LoadBalancer<T> where T: BaseBalancerService
+	public class LoadBalancer<T> where T : BaseBalancerService
 	{
 		ILogger<LoadBalancer<T>> _logger;
 

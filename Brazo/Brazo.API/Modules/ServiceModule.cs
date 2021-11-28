@@ -109,5 +109,22 @@ namespace Brazo.API.Modules
 				return Negotiate.WithStatusCode(HttpStatusCode.InternalServerError).WithModel(e.Message);
 			}
 		}
+
+		private async Task<object> GetProcessedPackage(dynamic arg)
+		{
+			_logger.LogInformation("Processing request - Get processed packages");
+
+			try
+			{
+				var items = await _service.GetProcessedPackages();
+
+				return Negotiate.WithStatusCode(HttpStatusCode.OK).WithModel(items);
+			}
+			catch (Exception e)
+			{
+				_logger.LogError(e, "Error getting package list");
+				return Negotiate.WithStatusCode(HttpStatusCode.InternalServerError).WithModel(e.Message);
+			}
+		}
 	}
 }

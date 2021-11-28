@@ -1,4 +1,4 @@
-﻿using APIGateway.Managent;
+﻿using APIGateway.Management;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
 using System.Collections.Generic;

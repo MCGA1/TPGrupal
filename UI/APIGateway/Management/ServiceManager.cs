@@ -7,7 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace APIGateway.Managent
+namespace APIGateway.Management
 {
 	public class ServiceManager : IServiceManager
 	{
@@ -46,7 +46,7 @@ namespace APIGateway.Managent
 		public async Task<APIConfiguration> GetConfiguration(ServiceType type, string name)
 		{
 			var service = await GetServiceByTypeAndName(type, name);
-			
+
 			return await service.GetConfigurationRequest();
 		}
 
@@ -78,7 +78,7 @@ namespace APIGateway.Managent
 			var cintaTask = _cinta.GetStatusServices();
 			var brazoTask = _prensa.GetStatusServices();
 			var prensaTask = _brazo.GetStatusServices();
-			
+
 			return (await cintaTask).Concat(await brazoTask).Concat(await prensaTask).ToList();
 		}
 
@@ -91,7 +91,8 @@ namespace APIGateway.Managent
 		};
 	}
 
-	public enum ServiceType {
+	public enum ServiceType
+	{
 		Cinta,
 		Brazo,
 		Prensa
