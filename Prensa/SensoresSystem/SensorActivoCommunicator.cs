@@ -67,7 +67,6 @@ namespace Prensa.SensoresSystem
                     Connect();
 
                     client.SendFrame("getstatus");
-                    cts.CancelAfter(5000);
                     response = await Task.Run(() => Convert.ToBoolean(client.ReceiveFrameString()));
 
                     client.Close();
