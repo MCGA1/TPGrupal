@@ -21,7 +21,6 @@ namespace CintaApi.Controllers
 
         }
 
-        // GET: api/<CintaController>
         [HttpPost("PonerBulto")]
         public async Task Poner([FromBody] IEnumerable<Bulto> bulto)
         {
@@ -32,9 +31,6 @@ namespace CintaApi.Controllers
             }
 
             await ServiceBusMessageService.PonerBulto(bulto);
-
-            BultoIngresadoService.SaveBultoIngresado();
-
         }
 
         [HttpGet("individual/{bultoId}")]
@@ -71,10 +67,10 @@ namespace CintaApi.Controllers
             return Task.CompletedTask;
         }
 
-        [HttpGet("url")]
-        public Uri GetUrl()
+        [HttpGet("url/{port}")]
+        public Uri GetUrl(int portNumber)
         {
-            return  ServiceBusMessageService.FormatUrl(5001);
+            return  ServiceBusMessageService.FormatUrl(portNumber);
         }
 
 

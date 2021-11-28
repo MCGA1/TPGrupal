@@ -16,20 +16,21 @@ namespace CommonServices.Context
         }
 
 
-        public static void SaveBultoIngresado ()
+        public static void SaveBultoIngresado (BultoIngresado bultoIngresados)
         {
-            var bulto = new BultoIngresado()
-            {
-                Id = new Guid(),
-                Enviado = true,
-                Nombre = "bulto demo",
-                Peso = 100
-            };
+         
+            _ingresadoContext.BultoIngresados.Add(bultoIngresados);
+            _ingresadoContext.SaveChanges();
 
+        }
 
-               
+        public static void  UpdateBultoIngresado(Guid Id)
+        {
+            var result = _ingresadoContext.BultoIngresados.FirstOrDefault(x => x.Id == Id);
 
-            _ingresadoContext.BultoIngresados.Add(bulto);
+            result.Enviado = true;
+
+            _ingresadoContext.BultoIngresados.Update(result);
             _ingresadoContext.SaveChanges();
 
         }

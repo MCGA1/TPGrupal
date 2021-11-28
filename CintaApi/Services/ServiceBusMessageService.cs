@@ -1,6 +1,7 @@
 ﻿using CintaApi.Extensions;
 using CintaApi.Interfaces;
 using CintaApi.Models;
+using CommonServices.Context;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -70,9 +71,23 @@ namespace CintaApi.Services
 
         public static async Task PonerBulto(IEnumerable<Bulto> entity)
         {
+
             foreach (var item in entity)
             {
                 queue.Enqueue(item);
+
+
+                var bulto = new BultoIngresado()
+                {
+                    Id = item.Id,
+                    Nombre = item.Nombre,
+                    Peso = item.Peso,
+                    Enviado = false
+                };
+
+
+                BultoIngresadoService.SaveBultoIngresado(bulto);
+
 
             }
             await Task.Delay(1);
@@ -96,9 +111,6 @@ namespace CintaApi.Services
 
                     var items = queue.Dequeue();
 
-
-
-
                     if (items == null)
                     {
                         Console.WriteLine("no se encontraron bultos");
@@ -107,10 +119,13 @@ namespace CintaApi.Services
                     }
                     Console.WriteLine("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
-                    var bulto = JsonConvert.SerializeObject(items);
+                    BultoIngresadoService.UpdateBultoIngresado(items.Id);
 
 
-                    var body = Encoding.UTF8.GetBytes(bulto);
+                    var json  = JsonConvert.SerializeObject(items);
+
+
+                    var body = Encoding.UTF8.GetBytes(json);
 
                     //-> Enviamos el mensaje
                     channel.BasicPublish(exchange: "", routingKey: Contants.GetQueueName(), basicProperties: null, body: body);
