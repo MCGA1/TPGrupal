@@ -43,14 +43,14 @@ namespace CintaApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CintaApi", Version = "v1" });
             });
 
+            ServiceBusMessageService.Init();
 
             CallApiGateway(ServiceType.Cinta, "Cinta", SetUrlGateway());
-
 
             // TODO: post al api gateway con servicetype, nombre y url
 
 
-            ServiceBusMessageService.Init();
+            
 
         }
 

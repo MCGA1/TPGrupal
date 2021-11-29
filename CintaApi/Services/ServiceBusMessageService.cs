@@ -119,8 +119,11 @@ namespace CintaApi.Services
                 {
                     if (_paused)
                     {
-                        await Task.Delay(1000);
+                        Log.Information("Cinta pausada.");
+                        await Task.Delay(2000);
+                        continue;
                     }
+                    break;
                 }
 
                 Log.Information("buscando bultos");
