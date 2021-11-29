@@ -6,12 +6,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Prensa.Controllers;
 using Prensa.SensoresSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace Prensa
 {
@@ -35,6 +39,8 @@ namespace Prensa
             });
 
             // TODO: post al api gateway con servicetype, nombre y url
+
+            CallApiGateway(ServiceType.Prensa, "Prensa", SetUrlGateway());
 
             SensorActivoServer.Init();
 
@@ -62,5 +68,29 @@ namespace Prensa
                 endpoints.MapControllers();
             });
         }
+
+        public void CallApiGateway(ServiceType serviceType, string nombre, string url)
+        {
+            var client = new HttpClient();
+
+            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+            keyValuePairs.Add("serviceType", serviceType.ToString());
+            keyValuePairs.Add("nombre", nombre);
+            keyValuePairs.Add("url", url);
+
+
+            var json = JsonConvert.SerializeObject(keyValuePairs);
+
+
+            var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+
+
+            client.PostAsync(url, stringContent).ConfigureAwait(false);
+
+
+        }
+
+        private static string SetUrlGateway() => $"https://localhost:5010";
+
     }
 }

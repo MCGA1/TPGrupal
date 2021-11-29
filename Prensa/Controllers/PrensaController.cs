@@ -26,7 +26,10 @@ namespace Prensa.Controllers
         }
 
 
+
+
         [HttpPost]
+        [Route("configuration")]
         public object Configuration(APIConfiguration config)
         {
             MaquinaPrensado.SetSpeed(config.TiempoDeProcesamiento);
@@ -37,7 +40,8 @@ namespace Prensa.Controllers
             return HttpStatusCode.OK;
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("Status/{status}")]
         public object Status(ServiceStatus status)
         {
             PrensaWorker.SetStatus(status);
@@ -46,6 +50,7 @@ namespace Prensa.Controllers
         }
 
         [HttpGet]
+        [Route("Status")]
         public object Status()
         {
             Log.Information($"Mensaje de estado respondido.");

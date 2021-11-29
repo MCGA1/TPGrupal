@@ -27,19 +27,8 @@ namespace CintaApi
 
 
         public Startup(IConfiguration configuration)
-
         {
-
-
-           //if(PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_HTTPS_PORT"] = PortServiceStatus.FreeTcpPort().ToString();
-
-           // if (PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_URLS"] =$"https://localhost:{PortServiceStatus.FreeTcpPort()}";
-
-
             Configuration = configuration;
-
-
-
         }
 
         public IConfiguration Configuration { get; }
@@ -59,6 +48,7 @@ namespace CintaApi
 
 
             // TODO: post al api gateway con servicetype, nombre y url
+
 
             ServiceBusMessageService.Init();
 

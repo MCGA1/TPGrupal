@@ -9,9 +9,9 @@ namespace Prensa.SensoresSystem
     public static class SensorPasivo
     {
 
-        private static bool State { get; set; }
+        private static bool State { get; set; } = true;
 
-        private static bool Paused { get; set; }
+        private static bool Paused { get; set; } = false;
 
         static SensorPasivo() 
         {

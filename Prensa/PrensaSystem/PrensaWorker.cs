@@ -26,6 +26,7 @@ namespace Prensa.Controllers
         static bool _state = true;
         static CancellationTokenSource cts = new CancellationTokenSource();
         
+        static bool WorkerIsActive { get; set; }
 
         public static bool State
         {
@@ -40,10 +41,13 @@ namespace Prensa.Controllers
             {
                 _state = value;
 
+                
+
                 if (worker == null)
                 {
                     worker = new BackgroundWorker();
                     worker.DoWork += MainLoop;
+                    worker.WorkerSupportsCancellation = true;
                 }
 
 
@@ -95,6 +99,8 @@ namespace Prensa.Controllers
 
         public static async void MainLoop(object sender, DoWorkEventArgs args)
         {
+            WorkerIsActive = true;
+
             var channel = await TryConnectToRabbit();
 
             bool activesensor = true;
@@ -118,7 +124,7 @@ namespace Prensa.Controllers
 
                         Log.Information("Esperando que el sensor activo esté listo...");
                         activesensor = await SensorActivoCommunicator.GetStatus();
-                        if (SensorPasivo.IsPaused() && SensorPasivo.GetStatus() && activesensor)
+                        if (!SensorPasivo.IsPaused() && SensorPasivo.GetStatus() && activesensor)
                         {
                             break;
                         }
@@ -167,6 +173,8 @@ namespace Prensa.Controllers
                 await Task.Delay(2000);
             }
 
+            WorkerIsActive = false;
+
         }
 
         private static async Task<Bulto> ParseBulto(BasicGetResult result)
@@ -197,10 +205,11 @@ namespace Prensa.Controllers
 
         public static void SetStatus(ServiceStatus status)
         {
-            if(status == ServiceStatus.Running)
-                worker.RunWorkerAsync();
-            else if(status == ServiceStatus.Stopped)
-                worker.CancelAsync();
+            if (status == ServiceStatus.Running && worker != null && !WorkerIsActive)
+                State = true;
+
+            else if (status == ServiceStatus.Stopped && worker != null)
+                State = false;
         }
 
     }
