@@ -25,7 +25,7 @@ namespace Prensa.Control
 
         public static void AgregarBulto(BultoProcesado bulto)
         {
-            CommonServices.Context.BultoStorageService.SaveBultos(bulto);
+            CommonServices.BultoManagementFactory.GetBultoStorageService().SaveBultos(bulto);
         }
     }
 }

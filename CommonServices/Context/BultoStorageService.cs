@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace CommonServices.Context
 {
-    public static class BultoStorageService
+    public class BultoStorageService
     {
 
         //private IConfiguration _configuration;
 
 
-        static BultoStorageService()
+        public BultoStorageService()
         {
             //_configuration = configuration;
         }
 
 
-        public static void SaveBultos(BultoProcesado bultoProcesado)
+        public void SaveBultos(BultoProcesado bultoProcesado)
         {
 
             using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = BultosStorage; Integrated Security = True"))
@@ -32,17 +32,58 @@ namespace CommonServices.Context
                 conn.Open();
 
 
-                string sql = "INSERT INTO [BultosProcesados] ([Id],[Peso],[Nombre],[Fecha]) VALUES(@Id,@Peso ,@Nombre,@Fecha)";
+                string sql = "INSERT INTO [AlmacenBultos] ([Id],[Peso],[Nombre]) VALUES(@Id,@Peso ,@Nombre)";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = bultoProcesado.ID;
-                    cmd.Parameters.Add("@Peso", SqlDbType.Int).Value = bultoProcesado.Peso;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = bultoProcesado.Nombre;
-                    cmd.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = bultoProcesado.Fecha;
+                    //cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = bultoProcesado.ID;
+                    //cmd.Parameters.Add("@Peso", SqlDbType.Int).Value = bultoProcesado.Peso;
 
+                    cmd.Parameters.Add(new SqlParameter("@Id", bultoProcesado.ID));
+                    cmd.Parameters.Add(new SqlParameter("@Peso", bultoProcesado.Peso));
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", bultoProcesado.Nombre));
 
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<PackageItem> GetDateTimes()
+        {
+            var data = new DataTable();
+            var bultoIngresado = new BultoIngresado();
+
+            List<PackageItem> dateTimes = new List<PackageItem>();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+
+            using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = BultosStorage; Integrated Security = True"))
+            {
+
+                conn.Open();
+
+
+                string sql = @"SELECT fecha_ingreso FROM [AlmacenBultos]";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+
+                    da.SelectCommand = cmd;
+                    da.Fill(data);
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    foreach (DataRow item in data.Rows)
+                    {
+                        bultoIngresado.Fecha = Convert.ToDateTime(item["fecha_ingreso"]);
+
+
+                        dateTimes.Add(new PackageItem() { CreationDate = bultoIngresado.Fecha });
+                    }
+
+
+
+                    return dateTimes;
                 }
             }
         }

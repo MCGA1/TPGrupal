@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Prensa.PrensaSystem;
 using CommonServices.Entities.Enum;
 using Serilog;
+using CommonDomain;
 
 namespace Prensa.Controllers
 {
@@ -30,9 +31,9 @@ namespace Prensa.Controllers
         {
             return new APIConfiguration()
             {
-                Estado = PrensaWorker.State ? ServiceStatus.Running : ServiceStatus.Stopped,
+                Estado = PrensaWorker.WorkerIsActive ? ServiceStatus.Running : ServiceStatus.Stopped,
                 TiempoDeProcesamiento = MaquinaPrensado.CurrentSpeed(),
-                Sensores = new SensorConfiguration[] { new SensorConfiguration { Nombre = "Sensor pasivo", Estado = SensoresSystem.SensorPasivo.IsPaused() ? ServiceStatus.Stopped : ServiceStatus.Running } }
+                Sensores = new SensorConfiguration[] { new SensorConfiguration { Nombre = "Sensor pasivo", Estado = SensoresSystem.SensorPasivo.IsPaused ? ServiceStatus.Stopped : ServiceStatus.Running } }
             };
         }
 
@@ -43,7 +44,7 @@ namespace Prensa.Controllers
             MaquinaPrensado.SetSpeed(config.TiempoDeProcesamiento);
             PrensaWorker.SetStatus(config.Estado);
             var item = config.Sensores.FirstOrDefault().Estado;
-            SensoresSystem.SensorPasivo.SetPaused(item == ServiceStatus.Running ? true : false);
+            SensoresSystem.SensorPasivo.SetPaused(item == ServiceStatus.Running ? false : true);
             Log.Information($"\nMensaje de configuracion recibido, parametros: \n- Tiempo de procesamiento: {config.TiempoDeProcesamiento} \n- Estado: {config.Estado} \n- Sensores: {config.Sensores.FirstOrDefault().Estado}");
             
             return HttpStatusCode.OK;
@@ -67,8 +68,8 @@ namespace Prensa.Controllers
         [HttpGet("packages")]
         public object Packages()
         {
-            Log.Information($"Mensaje de estado respondido.");
-            return HttpStatusCode.OK;
+            List<PackageItem> packages = CommonServices.BultoManagementFactory.GetBultoStorageService().GetDateTimes();
+            return packages;
         }
     }
 }

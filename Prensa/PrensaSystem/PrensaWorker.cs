@@ -26,7 +26,7 @@ namespace Prensa.Controllers
         static bool _state = true;
         static CancellationTokenSource cts = new CancellationTokenSource();
         
-        static bool WorkerIsActive { get; set; }
+        public static bool WorkerIsActive { get; private set; }
 
         public static bool State
         {
@@ -113,7 +113,7 @@ namespace Prensa.Controllers
                     {
                         while (true)
                         {
-                            if (SensorPasivo.IsPaused())
+                            if (SensorPasivo.IsPaused)
                             {
                                 Log.Information("Proceso pausado.");
                                 await Task.Delay(2000);
@@ -122,9 +122,10 @@ namespace Prensa.Controllers
                             break;
                         }
 
+
                         Log.Information("Esperando que el sensor activo esté listo...");
                         activesensor = await SensorActivoCommunicator.GetStatus();
-                        if (!SensorPasivo.IsPaused() && SensorPasivo.GetStatus() && activesensor)
+                        if (!SensorPasivo.IsPaused && SensorPasivo.GetStatus() && activesensor)
                         {
                             break;
                         }
@@ -205,7 +206,7 @@ namespace Prensa.Controllers
 
         public static void SetStatus(ServiceStatus status)
         {
-            if (status == ServiceStatus.Running && worker != null && !WorkerIsActive)
+            if (status == ServiceStatus.Running && !WorkerIsActive)
                 State = true;
 
             else if (status == ServiceStatus.Stopped && worker != null)

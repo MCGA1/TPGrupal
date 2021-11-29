@@ -11,17 +11,13 @@ namespace Prensa.SensoresSystem
 
         private static bool State { get; set; } = true;
 
-        private static bool Paused { get; set; } = false;
+        public static bool IsPaused { get; set; } = false;
 
         static SensorPasivo() 
         {
             MaquinaPrensado.PassiveSensorSignal += SetState;
         }
 
-        public static bool IsPaused()
-        {
-            return Paused;
-        }
 
         public static void SetState(bool state)
         {
@@ -35,7 +31,7 @@ namespace Prensa.SensoresSystem
 
         public static void SetPaused(bool status)
         {
-            Paused = status;
+            IsPaused = status;
         }
 
     }

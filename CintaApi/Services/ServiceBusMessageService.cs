@@ -23,13 +23,24 @@ namespace CintaApi.Services
         private static IConfiguration configuration;
         private static BackgroundWorker _backgroundWorker;
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
-        private  static int _number = 10;
-        private static  int _defaultPort = 5001;
-        public static bool _paused=false;
+        public const int DefaultSpeed = 3000;
+        private static int _defaultPort = 5001;
+        public static bool _paused = false;
+
+        static int OverrideSpeed = 0;
+
+        public static int CurrentSpeed
+        {
+            get
+            {
+                return OverrideSpeed == 0 ? DefaultSpeed : OverrideSpeed;
+            }
+        }
+
 
         static ServiceBusMessageService()
         {
-            
+
         }
 
         public static void Init()
@@ -42,19 +53,23 @@ namespace CintaApi.Services
         }
 
 
-        public static bool  SetStatus(ServiceStatus serviceStatus)
+        public static void SetStatus(ServiceStatus serviceStatus)
         {
-            if (serviceStatus==ServiceStatus.Running)
+            if (serviceStatus == ServiceStatus.Running)
             {
-                return true;
+                _paused = false;
             }
-            return false;
+            
+            else
+            {
+                _paused = true;
+            }
         }
 
 
         public static Task SetVelocity(int number)
         {
-            _number = number;
+            OverrideSpeed = number;
             return Task.CompletedTask;
         }
 
@@ -77,7 +92,7 @@ namespace CintaApi.Services
 
         public static Task StopProcess()
         {
-            if (_backgroundWorker.CancellationPending==false)
+            if (_backgroundWorker.CancellationPending == false)
             {
                 _backgroundWorker.CancelAsync();
             }
@@ -99,10 +114,9 @@ namespace CintaApi.Services
                     Nombre = item.Nombre,
                     Peso = item.Peso,
                     Enviado = false,
-                    Fecha=DateTime.Now
                 };
 
-                BultoIngresadoService.SaveBultoIngresado(bulto);
+                CommonServices.BultoManagementFactory.GetBultoIngresadoManager().SaveBultoIngresado(bulto);
 
 
 
@@ -131,7 +145,7 @@ namespace CintaApi.Services
                 }
 
                 Log.Information("buscando bultos");
-                await Task.Delay(1000);
+                await Task.Delay(CurrentSpeed);
                 {
                     channel.QueueDeclare(queue: Contants.GetQueueName(), durable: true, exclusive: false, autoDelete: false, arguments: null);
 
@@ -148,11 +162,11 @@ namespace CintaApi.Services
                     Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
 
-                    BultoIngresadoService.UpdateBultoIngresado(items.Id);
+                    CommonServices.BultoManagementFactory.GetBultoIngresadoManager().UpdateBultoIngresado(items.Id);
 
 
 
-                    var json  = JsonConvert.SerializeObject(items);
+                    var json = JsonConvert.SerializeObject(items);
 
 
                     var body = Encoding.UTF8.GetBytes(json);
@@ -236,12 +250,12 @@ namespace CintaApi.Services
 
         public static Uri FormatUrl(int portNumber)
         {
-            var port= _defaultPort = portNumber;
+            var port = _defaultPort = portNumber;
 
 
             return new Uri($"http://localhost:{port}/");
         }
-           
+
 
     }
 }

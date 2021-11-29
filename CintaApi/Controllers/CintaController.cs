@@ -1,6 +1,8 @@
 ﻿using CintaApi.Interfaces;
 using CintaApi.Models;
 using CintaApi.Services;
+using CommonDomain;
+using CommonServices;
 using CommonServices.Context;
 using CommonServices.Entities;
 using CommonServices.Entities.Enum;
@@ -26,7 +28,7 @@ namespace CintaApi.Controllers
         }
 
         [HttpPost("PonerBulto")]
-        public async Task Poner(IEnumerable<Bulto> bulto)
+        public async Task Poner(IEnumerable<Models.Bulto> bulto)
         {
 
             if (bulto==null)
@@ -62,18 +64,8 @@ namespace CintaApi.Controllers
             return Task.CompletedTask;
         }
 
-     
 
-        [HttpPost]
-        public object Configuration(APIConfiguration config)
-        {
-            ServiceBusMessageService.SetVelocity(config.TiempoDeProcesamiento);
-            ServiceBusMessageService.SetStatus(config.Estado);
-            Log.Information($"\nMensaje de configuracion recibido, parametros: \n- Tiempo de procesamiento: {config.TiempoDeProcesamiento} \n- Estado: {config.Estado}");
-            return HttpStatusCode.OK;
-        }
-
-        [HttpGet("apiconfig/{status}")]
+        [HttpGet("status/{status}")]
         public object Status(ServiceStatus status)
         {
             ServiceBusMessageService.SetStatus(status);
@@ -88,11 +80,44 @@ namespace CintaApi.Controllers
             return HttpStatusCode.OK;
         }
 
-        [HttpGet("Packages")]
 
-        public object ReturnFechas()
+        [HttpGet("configuration")]
+        public object Configuration()
         {
-           return  BultoIngresadoService.GetDateTimes();
+            return new APIConfiguration()
+            {
+                Estado = ServiceBusMessageService._paused ? ServiceStatus.Stopped : ServiceStatus.Running,
+                TiempoDeProcesamiento = ServiceBusMessageService.CurrentSpeed,
+                Sensores = null 
+            };
         }
+
+
+        [HttpPut("configuration")]
+        public object Configuration(APIConfiguration config)
+        {
+            ServiceBusMessageService.SetVelocity(config.TiempoDeProcesamiento);
+            ServiceBusMessageService.SetStatus(config.Estado);
+            Log.Information($"\nMensaje de configuracion recibido, parametros: \n- Tiempo de procesamiento: {config.TiempoDeProcesamiento} \n- Estado: {config.Estado}");
+            return HttpStatusCode.OK;
+        }
+
+        //[HttpPut("status/{type}")]
+        //public object status(ServiceStatus type)
+        //{
+        //    prensaworker.setstatus(type);
+        //    log.information($"mensaje de estado recibido: {type}.");
+        //    return httpstatuscode.ok;
+        //}
+
+
+        [HttpGet("packages")]
+        public object Packages()
+        {
+            List<PackageItem> packages = CommonServices.BultoManagementFactory.GetBultoIngresadoManager().GetDateTimes();
+            return packages;
+        }
+
+
     }
 }

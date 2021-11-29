@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CommonDomain;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,32 +10,39 @@ using System.Threading.Tasks;
 
 namespace CommonServices.Context
 {
-    public static class BultoIngresadoService
+    public class BultoIngresadoService
     {
 
 
-        static BultoIngresadoService()
+        public BultoIngresadoService()
         {
         }
 
 
-        public static void SaveBultoIngresado(BultoIngresado bultoIngresados)
+        public void SaveBultoIngresado(BultoIngresado bultoIngresados)
         {
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source = DESKTOP - JP7JEOE; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
+            using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
             {
 
                 conn.Open();
 
 
-                string sql = "INSERT INTO [BultoIngresado] ([Id],[Enviado],[Peso],[Nombre],[Fecha]) VALUES(@Id,@Enviado,@Peso,@Nombre,@Fecha)";
+                string sql = "INSERT INTO [BultoIngresado] ([Id],[Enviado],[Peso],[Nombre]) VALUES(@Id,@Enviado,@Peso,@Nombre)";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = bultoIngresados.Id;
-                    cmd.Parameters.Add("@Enviado", SqlDbType.Bit).Value = bultoIngresados.Enviado;
-                    cmd.Parameters.Add("@Peso", SqlDbType.Int).Value = bultoIngresados.Peso;
-                    cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = bultoIngresados.Nombre;
-                    cmd.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = bultoIngresados.Fecha;
+                    //cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = bultoIngresados.Id;
+                    //cmd.Parameters.Add("@Enviado", SqlDbType.Bit).Value = bultoIngresados.Enviado;
+                    //cmd.Parameters.Add("@Peso", SqlDbType.Int).Value = bultoIngresados.Peso;
+                    //cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = bultoIngresados.Nombre;
+
+
+                    cmd.Parameters.Add(new SqlParameter("@Id", bultoIngresados.Id));
+                    cmd.Parameters.Add(new SqlParameter("@Enviado", bultoIngresados.Enviado));
+                    cmd.Parameters.Add(new SqlParameter("@Peso", bultoIngresados.Peso));
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", bultoIngresados.Nombre));
+
+                    //cmd.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = bultoIngresados.Fecha;
 
 
                     cmd.CommandType = CommandType.Text;
@@ -45,10 +53,10 @@ namespace CommonServices.Context
 
 
 
-        public static void UpdateBultoIngresado(Guid Id)
+        public void UpdateBultoIngresado(Guid Id)
         {
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source =localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
+            using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
             {
 
                 conn.Open();
@@ -65,12 +73,12 @@ namespace CommonServices.Context
             }
         }
 
-        public static object GetDateTimes()
+        public List<PackageItem> GetDateTimes()
         {
             var data = new DataTable();
             var bultoIngresado = new BultoIngresado();
 
-            List<DateTime> dateTimes = new List<DateTime>();
+            List<PackageItem> dateTimes = new List<PackageItem>();
             SqlDataAdapter da = new SqlDataAdapter();
 
 
@@ -80,7 +88,7 @@ namespace CommonServices.Context
                 conn.Open();
 
 
-                string sql = @"SELECT Fecha FROM   [BultoIngresado]";
+                string sql = @"SELECT Fecha FROM [BultoIngresado]";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
 
@@ -95,7 +103,7 @@ namespace CommonServices.Context
                         bultoIngresado.Fecha = Convert.ToDateTime(item["Fecha"]);
 
 
-                        dateTimes.Add(bultoIngresado.Fecha);
+                        dateTimes.Add(new PackageItem() { CreationDate = bultoIngresado.Fecha });
                     }
 
 
