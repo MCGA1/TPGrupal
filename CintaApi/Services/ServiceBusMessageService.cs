@@ -98,7 +98,8 @@ namespace CintaApi.Services
                     Id = item.Id,
                     Nombre = item.Nombre,
                     Peso = item.Peso,
-                    Enviado = false
+                    Enviado = false,
+                    Fecha=DateTime.Now
                 };
 
                 BultoIngresadoService.SaveBultoIngresado(bulto);
@@ -146,8 +147,8 @@ namespace CintaApi.Services
                     }
                     Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
-                    BultoIngresadoService.UpdateBultoIngresado
-                   (items.Id);
+
+                    BultoIngresadoService.UpdateBultoIngresado(items.Id,DateTime.Now);
 
 
 
