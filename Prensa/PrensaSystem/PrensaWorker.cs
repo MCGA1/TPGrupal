@@ -67,7 +67,7 @@ namespace Prensa.Controllers
         static PrensaWorker()
         {
             _connectionFactory = new ConnectionFactory() { HostName = "localhost", DispatchConsumersAsync = true };
-            _consumerQueue = "Cinta";
+            _consumerQueue = "Prensa";
             State = true;
         }
 
