@@ -31,9 +31,9 @@ namespace CintaApi
         {
 
 
-           if(PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_HTTPS_PORT"] = PortServiceStatus.FreeTcpPort().ToString();
+           //if(PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_HTTPS_PORT"] = PortServiceStatus.FreeTcpPort().ToString();
 
-            if (PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_URLS"] =$"https://localhost:{PortServiceStatus.FreeTcpPort()}";
+           // if (PortServiceStatus.IsBusy(65001)) configuration["ASPNETCORE_URLS"] =$"https://localhost:{PortServiceStatus.FreeTcpPort()}";
 
 
             Configuration = configuration;
@@ -45,7 +45,7 @@ namespace CintaApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public async void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
@@ -55,7 +55,7 @@ namespace CintaApi
             });
 
 
-            await CallApiGateway(ServiceType.Cinta, "Cinta", SetUrlGateway());
+            CallApiGateway(ServiceType.Cinta, "Cinta", SetUrlGateway());
 
 
             // TODO: post al api gateway con servicetype, nombre y url
@@ -88,7 +88,7 @@ namespace CintaApi
             });
         }
 
-        public async Task CallApiGateway(ServiceType serviceType, string nombre, string url)
+        public void CallApiGateway(ServiceType serviceType, string nombre, string url)
         {
             var client = new HttpClient();
 
@@ -104,12 +104,12 @@ namespace CintaApi
             var stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
 
 
-            await client.PostAsync(url, stringContent).ConfigureAwait(false);
+            client.PostAsync(url, stringContent).ConfigureAwait(false);
 
 
         }
 
-        private static string SetUrlGateway() => $"https://localhost:5011";
+        private static string SetUrlGateway() => $"https://localhost:5010";
 
 
     }

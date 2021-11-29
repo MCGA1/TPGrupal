@@ -41,9 +41,9 @@ namespace APIGateway.Controllers
 		}
 
 		[HttpPost]
-		public async Task AddNewService([FromBody] ServiceRequest request)
+		public async Task AddNewService(ServiceType type, string name, string url)
 		{
-			await _service.AddServiceToBalancer(request.Type, request.Name, request.URL);
+			await _service.AddServiceToBalancer(type, name, url);
 		}
 
 		[HttpGet]
