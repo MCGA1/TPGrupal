@@ -98,7 +98,7 @@ namespace TestBultoProducer
                     try
                     {
                         Console.WriteLine("Intentando enviar...");
-                        var response = await client.PostAsync("https://localhost:51800/api/Cinta/PonerBulto", stringContent);
+                        var response = await client.PostAsync("http://localhost:51800/api/Cinta/PonerBulto", stringContent);
 
                         Console.WriteLine("Bulto enviado, esperando respuesta...");
                         responseString = await response.Content.ReadAsStringAsync();

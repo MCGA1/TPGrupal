@@ -22,7 +22,7 @@ namespace CommonServices.Context
         public void SaveBultoIngresado(BultoIngresado bultoIngresados)
         {
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
+            using (SqlConnection conn = new SqlConnection(@"Data Source=MD2V0GMC;Initial Catalog=MCGA.TpGrupal;Integrated Security=True"))
             {
 
                 conn.Open();
@@ -56,7 +56,7 @@ namespace CommonServices.Context
         public void UpdateBultoIngresado(Guid Id)
         {
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source = localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
+            using (SqlConnection conn = new SqlConnection(@"Data Source=MD2V0GMC;Initial Catalog=MCGA.TpGrupal;Integrated Security=True"))
             {
 
                 conn.Open();
@@ -82,7 +82,7 @@ namespace CommonServices.Context
             SqlDataAdapter da = new SqlDataAdapter();
 
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source =localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
+            using (SqlConnection conn = new SqlConnection(@"Data Source=MD2V0GMC;Initial Catalog=MCGA.TpGrupal;Integrated Security=True"))
             {
 
                 conn.Open();
