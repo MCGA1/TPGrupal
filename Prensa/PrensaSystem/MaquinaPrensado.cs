@@ -23,6 +23,18 @@ namespace Prensa.PrensaSystem
         const int DefaultSpeed = 2000;
         static int OverrideSpeed = 0;
 
+        public static int CurrentSpeed()
+        {
+            if(OverrideSpeed != 0)
+            {
+                return OverrideSpeed;
+            }
+            else
+            {
+                return DefaultSpeed;
+            }
+
+        }
 
         private static bool Estado
         {

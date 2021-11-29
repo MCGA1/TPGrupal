@@ -14,7 +14,7 @@ using Serilog;
 namespace Prensa.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PrensaController : ControllerBase
     {
 
@@ -25,11 +25,19 @@ namespace Prensa.Controllers
             _logger = logger;
         }
 
+        [HttpGet("configuration")]
+        public object Configuration()
+        {
+            return new APIConfiguration()
+            {
+                Estado = PrensaWorker.State ? ServiceStatus.Running : ServiceStatus.Stopped,
+                TiempoDeProcesamiento = MaquinaPrensado.CurrentSpeed(),
+                Sensores = new SensorConfiguration[] { new SensorConfiguration { Nombre = "Sensor pasivo", Estado = SensoresSystem.SensorPasivo.IsPaused() ? ServiceStatus.Stopped : ServiceStatus.Running } }
+            };
+        }
 
 
-
-        [HttpPost]
-        [Route("configuration")]
+        [HttpPut("configuration")]
         public object Configuration(APIConfiguration config)
         {
             MaquinaPrensado.SetSpeed(config.TiempoDeProcesamiento);
@@ -37,20 +45,19 @@ namespace Prensa.Controllers
             var item = config.Sensores.FirstOrDefault().Estado;
             SensoresSystem.SensorPasivo.SetPaused(item == ServiceStatus.Running ? true : false);
             Log.Information($"\nMensaje de configuracion recibido, parametros: \n- Tiempo de procesamiento: {config.TiempoDeProcesamiento} \n- Estado: {config.Estado} \n- Sensores: {config.Sensores.FirstOrDefault().Estado}");
+            
             return HttpStatusCode.OK;
         }
 
-        [HttpPost]
-        [Route("Status/{status}")]
-        public object Status(ServiceStatus status)
+        [HttpPost("status/{type}")]
+        public object Status(ServiceStatus type)
         {
-            PrensaWorker.SetStatus(status);
-            Log.Information($"Mensaje de estado recibido: {status}.");
+            PrensaWorker.SetStatus(type);
+            Log.Information($"Mensaje de estado recibido: {type}.");
             return HttpStatusCode.OK;
         }
 
-        [HttpGet]
-        [Route("Status")]
+        [HttpGet("status")]
         public object Status()
         {
             Log.Information($"Mensaje de estado respondido.");

@@ -37,7 +37,7 @@ namespace APIGateway.Management
 		{
 			_logger.LogInformation("Get configuration from request");
 
-			var result = await _httpClient.GetAsync("api/configuration");
+			var result = await _httpClient.GetAsync("api/Cinta/configuration");
 
 			result.EnsureSuccessStatusCode();
 
@@ -50,7 +50,7 @@ namespace APIGateway.Management
 		{
 			_logger.LogInformation("Get packages from request");
 
-			var result = await _httpClient.GetAsync("api/packages");
+			var result = await _httpClient.GetAsync("api/Cinta/packages");
 
 			result.EnsureSuccessStatusCode();
 
@@ -63,7 +63,7 @@ namespace APIGateway.Management
 		{
 			_logger.LogInformation("Get status request");
 
-			var result = await _httpClient.GetAsync("api/status");
+			var result = await _httpClient.GetAsync("api/Cinta/status");
 
 			if (result.IsSuccessStatusCode)
 				return ServiceStatus.Running;
@@ -80,7 +80,7 @@ namespace APIGateway.Management
 
 			var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
 
-			var result = await _httpClient.PostAsync($"api/status?type={status}", content);
+			var result = await _httpClient.PostAsync($"api/Cinta/status?type={status}", content);
 
 			result.EnsureSuccessStatusCode();
 		}
@@ -93,7 +93,7 @@ namespace APIGateway.Management
 
 			var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-			var result = await _httpClient.PutAsync("api/configuration", content);
+			var result = await _httpClient.PutAsync("api/Cinta/configuration", content);
 
 			result.EnsureSuccessStatusCode();
 		}
