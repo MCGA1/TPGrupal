@@ -63,5 +63,12 @@ namespace Prensa.Controllers
             Log.Information($"Mensaje de estado respondido.");
             return HttpStatusCode.OK;
         }
+
+        [HttpGet("packages")]
+        public object Packages()
+        {
+            Log.Information($"Mensaje de estado respondido.");
+            return HttpStatusCode.OK;
+        }
     }
 }
