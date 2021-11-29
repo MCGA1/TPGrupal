@@ -14,6 +14,7 @@ namespace APIGateway
 	{
 		public static void Main(string[] args)
 		{
+			Console.Title = "APIGateway";
 			CreateHostBuilder(args).Build().Run();
 		}
 

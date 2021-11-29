@@ -18,6 +18,8 @@ namespace TestBultoProducer
 
         static void Main(string[] args)
         {
+            Console.Title = "TestBultoProducer";
+
             worker.DoWork += MainLoop;
             worker.WorkerSupportsCancellation = true;
             worker.RunWorkerAsync();

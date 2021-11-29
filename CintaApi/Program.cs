@@ -33,7 +33,7 @@ namespace CintaApi
         public static void Main(string[] args)
         {
 
-
+            Console.Title = "CintaApi";
 
             Log.Logger = new LoggerConfiguration()
                .Enrich.WithThreadId()

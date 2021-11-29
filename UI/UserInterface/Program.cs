@@ -14,6 +14,7 @@ namespace UserInterface
 	{
 		public static void Main(string[] args)
 		{
+			Console.Title = "UserInterfaceHost";
 			CreateHostBuilder(args).Build().Run();
 		}
 

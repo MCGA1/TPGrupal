@@ -24,6 +24,8 @@ namespace Brazo.API
 
 		static void Main(string[] args)
 		{
+			Console.Title = "Brazo Api";
+
 			Serilog.Debugging.SelfLog.Enable(msg => Trace.WriteLine(msg));
 
 			Log.Logger = new LoggerConfiguration()
