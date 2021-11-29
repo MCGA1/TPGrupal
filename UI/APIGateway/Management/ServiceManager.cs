@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Management
 {
@@ -89,12 +90,5 @@ namespace APIGateway.Management
 			ServiceType.Prensa => await _prensa.GetService(name),
 			_ => null
 		};
-	}
-
-	public enum ServiceType
-	{
-		Cinta,
-		Brazo,
-		Prensa
 	}
 }

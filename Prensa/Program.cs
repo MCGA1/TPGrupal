@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Prensa
 {
-    public class Program
+    public partial class Program
     {
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
          .SetBasePath(Directory.GetCurrentDirectory())
@@ -31,7 +31,7 @@ namespace Prensa
 
             try
             {
-                Log.Information("Getting the motors running...");
+                Console.WriteLine("Getting the motors running...");
 
                 BuildWebHost(args).Run();
             }

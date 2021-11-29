@@ -3,6 +3,7 @@ using APIGateway.Model.DTO;
 using CommonServices.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Contracts
 {
