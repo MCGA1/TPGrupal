@@ -407,3 +407,9 @@ button {
 .float-end {
 	margin-left: 90%;
 }
+
+.config-container {
+	overflow: auto;
+	height: 70vh;
+	padding: 0px 10px
+}

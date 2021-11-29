@@ -10,66 +10,69 @@
 
 		<br />
 
-		@for (var i = 0; i < Model.Count; i++)
-		{
-			<hr />
-			<h2>@Model[i].Type</h2>
-			<input type="hidden" asp-for="@Model[i].Type"/>
+		<div class="config-container">
+			<button asp-controller="Configuration" asp-action="Index" class="float-end">Guardar</button>
 
-			@for (var j = 0; j < Model[i].Items.Count; j++)
+			@for (var i = 0; i < Model.Count; i++)
 			{
-				<input type="hidden" asp-for="@Model[i].Items[j].Name"/>
-				<div class="configuration-row">
-					<div class="config-row">
-						<label>Nombre </label>
-						<label>@Model[i].Items[j].Name</label>
-					</div>
+				<hr />
+				<h2>@Model[i].Type</h2>
+				<input type="hidden" asp-for="@Model[i].Type"/>
 
-					<div class="config-row">
-						<label asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento">Tiempo De Procesamiento </label>
-						<input asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento" />
-					</div>
-
-					<div class="config-row">
-							<label asp-for="@Model[i].Items[j].Config.Estado">Estado </label>
-							<select asp-for="@Model[i].Items[j].Config.Estado" 
-											asp-items="Html.GetEnumSelectList<ServiceStatus>()">
-							</select> 
-					</div>
-
-					@if (Model[i].Items[j].Config.Sensores != null)
-					{
+				@for (var j = 0; j < Model[i].Items.Count; j++)
+				{
+					<input type="hidden" asp-for="@Model[i].Items[j].Name"/>
+					<div class="configuration-row">
 						<div class="config-row">
-							<label>Sensores </label>
+							<label>Nombre </label>
+							<label>@Model[i].Items[j].Name</label>
 						</div>
-						@for (var k = 0; k < Model[i].Items[j].Config.Sensores.Length; k++)
-						{
-							<input type="hidden" asp-for="@Model[i].Items[j].Config.Sensores[k].Nombre"/>
-							<div class="config-row">
-								<label>Nombre </label>
-								<label>@Model[i].Items[j].Config.Sensores[k].Nombre</label>
-							</div>
 
-							<div class="config-row">
-								<label asp-for="@Model[i].Items[j].Config.Sensores[k].TiempoDeProcesamiento">Tiempo De Procesamiento </label>
-								<input asp-for="@Model[i].Items[j].Config.Sensores[k].TiempoDeProcesamiento" />
-							</div>
-							<div class="config-row">
-								<label asp-for="@Model[i].Items[j].Config.Sensores[k].Estado">Estado </label>
-								<select asp-for="@Model[i].Items[j].Config.Sensores[k].Estado" 
-											asp-items="Html.GetEnumSelectList<ServiceStatus>()">
+						<div class="config-row">
+							<label asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento">Tiempo De Procesamiento </label>
+							<input asp-for="@Model[i].Items[j].Config.TiempoDeProcesamiento" />
+						</div>
+
+						<div class="config-row">
+								<label asp-for="@Model[i].Items[j].Config.Estado">Estado </label>
+								<select asp-for="@Model[i].Items[j].Config.Estado" 
+												asp-items="Html.GetEnumSelectList<ServiceStatus>()">
 								</select> 
+						</div>
+
+						@if (Model[i].Items[j].Config.Sensores != null)
+						{
+							<div class="config-row">
+								<label>Sensores </label>
 							</div>
+							@for (var k = 0; k < Model[i].Items[j].Config.Sensores.Length; k++)
+							{
+								<input type="hidden" asp-for="@Model[i].Items[j].Config.Sensores[k].Nombre"/>
+								<div class="config-row">
+									<label>Nombre </label>
+									<label>@Model[i].Items[j].Config.Sensores[k].Nombre</label>
+								</div>
+
+								<div class="config-row">
+									<label asp-for="@Model[i].Items[j].Config.Sensores[k].TiempoDeProcesamiento">Tiempo De Procesamiento </label>
+									<input asp-for="@Model[i].Items[j].Config.Sensores[k].TiempoDeProcesamiento" />
+								</div>
+								<div class="config-row">
+									<label asp-for="@Model[i].Items[j].Config.Sensores[k].Estado">Estado </label>
+									<select asp-for="@Model[i].Items[j].Config.Sensores[k].Estado" 
+												asp-items="Html.GetEnumSelectList<ServiceStatus>()">
+									</select> 
+								</div>
+							}
 						}
-					}
 
-				</div>
+					</div>
 
+				}
+
+				<br />
 			}
 
-			<br />
-		}
-
-		<button asp-controller="Configuration" asp-action="Index" class="float-end">Guardar</button>
+		</div>
 	</section>
 </form>
