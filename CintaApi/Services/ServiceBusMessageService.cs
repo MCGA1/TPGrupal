@@ -3,6 +3,7 @@ using CintaApi.Interfaces;
 using CintaApi.Models;
 using CommonServices.Context;
 using CommonServices.Entities.Enum;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -19,6 +20,7 @@ namespace CintaApi.Services
 {
     public static class ServiceBusMessageService
     {
+        private static IConfiguration configuration;
         private static BackgroundWorker _backgroundWorker;
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
         private  static int _number = 10;
@@ -27,6 +29,7 @@ namespace CintaApi.Services
 
         static ServiceBusMessageService()
         {
+            
         }
 
         public static void Init()
@@ -98,8 +101,8 @@ namespace CintaApi.Services
                     Enviado = false
                 };
 
-
                 BultoIngresadoService.SaveBultoIngresado(bulto);
+
 
 
             }
@@ -143,7 +146,9 @@ namespace CintaApi.Services
                     }
                     Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
-                    BultoIngresadoService.UpdateBultoIngresado(items.Id);
+                    BultoIngresadoService.UpdateBultoIngresado
+                   (items.Id);
+
 
 
                     var json  = JsonConvert.SerializeObject(items);
