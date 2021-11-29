@@ -148,7 +148,7 @@ namespace CintaApi.Services
                     Log.Information("el bulto ha sido ingresado", JsonConvert.SerializeObject(items));
 
 
-                    BultoIngresadoService.UpdateBultoIngresado(items.Id,DateTime.Now);
+                    BultoIngresadoService.UpdateBultoIngresado(items.Id);
 
 
 
