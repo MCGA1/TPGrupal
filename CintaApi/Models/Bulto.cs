@@ -14,5 +14,7 @@ namespace CintaApi.Models
         public int Peso { get; set; }
 
         public bool Preparado { get; set; }
+
+        public DateTime Fecha { get; set; }
     }
 }

@@ -16,11 +16,16 @@ namespace CommonDomain
 
         public string Nombre { get; set; }
 
+        public DateTime Fecha { get; set; }
+
+
+
         public BultoProcesado(Bulto bulto)
         {
             ID = bulto.Id;
             Peso = bulto.Peso;
             Nombre = bulto.Nombre;
+            Fecha = bulto.Fecha;
         }
 
         public BultoProcesado()
