@@ -93,7 +93,6 @@ namespace Prensa.PrensaSystem
 
 
             CurrentBultoProcesado = new BultoProcesado(CurrentBulto);
-            CurrentBulto = null;
 
         }
 
