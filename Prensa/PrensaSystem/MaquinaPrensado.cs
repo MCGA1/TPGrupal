@@ -41,12 +41,12 @@ namespace Prensa.PrensaSystem
         {
             get
             {
-                return SensorPasivo.State;
+                return SensorPasivo.GetStatus();
             }
 
             set
             {
-                SensorPasivo.State = value;
+                SensorPasivo.SetState(value);
             }
         }
 
@@ -87,10 +87,12 @@ namespace Prensa.PrensaSystem
 
         public static async Task<BultoProcesado> RemoveBulto()
         {
-            return CurrentBultoProcesado;
+            var bultoprocesado = CurrentBultoProcesado;
+            CurrentBultoProcesado = null;
+            return bultoprocesado;
         }
 
-        public static async void StoreBulto(Bulto bulto)
+        public static async Task StoreBulto(Bulto bulto)
         {
             CurrentBulto = bulto;
         }

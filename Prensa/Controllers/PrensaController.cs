@@ -8,6 +8,8 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Prensa.PrensaSystem;
+using CommonServices.Entities.Enum;
+using Serilog;
 
 namespace Prensa.Controllers
 {
@@ -23,24 +25,31 @@ namespace Prensa.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public void Get()
-        {
 
-        }
-
-        [HttpGet]
+        [HttpPost]
         public object Configuration(APIConfiguration config)
         {
             MaquinaPrensado.SetSpeed(config.TiempoDeProcesamiento);
             PrensaWorker.SetStatus(config.Estado);
-            SensorActivo.
-
+            var item = config.Sensores.FirstOrDefault().Estado;
+            SensoresSystem.SensorPasivo.SetPaused(item == ServiceStatus.Running ? true : false);
+            Log.Information($"\nMensaje de configuracion recibido, parametros: \n- Tiempo de procesamiento: {config.TiempoDeProcesamiento} \n- Estado: {config.Estado} \n- Sensores: {config.Sensores.FirstOrDefault().Estado}");
             return HttpStatusCode.OK;
         }
 
+        [HttpGet]
+        public object Status(ServiceStatus status)
+        {
+            PrensaWorker.SetStatus(status);
+            Log.Information($"Mensaje de estado recibido: {status}.");
+            return HttpStatusCode.OK;
+        }
 
-
-
+        [HttpGet]
+        public object Status()
+        {
+            Log.Information($"Mensaje de estado respondido.");
+            return HttpStatusCode.OK;
+        }
     }
 }

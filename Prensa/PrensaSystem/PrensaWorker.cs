@@ -105,11 +105,20 @@ namespace Prensa.Controllers
                 {
                     try
                     {
-
+                        while (true)
+                        {
+                            if (SensorPasivo.IsPaused())
+                            {
+                                Log.Information("Proceso pausado.");
+                                await Task.Delay(2000);
+                                continue;
+                            }
+                            break;
+                        }
 
                         Log.Information("Esperando que el sensor activo esté listo...");
                         activesensor = await SensorActivoCommunicator.GetStatus();
-                        if (SensorPasivo.State && activesensor)
+                        if (SensorPasivo.IsPaused() && SensorPasivo.GetStatus() && activesensor)
                         {
                             break;
                         }
@@ -138,13 +147,13 @@ namespace Prensa.Controllers
                 Log.Information("Worker: Bulto recibido.");
 
 
-
-                var _bultoProcesado = await MaquinaPrensado.Prensar(bulto);
+                await MaquinaPrensado.StoreBulto(bulto);
+                await MaquinaPrensado.Prensar();
                 Log.Information("Worker: Moviendo y guardando bulto procesado...");
 
                 try
                 {
-                    await GuardarBultoProcesado(_bultoProcesado);
+                    await GuardarBultoProcesado();
                     channel.BasicAck(result.DeliveryTag, false);
                     Log.Information("Bulto procesado guardado.");
                 }
@@ -180,8 +189,9 @@ namespace Prensa.Controllers
 
         }
 
-        public static async Task GuardarBultoProcesado(BultoProcesado bulto)
+        public static async Task GuardarBultoProcesado()
         {
+            var bulto = await MaquinaPrensado.RemoveBulto();
             BultoControl.LlevarBultoALaPila(bulto);
         }
 

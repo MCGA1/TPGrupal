@@ -11,8 +11,7 @@ namespace Prensa.Control
     {
         static BultoControl()
         {
-            // TODO: hacer que bulto control guarde el bulto procesado cuando 
-
+            
         }
 
         public static void LlevarBultoALaPila(BultoProcesado bulto)
