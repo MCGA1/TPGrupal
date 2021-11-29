@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonServices\CommonServices.csproj" />
+    <ProjectReference Include="..\Prensa\Prensa.csproj" />
+    <ProjectReference Include="..\UI\UserInterface\UserInterface.csproj" />
   </ItemGroup>
 
 </Project>

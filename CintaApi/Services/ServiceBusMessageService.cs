@@ -2,6 +2,7 @@
 using CintaApi.Interfaces;
 using CintaApi.Models;
 using CommonServices.Context;
+using CommonServices.Entities.Enum;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -22,6 +23,7 @@ namespace CintaApi.Services
         private static Extensions.Queue<Bulto> queue = new Extensions.Queue<Bulto>();
         private  static int _number = 10;
         private static  int _defaultPort = 5001;
+        public static bool _paused=false;
 
         static ServiceBusMessageService()
         {
@@ -34,6 +36,16 @@ namespace CintaApi.Services
             _backgroundWorker.WorkerSupportsCancellation = true;
             _backgroundWorker.DoWork += PublicarBulto;
             _backgroundWorker.RunWorkerAsync();
+        }
+
+
+        public static bool  SetStatus(ServiceStatus serviceStatus)
+        {
+            if (serviceStatus==ServiceStatus.Running)
+            {
+                return true;
+            }
+            return false;
         }
 
 
@@ -103,6 +115,14 @@ namespace CintaApi.Services
             Log.Information("Worker iniciado");
             while (_backgroundWorker.CancellationPending == false)
             {
+                while (true)
+                {
+                    if (_paused)
+                    {
+                        await Task.Delay(1000);
+                    }
+                }
+
                 Log.Information("buscando bultos");
                 await Task.Delay(1000);
                 {
