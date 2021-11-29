@@ -10,5 +10,8 @@ namespace CommonDomain
         public int Peso { get; set; }
 
         public string Nombre { get; set; }
+
+        public DateTime Fecha { get; set; }
+
     }
 }

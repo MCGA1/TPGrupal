@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CommonServices.Context
 {
-    public  static class BultoStorageService
+    public static class BultoStorageService
     {
 
         //private IConfiguration _configuration;
@@ -32,12 +32,14 @@ namespace CommonServices.Context
                 conn.Open();
 
 
-                string sql = "INSERT INTO [BultosProcesados] ([Id],[Peso],[Nombre]) VALUES(@Id,@Peso ,@Nombre)";
+                string sql = "INSERT INTO [BultosProcesados] ([Id],[Peso],[Nombre],[Fecha]) VALUES(@Id,@Peso ,@Nombre,@Fecha)";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = bultoProcesado.ID;
                     cmd.Parameters.Add("@Peso", SqlDbType.Int).Value = bultoProcesado.Peso;
                     cmd.Parameters.Add("@Nombre", SqlDbType.NVarChar).Value = bultoProcesado.Nombre;
+                    cmd.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = bultoProcesado.Fecha;
+
 
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();

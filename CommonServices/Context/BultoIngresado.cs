@@ -20,5 +20,7 @@ namespace CommonServices.Context
 
         [Timestamp]
         public byte[] RowVersion { get; set; }
+
+        public DateTime Fecha { get; set; }
     }
 }

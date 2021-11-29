@@ -87,5 +87,12 @@ namespace CintaApi.Controllers
             Log.Information($"Mensaje de estado respondido.");
             return HttpStatusCode.OK;
         }
+
+        [HttpGet("Packages")]
+
+        public object ReturnFechas()
+        {
+           return  BultoIngresadoService.GetDateTimes();
+        }
     }
 }
