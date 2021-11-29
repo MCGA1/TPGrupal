@@ -73,13 +73,13 @@ namespace Prensa.PrensaSystem
 
         public static async Task Prensar()
         {
-            var speed = DefaultSpeed == 2000 ? DefaultSpeed : OverrideSpeed;
+            
           
             PassiveSensorSignal(false);
             ActiveSensorSignal(new Señal(false));
 
             Log.Information("Prensa: Prensando...");
-            Thread.Sleep(speed);
+            Thread.Sleep(CurrentSpeed());
             
 
             Log.Information("Prensa: Bulto procesado, levantando prensa...");
