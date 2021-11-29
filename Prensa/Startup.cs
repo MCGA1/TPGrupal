@@ -1,3 +1,4 @@
+using CommonServices.Entities.Enum;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace Prensa
 {

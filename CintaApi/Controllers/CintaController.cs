@@ -81,7 +81,7 @@ namespace CintaApi.Controllers
             return HttpStatusCode.OK;
         }
 
-        [HttpGet("stats")]
+        [HttpGet("status")]
         public object Status()
         {
             Log.Information($"Mensaje de estado respondido.");

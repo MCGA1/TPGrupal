@@ -1,9 +1,9 @@
 ﻿using APIGateway.Management;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
+using CommonServices.Entities.Enum;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Contracts
 {

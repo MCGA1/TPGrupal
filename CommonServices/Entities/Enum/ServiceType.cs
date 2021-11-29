@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace CommonServices.Entities.Enum
 {
-    public class ServiceTypes
-    {
-        public enum ServiceType
-        {
-            Cinta,
-            Brazo,
-            Prensa
-        }
-
-    }
+  public enum ServiceType
+  {
+    Cinta,
+    Brazo,
+    Prensa
+  }
 }

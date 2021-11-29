@@ -3,12 +3,12 @@ using APIGateway.Management;
 using APIGateway.Model;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
+using CommonServices.Entities.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Controllers
 {

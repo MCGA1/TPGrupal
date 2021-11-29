@@ -1,12 +1,12 @@
 ﻿using APIGateway.Contracts;
 using APIGateway.Model.DTO;
 using CommonServices.Entities;
+using CommonServices.Entities.Enum;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
-using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace APIGateway.Management
 {

@@ -1,6 +1,7 @@
 ﻿using APIGateway.Contracts;
 using APIGateway.Management;
 using APIGateway.Model.DTO;
+using CommonServices.Entities.Enum;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;

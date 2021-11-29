@@ -1,6 +1,7 @@
 using CintaApi.Interfaces;
 using CintaApi.Models;
 using CintaApi.Services;
+using CommonServices.Entities.Enum;
 using CommonServices.Port;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,7 +19,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using static CommonServices.Entities.Enum.ServiceTypes;
 
 namespace CintaApi
 {
