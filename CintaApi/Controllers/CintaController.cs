@@ -37,17 +37,8 @@ namespace CintaApi.Controllers
             await ServiceBusMessageService.PonerBulto(bulto);
         }
 
-        [HttpGet("individual/{bultoId}")]
-        public async Task<Bulto> GetIndividual([FromRoute] string bultoId)
-        {
-            return await ServiceBusMessageService.GetIndididualBulto(bultoId);
-        }
 
-        [HttpGet("Health")]
-        public async Task<List<string>> Health()
-        {
-            return await ServiceBusMessageService.CheckQueueMensagges().ConfigureAwait(false);
-        }
+    
 
 
         [HttpPost("speeed/{speed}")]
@@ -71,11 +62,7 @@ namespace CintaApi.Controllers
             return Task.CompletedTask;
         }
 
-        [HttpGet("url/{port}")]
-        public Uri GetUrl(int portNumber)
-        {
-            return  ServiceBusMessageService.FormatUrl(portNumber);
-        }
+     
 
         [HttpPost]
         public object Configuration(APIConfiguration config)
@@ -86,7 +73,7 @@ namespace CintaApi.Controllers
             return HttpStatusCode.OK;
         }
 
-        [HttpGet]
+        [HttpGet("apiconfig/{status}")]
         public object Status(ServiceStatus status)
         {
             ServiceBusMessageService.SetStatus(status);
@@ -94,7 +81,7 @@ namespace CintaApi.Controllers
             return HttpStatusCode.OK;
         }
 
-        [HttpGet]
+        [HttpGet("stats")]
         public object Status()
         {
             Log.Information($"Mensaje de estado respondido.");
