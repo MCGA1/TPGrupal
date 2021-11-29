@@ -45,7 +45,7 @@ namespace CommonServices.Context
 
 
 
-        public static void UpdateBultoIngresado(Guid Id, DateTime Fecha)
+        public static void UpdateBultoIngresado(Guid Id)
         {
 
             using (SqlConnection conn = new SqlConnection(@"Data Source =localhost; Initial Catalog = RegistroBultoIngresado; Integrated Security = True"))
@@ -54,11 +54,10 @@ namespace CommonServices.Context
                 conn.Open();
 
 
-                string sql = "UPDATE  [BultoIngresado] SET Enviado=1 AND Fecha=@Fecha WHERE Id=@Id";
+                string sql = "UPDATE  [BultoIngresado] SET Enviado=1  WHERE Id=@Id";
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = Id;
-                    cmd.Parameters.Add("@Fecha", SqlDbType.DateTime).Value = Fecha;
 
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
