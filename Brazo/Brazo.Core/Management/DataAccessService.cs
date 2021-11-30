@@ -60,12 +60,12 @@ namespace Brazo.Core.Management
 				using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 				connection.Open();
 				using var command = new SqlCommand(
-				 "INSERT INTO Brazo (Id, Name) " +
-				 "VALUES (@Id, @Name)", connection);
+				 "INSERT INTO Brazo (Id, Name, Creation_Date) " +
+				 "VALUES (@Id, @Name, @Creation_Date)", connection);
 
 				command.Parameters.Add("@Id", SqlDbType.UniqueIdentifier).Value = package.Id;
 				command.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = package.Nombre;
-				//command.Parameters.Add("@Creation_Date", SqlDbType.DateTime).Value = DateTime.Now;
+				command.Parameters.Add("@Creation_Date", SqlDbType.DateTime).Value = DateTime.Now;
 
 				command.CommandType = CommandType.Text;
 				command.ExecuteNonQuery();
